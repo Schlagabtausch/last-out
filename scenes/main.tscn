@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://btynf0gp330pj" path="res://art/tiles/walls/wallLeft.png" id="8_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://7e6bvyyaagfh" path="res://art/tiles/walls/wallRight.png" id="9_muem4"]
 [ext_resource type="Texture2D" uid="uid://c3fjl0xiiuipe" path="res://art/tiles/walls/wallTop.png" id="10_dp3eg"]
+[ext_resource type="AudioStream" uid="uid://bu3xuleaahyc1" path="res://art/audio/backgrnd/New Composition  2.mp3" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ld40"]
 texture = ExtResource("2_choun")
@@ -255,3 +256,7 @@ tile_set = SubResource("TileSet_pm3ni")
 [node name="Walls" type="TileMapLayer" parent="." unique_id=133993414]
 tile_map_data = PackedByteArray("AAD+////BgAAAAAAAAD///3/BgAAAAAAAAABAP//BgAAAAAAAAAAAAEABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_yq6so")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
+stream = ExtResource("11_ya4ey")
+autoplay = true
