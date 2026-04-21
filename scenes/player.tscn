@@ -29,7 +29,6 @@ func _physics_process(_delta: float) -> void:
 			last_direction = \"down\"
 		else:
 			last_direction = \"up\"
-#
 	anim.play(\"walk_\" + last_direction)
 "
 
