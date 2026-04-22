@@ -6,101 +6,195 @@
 [sub_resource type="GDScript" id="GDScript_g2els"]
 script/source = "extends CharacterBody2D
 
+# Bewegungsgeschwindigkeit der Spielfigur in Pixel pro Sekunde.
+# Dieser Wert kann im Inspector in Godot angepasst werden.
 @export var speed: float = 160.0
 
 # Referenz auf die Bullet-Szene.
+# Hier wird im Inspector die Szene eingetragen, die beim Schießen erzeugt werden soll.
 @export var bullet_scene: PackedScene
 
+# Verknüpfung mit dem AnimatedSprite2D-Knoten der Spielfigur.
+# Über diese Variable können Animationen gestartet oder abgefragt werden.
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+# Verknüpfung mit dem AudioStreamPlayer2D für die Schrittgeräusche.
+# Dieser Knoten spielt beim Laufen die Footstep-Sounds ab.
 @onready var footsteps: AudioStreamPlayer2D = $Footsteps
+
+# Verknüpfung mit einem Marker2D-Knoten namens \"Muzzle\".
+# Dieser Marker gibt an, an welcher Position die Kugel erzeugt werden soll.
 @onready var muzzle: Marker2D = $Muzzle
 
-# Speichert die aktuelle Blickrichtung für Animationen.
+# Speichert die aktuelle Blickrichtung der Spielfigur.
+# Diese Richtung wird für Idle- und Laufanimationen verwendet.
+# Standardmäßig schaut die Figur am Anfang nach unten.
 var last_direction: String = \"down\"
 
 func _ready() -> void:
+	# _ready() wird einmal aufgerufen, sobald der Node und alle seine Kinder
+	# vollständig geladen und bereit sind.
+	
+	# Hier verbinden wir das Signal \"frame_changed\" des AnimatedSprite2D
+	# mit der Funktion _on_anim_frame_changed().
+	# Dadurch wird unsere Funktion immer dann aufgerufen,
+	# wenn der aktuelle Animationsframe wechselt.
 	anim.frame_changed.connect(_on_anim_frame_changed)
 
 func _physics_process(_delta: float) -> void:
-	# Bewegung per WASD.
+	# _physics_process() wird in festen Physik-Abständen aufgerufen.
+	# Diese Funktion ist ideal für Bewegung und Kollisionen.
+	
+	# Liest die Eingaben für die vier Bewegungsrichtungen aus.
+	# \"move_left\", \"move_right\", \"move_up\" und \"move_down\"
+	# müssen vorher im Input-Manager von Godot angelegt worden sein.
+	#
+	# Das Ergebnis ist ein Vector2:
+	# (-1, 0) = links
+	# ( 1, 0) = rechts
+	# ( 0,-1) = oben
+	# ( 0, 1) = unten
+	# diagonale Kombinationen sind ebenfalls möglich.
 	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
+	
+	# Setzt die Bewegungsrichtung der Figur.
+	# input_dir enthält nur die Richtung.
+	# Durch Multiplikation mit speed entsteht die tatsächliche Geschwindigkeit.
 	velocity = input_dir * speed
+	
+	# Bewegt die Figur anhand von velocity
+	# und berücksichtigt dabei Kollisionen automatisch.
 	move_and_slide()
 
-	# Blickrichtung per Maus aktualisieren.
+	# Aktualisiert die Blickrichtung anhand der aktuellen Mausposition.
+	# Die Bewegungsrichtung und die Blickrichtung sind dadurch getrennt.
 	update_look_direction()
 
-	# Animation aktualisieren.
+	# Passt die abgespielte Animation an:
+	# Laufanimation bei Bewegung, Idle-Animation im Stand.
 	update_animation(input_dir)
 
-	# Schuss bei Tastendruck.
+	# Prüft, ob die Aktion \"shoot\" in diesem Frame gerade neu gedrückt wurde.
+	# \"just_pressed\" bedeutet: genau in dem Moment, in dem die Taste geklickt wurde.
 	if Input.is_action_just_pressed(\"shoot\"):
+		# Ruft die Schussfunktion auf.
 		shoot()
 
 func update_look_direction() -> void:
-	# Richtungsvektor vom Spieler zur Maus.
+	# Berechnet den Vektor von der Spielfigur zur Maus.
+	#
+	# get_global_mouse_position() gibt die Mausposition im Weltkoordinatensystem zurück.
+	# global_position ist die Weltposition der Spielfigur.
+	# Die Differenz ergibt also die Richtung von der Figur zur Maus.
 	var mouse_dir := get_global_mouse_position() - global_position
 
-	# Falls Maus exakt auf dem Spieler liegt, nichts ändern.
+	# Falls die Maus exakt auf der Position der Spielfigur liegt,
+	# ist die Richtung (0, 0). Dann soll nichts verändert werden.
 	if mouse_dir.length() == 0:
 		return
 
-	# Vier Richtungen anhand der stärkeren Achse bestimmen.
+	# Bestimmt eine der vier Hauptblickrichtungen:
+	# right, left, down oder up.
+	#
+	# Dazu wird geprüft, welche Achse stärker ist:
+	# Ist |x| größer als |y|, dann ist die Maus eher links oder rechts.
+	# Sonst ist sie eher oben oder unten.
 	if abs(mouse_dir.x) > abs(mouse_dir.y):
+		# Die horizontale Achse ist stärker.
 		if mouse_dir.x > 0:
+			# Maus liegt rechts von der Figur.
 			last_direction = \"right\"
 		else:
+			# Maus liegt links von der Figur.
 			last_direction = \"left\"
 	else:
+		# Die vertikale Achse ist stärker.
 		if mouse_dir.y > 0:
+			# Maus liegt unterhalb der Figur.
+			# In Godot bedeutet positives y: nach unten.
 			last_direction = \"down\"
 		else:
+			# Maus liegt oberhalb der Figur.
 			last_direction = \"up\"
 
 func update_animation(input_dir: Vector2) -> void:
+	# Prüft, ob sich die Spielfigur gerade bewegt.
+	# Vector2.ZERO bedeutet: keine Eingabe, also keine Bewegung.
 	if input_dir != Vector2.ZERO:
+		# Spielt die passende Laufanimation ab.
+		# Beispiel:
+		# last_direction = \"left\"  -> \"walk_left\"
+		# last_direction = \"up\"    -> \"walk_up\"
 		anim.play(\"walk_\" + last_direction)
 
+		# Startet die Schrittgeräusche nur dann,
+		# wenn sie nicht bereits abgespielt werden.
 		if not footsteps.playing:
 			footsteps.play()
 	else:
+		# Wenn keine Bewegung stattfindet,
+		# wird die Idle-Animation in Blickrichtung abgespielt.
+		# Beispiel:
+		# \"idle_down\", \"idle_right\" usw.
 		anim.play(\"idle_\" + last_direction)
+		
+		# Im Stand sollen keine Schrittgeräusche abgespielt werden.
 		footsteps.stop()
 
 func shoot() -> void:
-	# Prüfen, ob überhaupt eine Bullet-Szene zugewiesen wurde.
+	# Prüft zuerst, ob überhaupt eine Bullet-Szene im Inspector eingetragen wurde.
+	# Wenn bullet_scene null ist, kann keine Kugel erzeugt werden.
 	if bullet_scene == null:
 		return
 
-	# Mausposition im Weltkoordinatensystem holen.
+	# Holt die aktuelle Mausposition im Weltkoordinatensystem.
 	var mouse_pos := get_global_mouse_position()
 
-	# Richtung vom Spieler zur Maus berechnen und normalisieren.
+	# Berechnet den Richtungsvektor vom Spieler zur Maus.
+	#
+	# (mouse_pos - global_position) ergibt einen Vektor,
+	# der vom Spieler direkt zur Maus zeigt.
+	#
+	# normalized() macht daraus einen Einheitsvektor,
+	# also einen Richtungsvektor mit Länge 1.
+	# Dadurch bleibt nur die Richtung erhalten, nicht die Entfernung.
 	var shoot_dir := (mouse_pos - global_position).normalized()
 
-	# Falls aus irgendeinem Grund keine gültige Richtung entsteht, abbrechen.
+	# Sicherheitsprüfung:
+	# Falls aus irgendeinem Grund doch keine gültige Richtung entstanden ist,
+	# wird die Funktion beendet.
 	if shoot_dir == Vector2.ZERO:
 		return
 
-	# Bullet erzeugen.
+	# Erzeugt eine Instanz der Bullet-Szene.
+	# Aus der gespeicherten Szene wird damit ein echtes Objekt in der Spielwelt.
 	var bullet = bullet_scene.instantiate()
 
-	# Startposition:
-	# entweder vom Muzzle-Marker,
-	# oder alternativ leicht vor dem Spieler.
+	# Setzt die Startposition der Kugel auf die Position des Muzzle-Markers.
+	# Der Marker bestimmt also, wo genau die Kugel erscheinen soll.
 	bullet.global_position = muzzle.global_position
 
-	# Flugrichtung an die Bullet übergeben.
+	# Übergibt der Kugel ihre Flugrichtung.
+	# Das Bullet-Script muss dafür eine Variable namens \"direction\" besitzen.
 	bullet.direction = shoot_dir
 
-	# Bullet der Hauptszene hinzufügen.
-	# So bleibt sie nicht am Spieler \"hängen\".
+	# Fügt die Kugel der aktuellen Hauptszene hinzu.
+	# Dadurch ist sie nicht Kind des Spielers,
+	# sondern liegt direkt in der Spielwelt.
+	# So bewegt sie sich unabhängig vom Spieler weiter.
 	get_tree().current_scene.add_child(bullet)
 
 func _on_anim_frame_changed() -> void:
-	# Optional für Schrittgeräusche auf bestimmten Frames.
+	# Diese Funktion wird automatisch aufgerufen,
+	# sobald sich der aktuelle Frame der Animation ändert.
+	
+	# Prüft zunächst, ob gerade überhaupt eine Laufanimation abgespielt wird.
+	# begins_with(\"walk_\") trifft z. B. auf \"walk_up\" oder \"walk_left\" zu.
 	if anim.animation.begins_with(\"walk_\"):
+		# Prüft, ob der aktuelle Frame einer der gewünschten \"Fußkontakt\"-Frames ist.
+		# Hier wurden beispielhaft Frame 0 und Frame 2 gewählt.
 		if anim.frame == 0 or anim.frame == 2:
+			# Schrittgeräusch nur starten, wenn es gerade nicht bereits läuft.
 			if not footsteps.playing:
 				footsteps.play()
 "

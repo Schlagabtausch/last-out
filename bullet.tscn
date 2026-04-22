@@ -42,7 +42,7 @@ func _on_body_entered(body: Node) -> void:
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	# Alternative Reaktion, falls du mit Area2D-Gegnern arbeitest.
+	# Alternative Reaktion, falls mit Area2D-Gegnern gearbeitet wird.
 	if area.has_method(\"take_damage\"):
 		area.take_damage(1)
 
