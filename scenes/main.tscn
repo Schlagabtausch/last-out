@@ -1,9 +1,10 @@
-[gd_scene format=4 uid="uid://d2ajeibjfnuxw"]
+[gd_scene format=3 uid="uid://d2ajeibjfnuxw"]
 
 [ext_resource type="PackedScene" uid="uid://mtrg2m78vm1j" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://b3yltgsng82yh" path="res://art/tiles/ground/groundBase.png" id="2_choun"]
 [ext_resource type="Texture2D" uid="uid://b81rdlqevnvsw" path="res://art/tiles/ground/groundVarA.png" id="3_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://w1onj1r8x1t5" path="res://art/tiles/ground/groundVarB.png" id="4_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://exeu7buwjhi8" path="res://art/tiles/ground/groundSheet.png" id="5_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://ceu2t1nq2x23u" path="res://art/tiles/ground/groundCrater.png" id="5_trceg"]
 [ext_resource type="Texture2D" uid="uid://3nlrxkbd0ld8" path="res://art/tiles/walls/wallBottom.png" id="6_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://kqorah8i8p3l" path="res://art/audio/player/step1.wav" id="6_eb6dy"]
@@ -199,13 +200,118 @@ texture_region_size = Vector2i(64, 64)
 use_texture_padding = false
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jkv2x"]
+texture = ExtResource("5_a8y0u")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_pm3ni"]
 tile_layout = 3
-tile_size = Vector2i(50, 50)
+tile_size = Vector2i(512, 512)
 sources/0 = SubResource("TileSetAtlasSource_0ld40")
 sources/1 = SubResource("TileSetAtlasSource_gqmmt")
 sources/2 = SubResource("TileSetAtlasSource_yc10j")
 sources/3 = SubResource("TileSetAtlasSource_jscy8")
+sources/4 = SubResource("TileSetAtlasSource_jkv2x")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8y0u"]
 texture = ExtResource("7_trceg")
@@ -258,7 +364,7 @@ sources/0 = SubResource("TileSetAtlasSource_a8y0u")
 [node name="Node2D" type="Node2D" unique_id=487016442]
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1727949453]
-tile_map_data = PackedByteArray("AAABAP//AgAAAAAAAAD//wAAAgAAAAAAAAD9//7/AgAAAAAAAAD9/wIAAgAAAAAAAAAAAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAAEAP3/AgAAAAAAAAD///3/AgAAAAAAAAD7//z/AgAAAAAAAAD8//z/AAAAAAAAAAD7//3/AAAAAAAAAAD9////AAAAAAAAAAD+//7/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAP//AAAAAAAAAAADAP3/AAAAAAAAAAADAP//AAAAAAAAAAAFAP3/AAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAEAAAAAAAAAAAD+/wIAAAAAAAAAAAD7/wAAAAAAAAAAAAD7/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAPz/AAAAAAAAAAD9//z/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AQAAAAAAAAD//wEAAQAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAwAAAAAAAAD8/wIAAwAAAAAAAAD8//7/AwAAAAAAAAAEAP//AwAAAAAAAAAFAAIAAwAAAAAAAAAAAPz/AwAAAAAAAAD+//3/AwAAAAAAAAACAP7/AwAAAAAAAAAFAP//AwAAAAAAAAD7/wEAAQAAAAAAAAD8/wEAAQAAAAAAAAD+////AQAAAAAAAAD+/wEAAQAAAAAAAAADAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAIAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAP7/AAAAAAAAAAAEAP7/AAAAAAAAAAADAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAADAPz/AAAAAAAAAAACAPz/AAAAAAAAAAABAPz/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD7//7/AQAAAAAAAAD7////AQAAAAAAAAD8////AQAAAAAAAAD/////AQAAAAAAAAD//wIAAQAAAAAAAAACAP3/AQAAAAAAAAABAP3/AQAAAAAAAAD+//z/AQAAAAAAAAD///z/AQAAAAAAAAAFAPz/AQAAAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_pm3ni")
 
 [node name="Player" parent="." unique_id=125729257 instance=ExtResource("1_o5qli")]
@@ -268,7 +374,7 @@ stream = ExtResource("6_eb6dy")
 volume_db = 7.354
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=133993414]
-tile_map_data = PackedByteArray("AAD+////BgAAAAAAAAD///3/BgAAAAAAAAABAP//BgAAAAAAAAAAAAEABgAAAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 254, 255, 255, 255, 6, 0, 0, 0, 0, 0, 0, 0, 255, 255, 253, 255, 6, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 6, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_yq6so")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
