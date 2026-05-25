@@ -1,6 +1,7 @@
 extends Interactable
 
 var unit_l_img = GlobalConstants.PORTRAIT_UNIT_L
+var password_ui_scene = preload("res://scenes/password_ui.tscn")
 var is_unlocked = false
 const SECRET_PASSWORD = "734"
 
@@ -32,14 +33,14 @@ func use_object():
 				}
 			], self)
 	else:
-		var input_dialog = AcceptDialog.new()
-		input_dialog.dialog_text = "Enter Authorization Code:"
-		var line_edit = LineEdit.new()
-		line_edit.secret = true
-		input_dialog.add_child(line_edit)
-		input_dialog.confirmed.connect(func(): check_password(line_edit.text, input_dialog))
-		add_child(input_dialog)
-		input_dialog.popup_centered()
+		var ui_instance = password_ui_scene.instantiate()
+		add_child(ui_instance)
+		
+
+		var line_edit = ui_instance.get_node("%PasswordInput")
+		var btn = ui_instance.get_node("%SubmitButton")
+		
+		btn.pressed.connect(func(): check_password(line_edit.text, ui_instance))
 
 func check_password(input, dialog_node):
 	if input == SECRET_PASSWORD:
@@ -50,11 +51,10 @@ func check_password(input, dialog_node):
 			{"image": unit_l_img, "text": "Authorization verified."}
 		], self)
 		await DialogSystem.dialog_finished
-		use_object()
 	else:
 		dialog_node.hide()
 		DialogSystem.start_dialog([
-			{"image": unit_l_img, "text": "Alert. Invalid authorization code. Security lockout temporary active."}
+			{"image": unit_l_img, "text": "Alert. Invalid authorization code."}
 		], self)
 		await DialogSystem.dialog_finished
 		dialog_node.popup_centered()
