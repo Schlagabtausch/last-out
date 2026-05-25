@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://wh7fp0dium7a"]
+
+[ext_resource type="Script" uid="uid://beptdl75xrhxj" path="res://scenes/intro_scene.gd" id="1_xmg1o"]
+[ext_resource type="FontFile" uid="uid://dl6ymsf1v342t" path="res://font/m5x7.ttf" id="2_0y5sa"]
+
+[node name="IntroScene" type="Control" unique_id=1206057597]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xmg1o")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2059585906]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2110902057]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -79.0
+offset_right = 400.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line1" type="RichTextLabel" parent="VBoxContainer" unique_id=1258803293]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0y5sa")
+theme_override_font_sizes/normal_font_size = 42
+text = "[SIGNAL ESTABLISHED: EARTH-TO-LUNAR-BASE]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Line2" type="RichTextLabel" parent="VBoxContainer" unique_id=408645517]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0y5sa")
+theme_override_font_sizes/normal_font_size = 42
+text = "[AUTHORIZATION: OMEGA-LEVEL CLEARANCE]"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Line3" type="RichTextLabel" parent="VBoxContainer" unique_id=957127944]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0y5sa")
+theme_override_font_sizes/normal_font_size = 42
+text = "[ASSIGNED OPERATOR: SUBJECT 734]"
+visible_characters = 0
+visible_ratio = 0.0

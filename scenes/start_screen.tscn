@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cefpnedactwx1"]
+
+[ext_resource type="Script" uid="uid://b4bsfurdu7qsh" path="res://scenes/start_screen.gd" id="1_he1sj"]
+[ext_resource type="Texture2D" uid="uid://rttecii1wdo8" path="res://art/main/main.png" id="1_o7i0r"]
+[ext_resource type="FontFile" uid="uid://dl6ymsf1v342t" path="res://font/m5x7.ttf" id="2_he1sj"]
+
+[node name="StartScreen" type="Control" unique_id=933361103]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_he1sj")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1452528218]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o7i0r")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LayoutContainer" type="VBoxContainer" parent="." unique_id=503391147]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 250.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+
+[node name="BtnPlay" type="Button" parent="LayoutContainer" unique_id=168800105]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_he1sj")
+theme_override_font_sizes/font_size = 62
+text = "PLAY"
+
+[node name="BtnCredits" type="Button" parent="LayoutContainer" unique_id=1274374428]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_he1sj")
+theme_override_font_sizes/font_size = 62
+text = "CREDITS"
+
+[node name="CreditsPanel" type="PanelContainer" parent="." unique_id=1300115504]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 194.0
+offset_top = 103.0
+offset_right = 557.0
+offset_bottom = 408.0
+
+[node name="Label" type="Label" parent="CreditsPanel" unique_id=719581984]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_he1sj")
+theme_override_font_sizes/font_size = 50
+text = "CREATED BY
+
+Jakob Lohmann
+Ebu Cam
+Martin Braun
+
+Thank you for playing."
+
+[connection signal="pressed" from="LayoutContainer/BtnPlay" to="." method="_on_btn_play_pressed"]

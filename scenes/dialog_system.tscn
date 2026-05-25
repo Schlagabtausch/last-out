@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dkfb052rnos0j"]
+
+[ext_resource type="Script" uid="uid://dk6tcbg6i6fhr" path="res://dialog_system.gd" id="1_kld2x"]
+[ext_resource type="FontFile" uid="uid://dl6ymsf1v342t" path="res://font/m5x7.ttf" id="2_oj4fm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7myk8"]
+bg_color = Color(0.15686275, 0.1882353, 0.26666668, 0.9019608)
+
+[node name="DialogSystem" type="CanvasLayer" unique_id=36410359]
+process_mode = 3
+script = ExtResource("1_kld2x")
+
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=970606542]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -253.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7myk8")
+
+[node name="PaddingContainer" type="MarginContainer" parent="DialogBox" unique_id=139801548]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="LayoutContainer" type="HBoxContainer" parent="DialogBox/PaddingContainer" unique_id=1291813454]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="DialogBox/PaddingContainer/LayoutContainer" unique_id=1626861307]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 200)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="DialogBox/PaddingContainer/LayoutContainer" unique_id=1457573976]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="DialogText" type="RichTextLabel" parent="DialogBox/PaddingContainer/LayoutContainer" unique_id=539271717]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_oj4fm")
+theme_override_font_sizes/normal_font_size = 61
+
+[node name="ChoiceBox" type="VBoxContainer" parent="." unique_id=424377806]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(638, 128)
+offset_left = 535.0
+offset_top = 926.0
+offset_right = 1444.0
+offset_bottom = 1054.0
+alignment = 2
+
+[node name="Option1" type="Button" parent="ChoiceBox" unique_id=1556549084]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+
+[node name="Option2" type="Button" parent="ChoiceBox" unique_id=741750142]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 42

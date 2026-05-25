@@ -355,5 +355,6 @@ animation = &"walk_right"
 shape = SubResource("CapsuleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1139937585]
+zoom = Vector2(2, 2)
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=344138928]
