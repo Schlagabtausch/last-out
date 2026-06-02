@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://mtrg2m78vm1j"]
 
 [ext_resource type="PackedScene" uid="uid://custntev5gj5n" path="res://bullet.tscn" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://douy4hr8el34i" path="res://art/player/ready/down/idle_down.png" id="2_i4ail"]
-[ext_resource type="Texture2D" uid="uid://c38hylfk5n1wy" path="res://art/player/ready/left/idle_left.png" id="3_a38lo"]
-[ext_resource type="Texture2D" uid="uid://cp5532muysed0" path="res://art/player/ready/right/idle_right.png" id="4_4ni07"]
-[ext_resource type="Texture2D" uid="uid://cf7q58uswwl33" path="res://art/player/ready/up/idle_up.png" id="5_l71n6"]
-[ext_resource type="Texture2D" uid="uid://d4gvceaod3ibn" path="res://art/player/ready/down/walk_down1.png" id="6_ke2ow"]
-[ext_resource type="Texture2D" uid="uid://dcdx7tuoof4yi" path="res://art/player/ready/down/walk_down2.png" id="7_ujl30"]
-[ext_resource type="Texture2D" uid="uid://bp30eg6qb3mwo" path="res://art/player/ready/down/walk_down3.png" id="8_31cv2"]
-[ext_resource type="Texture2D" uid="uid://1wcb5dgj4hfp" path="res://art/player/ready/down/walk_down4.png" id="9_pf23h"]
-[ext_resource type="Texture2D" uid="uid://diu3p415x6met" path="res://art/player/ready/left/walk_left1.png" id="10_ke2ow"]
-[ext_resource type="Texture2D" uid="uid://2m68dtnvg660" path="res://art/player/ready/left/walk_left2.png" id="11_ujl30"]
-[ext_resource type="Texture2D" uid="uid://bjcm3g05uiwf7" path="res://art/player/ready/left/walk_left3.png" id="12_31cv2"]
-[ext_resource type="Texture2D" uid="uid://b7rh4dfu5sxa8" path="res://art/player/ready/left/walk_left4.png" id="13_pf23h"]
-[ext_resource type="Texture2D" uid="uid://c4fmtrk8beklc" path="res://art/player/ready/right/walk_right1.png" id="14_dt7fs"]
-[ext_resource type="Texture2D" uid="uid://cucgr6j48xgko" path="res://art/player/ready/right/walk_right2.png" id="15_wqfne"]
-[ext_resource type="Texture2D" uid="uid://2bcjfuom7o5p" path="res://art/player/ready/right/walk_right3.png" id="16_wnwbv"]
-[ext_resource type="Texture2D" uid="uid://dydqjyvsfr0rs" path="res://art/player/ready/right/walk_right4.png" id="17_gl8cc"]
-[ext_resource type="Texture2D" uid="uid://dqj1b3a3d8y87" path="res://art/player/ready/up/walk_up1.png" id="18_487ah"]
-[ext_resource type="Texture2D" uid="uid://cfupdaa1gr20i" path="res://art/player/ready/up/walk_up2.png" id="19_md1ol"]
-[ext_resource type="Texture2D" uid="uid://bs452wmk640qy" path="res://art/player/ready/up/walk_up3.png" id="20_bj30b"]
-[ext_resource type="Texture2D" uid="uid://c60j3qr5rl03w" path="res://art/player/ready/up/walk_up4.png" id="21_jc3p3"]
+[ext_resource type="Texture2D" uid="uid://dfdjfr04xnlbp" path="res://art/player/ready/down/idle_down.png" id="2_i4ail"]
+[ext_resource type="Texture2D" uid="uid://d2mouvea6ugvy" path="res://art/player/ready/left/idle_left.png" id="3_a38lo"]
+[ext_resource type="Texture2D" uid="uid://w1fybln12wug" path="res://art/player/ready/right/idle_right.png" id="4_4ni07"]
+[ext_resource type="Texture2D" uid="uid://dty7pps88ah7n" path="res://art/player/ready/up/idle_up.png" id="5_l71n6"]
+[ext_resource type="Texture2D" uid="uid://bu03yeccq0y14" path="res://art/player/ready/down/walk_down1.png" id="6_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://dycxdthmcy862" path="res://art/player/ready/down/walk_down2.png" id="7_ujl30"]
+[ext_resource type="Texture2D" uid="uid://dleuatbwqxq0m" path="res://art/player/ready/down/walk_down3.png" id="8_31cv2"]
+[ext_resource type="Texture2D" uid="uid://dvih0fru3hdff" path="res://art/player/ready/down/walk_down4.png" id="9_pf23h"]
+[ext_resource type="Texture2D" uid="uid://blaijh7nik63c" path="res://art/player/ready/left/walk_left1.png" id="10_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://clioiatgrnhbf" path="res://art/player/ready/left/walk_left2.png" id="11_ujl30"]
+[ext_resource type="Texture2D" uid="uid://b8r0kd844imim" path="res://art/player/ready/left/walk_left3.png" id="12_31cv2"]
+[ext_resource type="Texture2D" uid="uid://c34dt1mm8r35p" path="res://art/player/ready/left/walk_left4.png" id="13_pf23h"]
+[ext_resource type="Texture2D" uid="uid://cwgtry4wd5l6h" path="res://art/player/ready/right/walk_right1.png" id="14_dt7fs"]
+[ext_resource type="Texture2D" uid="uid://b2cliycwq8pws" path="res://art/player/ready/right/walk_right2.png" id="15_wqfne"]
+[ext_resource type="Texture2D" uid="uid://bpxpfolh2h3aq" path="res://art/player/ready/right/walk_right3.png" id="16_wnwbv"]
+[ext_resource type="Texture2D" uid="uid://b280h3xtp3ji7" path="res://art/player/ready/right/walk_right4.png" id="17_gl8cc"]
+[ext_resource type="Texture2D" uid="uid://cso58kvu8da0o" path="res://art/player/ready/up/walk_up1.png" id="18_487ah"]
+[ext_resource type="Texture2D" uid="uid://c2abxc131us2o" path="res://art/player/ready/up/walk_up2.png" id="19_md1ol"]
+[ext_resource type="Texture2D" uid="uid://d17rdpnu2uqqi" path="res://art/player/ready/up/walk_up3.png" id="20_bj30b"]
+[ext_resource type="Texture2D" uid="uid://cvomloi4nb8r4" path="res://art/player/ready/up/walk_up4.png" id="21_jc3p3"]
 
 [sub_resource type="GDScript" id="GDScript_g2els"]
 script/source = "extends CharacterBody2D
@@ -66,6 +66,9 @@ func _ready() -> void:
 	# Dadurch wird unsere Funktion immer dann aufgerufen,
 	# wenn der aktuelle Animationsframe wechselt.
 	anim.frame_changed.connect(_on_anim_frame_changed)
+	# Damit die Tür nur auf Player reagiert
+	# wird er in group \"player\" hinzugefügt
+	add_to_group(\"player\")
 
 func _physics_process(_delta: float) -> void:
 	# _physics_process() wird in festen Physik-Abständen aufgerufen.
@@ -279,7 +282,8 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
 
-[node name="Player" type="CharacterBody2D" unique_id=125729257]
+[node name="Player" type="CharacterBody2D" unique_id=125729257 groups=["player"]]
+collision_layer = 2
 script = SubResource("GDScript_g2els")
 bullet_scene = ExtResource("1_g2els")
 

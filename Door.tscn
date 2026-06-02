@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b5dffkqyj72td"]
+
+[ext_resource type="Script" uid="uid://vm0dh45lrwx4" path="res://door.gd" id="1_r6baa"]
+[ext_resource type="Texture2D" uid="uid://c7dupfaqs1a3v" path="res://art/tiles/doors/door_closed.png" id="2_idmte"]
+[ext_resource type="Texture2D" uid="uid://fb2qvogvyiae" path="res://art/tiles/doors/door_opening_1.png" id="3_e2xr8"]
+[ext_resource type="Texture2D" uid="uid://tmogxcfnhye" path="res://art/tiles/doors/door_opening_2.png" id="4_7kus2"]
+[ext_resource type="Texture2D" uid="uid://078gij8kq8ol" path="res://art/tiles/doors/door_opening_3.png" id="5_nf3sg"]
+[ext_resource type="Texture2D" uid="uid://b5fxh22w2iyps" path="res://art/tiles/doors/door_open.png" id="6_ejk8t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nf3sg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ejk8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nf3sg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7kus2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e2xr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_idmte")
+}],
+"loop": false,
+"name": &"open_close",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip411"]
+size = Vector2(94, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqxji"]
+size = Vector2(64, 64)
+
+[node name="DoorRoot" type="Node2D" unique_id=415564954]
+script = ExtResource("1_r6baa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1757747415]
+sprite_frames = SubResource("SpriteFrames_nf3sg")
+animation = &"open_close"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1805312792]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1210223430]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_ip411")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=889282866]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=884568814]
+position = Vector2(1.5, 12)
+shape = SubResource("RectangleShape2D_eqxji")
