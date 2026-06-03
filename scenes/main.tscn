@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dawtovu8oi4p8" path="res://art/tiles/ground/scifi8.png" id="49_gr8w0"]
 [ext_resource type="FontFile" uid="uid://dl6ymsf1v342t" path="res://font/m5x7.ttf" id="49_ty1g6"]
 [ext_resource type="PackedScene" uid="uid://b5dffkqyj72td" path="res://Door.tscn" id="55_ids8r"]
+[ext_resource type="PackedScene" uid="uid://cxbgvx1wc1wx0" path="res://Enemy.tscn" id="56_dnhof"]
 [ext_resource type="Texture2D" uid="uid://b2l0vy27hf7uc" path="res://art/tiles/walls/scifi3.png" id="56_j4bwh"]
 [ext_resource type="Texture2D" uid="uid://dhix82devsp4l" path="res://art/tiles/walls/scifi10.png" id="57_b6ruc"]
 [ext_resource type="Texture2D" uid="uid://b8lnk32du6fn4" path="res://art/tiles/walls/scifi1.png" id="57_y57op"]
@@ -1988,3 +1989,6 @@ rotation = 1.5707964
 [node name="DoorRoot16" parent="." unique_id=292972915 instance=ExtResource("55_ids8r")]
 position = Vector2(-737, 1311)
 rotation = -1.5707964
+
+[node name="Enemy" parent="." unique_id=213577160 instance=ExtResource("56_dnhof")]
+position = Vector2(-472, -1028)
