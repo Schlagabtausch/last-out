@@ -97,6 +97,8 @@
 [ext_resource type="Texture2D" uid="uid://by2cbcdc4ka5b" path="res://art/tiles/walls/scifi1924.png" id="71_k42av"]
 [ext_resource type="Texture2D" uid="uid://bypsaedgfa2xq" path="res://art/tiles/walls/scifi1934.png" id="72_gr8w0"]
 [ext_resource type="Texture2D" uid="uid://b4w782rjuurj5" path="res://art/tiles/walls/scifi1944.png" id="73_673bd"]
+[ext_resource type="PackedScene" uid="uid://cw22xkgktfhr8" path="res://Lamp.tscn" id="98_vrx01"]
+[ext_resource type="Script" uid="uid://csxa2jw6dh332" path="res://lamp.gd" id="99_1uevf"]
 
 [sub_resource type="GDScript" id="GDScript_jkv2x"]
 script/source = "extends Control
@@ -2284,6 +2286,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_yq6so"]
 tile_size = Vector2i(64, 64)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/16 = SubResource("TileSetAtlasSource_fv21b")
 sources/0 = SubResource("TileSetAtlasSource_tel4y")
@@ -2342,6 +2345,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_jkv2x")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=649110920]
+color = Color(0.2509804, 0.28235295, 0.34509805, 1)
+
 [node name="FadeScreen" type="ColorRect" parent="." unique_id=1487321099]
 unique_name_in_owner = true
 visible = false
@@ -2380,7 +2386,7 @@ tile_set = SubResource("TileSet_pm3ni")
 
 [node name="DecorationItems" type="TileMapLayer" parent="." unique_id=1471246764]
 z_index = 1
-tile_map_data = PackedByteArray("AAD8/0EAAQAAAAAAAADj/18AAwAAAAAAAAAlAEUAAwAAAAAAAADV/0sAAgAAAAAAAGDV/0oAAgABAAAAAGAEAEEAAgABAAAAAAADAEEAAgAAAAAAAAAfAGMABAAAAAAAAAAbAGMABAAAAAAAAAAXAGMABAAAAAAAAAATAGMABAAAAAAAAAAFAGMAAQAAAAAAAFDh/ycADwAAAAAAAAACABMADwAAAAAAAAD5/+n/DwAAAAAAAAAnANb/DwAAAAAAAAA8AP7/DwAAAAAAAABfAO3/DwAAAAAAAABgAO3/DwAAAAAAAAAfANH/EAAAAAAAAAAfANz/EAAAAAAAAAAfAOj/EAAAAAAAAAAfAPX/EAAAAAAAAAAhAPH/DAAAAAAAAAAdAPH/DAAAAAAAAAAdAPn/DAAAAAAAADAhAPn/DAAAAAAAADAhAOz/DAAAAAAAADAdAOz/DAAAAAAAADAdAOD/DAAAAAAAADAhAOD/DAAAAAAAADAhANX/DAAAAAAAADAdANX/DAAAAAAAADAdAM3/DAAAAAAAAAAhAM3/DAAAAAAAAAAdANn/DAAAAAAAAAAhANn/DAAAAAAAAAAdAOT/DAAAAAAAAAAhAOT/DAAAAAAAAAAOANH/EAAAAAAAAAAOANz/EAAAAAAAAAAOAOj/EAAAAAAAAAAOAPX/EAAAAAAAAAAQAPH/DAAAAAAAAAAMAPH/DAAAAAAAAAAMAPn/DAAAAAAAADAQAPn/DAAAAAAAADAQAOz/DAAAAAAAADAMAOz/DAAAAAAAADAMAOT/DAAAAAAAAAAQAOT/DAAAAAAAAAAMANj/DAAAAAAAAAAQANj/DAAAAAAAAAAMAOD/DAAAAAAAADAQAOD/DAAAAAAAADAQANT/DAAAAAAAADAMANT/DAAAAAAAADAMAM3/DAAAAAAAAAAQAM3/DAAAAAAAAAAnAMr/DwAAAAAAAAD5//n/DwAAAAAAAAD5/9P/DwAAAAAAAAAnAPn/CgAAAAAAAAD5/9v/CgAAAAAAAADt/wUAIAAAAAAAAADu/wUAIAABAAAAAAD1/wUAIAAAAAAAAAD2/wUAIAABAAAAAAAGAA0AIAAAAAAAAFAGAA4AIAABAAAAAFAGAB4AIAAAAAAAAFAGAB8AIAABAAAAAFA9ANv/HgAAAAAAAAA9ANz/HgAAAAEAAAA+ANv/HgABAAAAAAA+ANz/HgABAAEAAABBANr/GwAAAAAAAABCANr/GwABAAAAAABFANr/HAAAAAAAAABGANr/HAABAAAAAABJANr/GgAAAAAAAABKANr/GgABAAAAAABNANr/GQAAAAAAAABOANr/GQABAAAAAABRANr/GAAAAAAAAABSANr/GAABAAAAAABVANr/FwAAAAAAAABWANr/FwABAAAAAABXANr/FwACAAAAAABZANr/FgAAAAAAAABaANr/FgABAAAAAAAxAEAAHwAAAAAAAAAxAEEAHwAAAAEAAAAyAEAAHwABAAAAAAAyAEEAHwABAAEAAAABAAkAHwAAAAAAAAABAAoAHwAAAAEAAAACAAkAHwABAAAAAAACAAoAHwABAAEAAADG/xIAFAAAAAAAAACe/xIAFAAAAAAAAADV/47/FAAAAAAAAAAAAI7/FAAAAAAAAAAoAI7/FAAAAAAAAABeAA8ADgAAAAAAAABeABcADgAAAAAAAABeAB4ADgAAAAAAAABeACcADgAAAAAAAABeAC8ADgAAAAAAAABeADcADgAAAAAAAABeAD4ADgAAAAAAAABeAEUADgAAAAAAAABeAEEADgAAAAAAAABeADoADgAAAAAAAABeADMADgAAAAAAAABeACsADgAAAAAAAABeACIADgAAAAAAAABeABoADgAAAAAAAABeABMADgAAAAAAAAA9ABIADwAAAAAAAABeAEsADwAAAAAAAABeAEgADwAAAAAAAAA9AA0AIAAAAAAAAAA+AA0AIAABAAAAAABFAA0AIAAAAAAAAABGAA0AIAABAAAAAABTAA0AIAAAAAAAAABUAA0AIAABAAAAAABbAA0AIAAAAAAAAABcAA0AIAABAAAAAADU/7X/IQAAAAAAAADV/7X/IQABAAAAAADW/7X/IQACAAAAAADp/7X/IQAAAAAAAADq/7X/IQABAAAAAADr/7X/IQACAAAAAADc/43/IQAAAAAAAADd/43/IQABAAAAAADe/43/IQACAAAAAADn/43/IQAAAAAAAADo/43/IQABAAAAAADp/43/IQACAAAAAADx/43/IQAAAAAAAADy/43/IQABAAAAAADz/43/IQACAAAAAAAIAI3/IQAAAAAAAAAJAI3/IQABAAAAAAAKAI3/IQACAAAAAAAUAI3/IQAAAAAAAAAVAI3/IQABAAAAAAAWAI3/IQACAAAAAAAeAI3/IQAAAAAAAAAfAI3/IQABAAAAAAAgAI3/IQACAAAAAABPAOT/CwAAAAAAAABQAOf/GQAAAAAAAABRAOf/GQABAAAAAABPAOf/EAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8/0EAAQAAAAAAAADj/18AAwAAAAAAAAAlAEUAAwAAAAAAAADV/0sAAgAAAAAAAGDV/0oAAgABAAAAAGAEAEEAAgABAAAAAAADAEEAAgAAAAAAAAAfAGMABAAAAAAAAAAbAGMABAAAAAAAAAAXAGMABAAAAAAAAAATAGMABAAAAAAAAAAFAGMAAQAAAAAAAFDh/ycADwAAAAAAAAACABMADwAAAAAAAAD5/+n/DwAAAAAAAAAnANb/DwAAAAAAAAA8AP7/DwAAAAAAAABfAO3/DwAAAAAAAABgAO3/DwAAAAAAAAAfANH/EAAAAAAAAAAfANz/EAAAAAAAAAAfAOj/EAAAAAAAAAAfAPX/EAAAAAAAAAAhAPH/DAAAAAAAAAAdAPH/DAAAAAAAAAAdAPn/DAAAAAAAADAhAPn/DAAAAAAAADAhAOz/DAAAAAAAADAdAOz/DAAAAAAAADAdAOD/DAAAAAAAADAhAOD/DAAAAAAAADAhANX/DAAAAAAAADAdANX/DAAAAAAAADAdAM3/DAAAAAAAAAAhAM3/DAAAAAAAAAAdANn/DAAAAAAAAAAhANn/DAAAAAAAAAAdAOT/DAAAAAAAAAAhAOT/DAAAAAAAAAAOANH/EAAAAAAAAAAOANz/EAAAAAAAAAAOAOj/EAAAAAAAAAAOAPX/EAAAAAAAAAAQAPH/DAAAAAAAAAAMAPH/DAAAAAAAAAAMAPn/DAAAAAAAADAQAPn/DAAAAAAAADAQAOz/DAAAAAAAADAMAOz/DAAAAAAAADAMAOT/DAAAAAAAAAAQAOT/DAAAAAAAAAAMANj/DAAAAAAAAAAQANj/DAAAAAAAAAAMAOD/DAAAAAAAADAQAOD/DAAAAAAAADAQANT/DAAAAAAAADAMANT/DAAAAAAAADAMAM3/DAAAAAAAAAAQAM3/DAAAAAAAAAAnAMr/DwAAAAAAAAD5//n/DwAAAAAAAAD5/9P/DwAAAAAAAAAnAPn/CgAAAAAAAAD5/9v/CgAAAAAAAAAGAA0AIAAAAAAAAFAGAA4AIAABAAAAAFAGAB4AIAAAAAAAAFAGAB8AIAABAAAAAFA9ANv/HgAAAAAAAAA9ANz/HgAAAAEAAAA+ANv/HgABAAAAAAA+ANz/HgABAAEAAABBANr/GwAAAAAAAABCANr/GwABAAAAAABFANr/HAAAAAAAAABGANr/HAABAAAAAABJANr/GgAAAAAAAABKANr/GgABAAAAAABNANr/GQAAAAAAAABOANr/GQABAAAAAABRANr/GAAAAAAAAABSANr/GAABAAAAAABVANr/FwAAAAAAAABWANr/FwABAAAAAABXANr/FwACAAAAAABZANr/FgAAAAAAAABaANr/FgABAAAAAAAxAEAAHwAAAAAAAAAxAEEAHwAAAAEAAAAyAEAAHwABAAAAAAAyAEEAHwABAAEAAAABAAkAHwAAAAAAAAABAAoAHwAAAAEAAAACAAkAHwABAAAAAAACAAoAHwABAAEAAADG/xIAFAAAAAAAAACe/xIAFAAAAAAAAADV/47/FAAAAAAAAAAAAI7/FAAAAAAAAAAoAI7/FAAAAAAAAABeAA8ADgAAAAAAAABeABcADgAAAAAAAABeAB4ADgAAAAAAAABeACcADgAAAAAAAABeAC8ADgAAAAAAAABeADcADgAAAAAAAABeAD4ADgAAAAAAAABeAEUADgAAAAAAAABeAEEADgAAAAAAAABeADoADgAAAAAAAABeADMADgAAAAAAAABeACsADgAAAAAAAABeACIADgAAAAAAAABeABoADgAAAAAAAABeABMADgAAAAAAAAA9ABIADwAAAAAAAABeAEsADwAAAAAAAABeAEgADwAAAAAAAABPAOT/CwAAAAAAAABQAOf/GQAAAAAAAABRAOf/GQABAAAAAABPAOf/EAAAAAAAAAA=")
 tile_set = SubResource("TileSet_dnhof")
 
 [node name="Player" parent="." unique_id=125729257 groups=["Player"] instance=ExtResource("1_o5qli")]
@@ -2651,3 +2657,152 @@ rotation = -1.5707964
 
 [node name="Enemy" parent="." unique_id=213577160 instance=ExtResource("56_dnhof")]
 position = Vector2(-472, -1028)
+
+[node name="Lamp" parent="." unique_id=184835460 instance=ExtResource("98_vrx01")]
+position = Vector2(-141, 99)
+script = ExtResource("99_1uevf")
+
+[node name="Lamp2" parent="." unique_id=817828015 instance=ExtResource("98_vrx01")]
+position = Vector2(-331, 99)
+
+[node name="Lamp3" parent="." unique_id=219813005 instance=ExtResource("98_vrx01")]
+position = Vector2(86, 403)
+rotation = 1.5707964
+
+[node name="Lamp4" parent="." unique_id=959014300 instance=ExtResource("98_vrx01")]
+position = Vector2(-528, 402)
+rotation = -1.5707964
+
+[node name="Lamp5" parent="." unique_id=1370186246 instance=ExtResource("98_vrx01")]
+position = Vector2(-65, 796)
+
+[node name="Lamp6" parent="." unique_id=675950600 instance=ExtResource("98_vrx01")]
+position = Vector2(-457, 801)
+script = ExtResource("99_1uevf")
+
+[node name="Lamp7" parent="." unique_id=902251636 instance=ExtResource("98_vrx01")]
+position = Vector2(1019, 223)
+
+[node name="Lamp8" parent="." unique_id=938209014 instance=ExtResource("98_vrx01")]
+position = Vector2(1431, 229)
+
+[node name="Lamp9" parent="." unique_id=466702750 instance=ExtResource("98_vrx01")]
+position = Vector2(1561, 640)
+rotation = 1.5707964
+
+[node name="Lamp10" parent="." unique_id=355124842 instance=ExtResource("98_vrx01")]
+position = Vector2(937, 614)
+rotation = 1.5707964
+
+[node name="Lamp11" parent="." unique_id=428186813 instance=ExtResource("98_vrx01")]
+position = Vector2(939, 1015)
+rotation = 1.5707964
+script = ExtResource("99_1uevf")
+
+[node name="Lamp12" parent="." unique_id=168944274 instance=ExtResource("98_vrx01")]
+position = Vector2(1564, 1034)
+rotation = 1.5707964
+
+[node name="Lamp13" parent="." unique_id=1322238019 instance=ExtResource("98_vrx01")]
+position = Vector2(1247, 1248)
+
+[node name="Lamp14" parent="." unique_id=2085522880 instance=ExtResource("98_vrx01")]
+position = Vector2(518, 1000)
+script = ExtResource("99_1uevf")
+
+[node name="Lamp15" parent="." unique_id=545904157 instance=ExtResource("98_vrx01")]
+position = Vector2(8, 994)
+
+[node name="Lamp16" parent="." unique_id=114437520 instance=ExtResource("98_vrx01")]
+position = Vector2(638, 1689)
+
+[node name="Lamp17" parent="." unique_id=1612466455 instance=ExtResource("98_vrx01")]
+position = Vector2(269, 1695)
+
+[node name="Lamp18" parent="." unique_id=1238333782 instance=ExtResource("98_vrx01")]
+position = Vector2(-129, 1691)
+
+[node name="Lamp19" parent="." unique_id=1430800655 instance=ExtResource("98_vrx01")]
+position = Vector2(-514, 1694)
+
+[node name="Lamp20" parent="." unique_id=1494539333 instance=ExtResource("98_vrx01")]
+position = Vector2(-733, 1151)
+rotation = 1.5707964
+
+[node name="Lamp21" parent="." unique_id=35985939 instance=ExtResource("98_vrx01")]
+position = Vector2(-734, 1531)
+rotation = 1.5707964
+script = ExtResource("99_1uevf")
+
+[node name="Lamp22" parent="." unique_id=465266019 instance=ExtResource("98_vrx01")]
+position = Vector2(1089, -609)
+
+[node name="Lamp23" parent="." unique_id=349180100 instance=ExtResource("98_vrx01")]
+position = Vector2(1410, -606)
+
+[node name="Lamp24" parent="." unique_id=1152716247 instance=ExtResource("98_vrx01")]
+position = Vector2(1573, -186)
+rotation = 1.5707964
+script = ExtResource("99_1uevf")
+
+[node name="Lamp25" parent="." unique_id=1302210375 instance=ExtResource("98_vrx01")]
+position = Vector2(937, -189)
+rotation = 1.5707964
+
+[node name="Lamp26" parent="." unique_id=359478933 instance=ExtResource("98_vrx01")]
+position = Vector2(4, -920)
+
+[node name="Lamp27" parent="." unique_id=998502032 instance=ExtResource("98_vrx01")]
+position = Vector2(461, -920)
+
+[node name="Lamp28" parent="." unique_id=1289019759 instance=ExtResource("98_vrx01")]
+position = Vector2(657, -447)
+rotation = 1.5707964
+
+[node name="Lamp29" parent="." unique_id=1316004282 instance=ExtResource("98_vrx01")]
+position = Vector2(-152, -437)
+rotation = 1.5707964
+
+[node name="Lamp30" parent="." unique_id=791133042 instance=ExtResource("98_vrx01")]
+position = Vector2(99, -44)
+
+[node name="Lamp31" parent="." unique_id=35061057 instance=ExtResource("98_vrx01")]
+position = Vector2(475, -36)
+
+[node name="Lamp32" parent="." unique_id=312571660 instance=ExtResource("98_vrx01")]
+position = Vector2(-682, -1194)
+script = ExtResource("99_1uevf")
+base_energy = 0.51
+flicker_speed = 10.27
+
+[node name="Lamp33" parent="." unique_id=1768153360 instance=ExtResource("98_vrx01")]
+position = Vector2(-226, -1020)
+rotation = 1.5707964
+
+[node name="Lamp34" parent="." unique_id=1110427877 instance=ExtResource("98_vrx01")]
+position = Vector2(-550, -1832)
+
+[node name="Lamp35" parent="." unique_id=1397012453 instance=ExtResource("98_vrx01")]
+position = Vector2(-124, -1831)
+
+[node name="Lamp36" parent="." unique_id=1304915869 instance=ExtResource("98_vrx01")]
+position = Vector2(340, -1831)
+
+[node name="Lamp37" parent="." unique_id=1236490298 instance=ExtResource("98_vrx01")]
+position = Vector2(738, -1825)
+script = ExtResource("99_1uevf")
+
+[node name="Lamp38" parent="." unique_id=1488186507 instance=ExtResource("98_vrx01")]
+position = Vector2(350, -1248)
+
+[node name="Lamp39" parent="." unique_id=793469896 instance=ExtResource("98_vrx01")]
+position = Vector2(-108, -1241)
+
+[node name="Lamp40" parent="." unique_id=1183951177 instance=ExtResource("98_vrx01")]
+position = Vector2(793, -1513)
+rotation = 1.5707964
+
+[node name="Lamp41" parent="." unique_id=1307496756 instance=ExtResource("98_vrx01")]
+position = Vector2(-804, -1542)
+rotation = 1.5707964
+script = ExtResource("99_1uevf")

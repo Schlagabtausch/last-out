@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cw22xkgktfhr8"]
+
+[ext_resource type="Texture2D" uid="uid://ciyrvtgjwqnxx" path="res://art/Dekoration/light3.png" id="1_yljkn"]
+[ext_resource type="Texture2D" uid="uid://be6nmy2d8hyll" path="res://art/lightTextures/light1.png" id="2_pe6pt"]
+
+[node name="Lamp" type="Node2D" unique_id=184835460]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=317547342]
+texture = ExtResource("1_yljkn")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1537600888]
+color = Color(0.7353421, 0.9122275, 1, 1)
+shadow_enabled = true
+texture = ExtResource("2_pe6pt")
+texture_scale = 1.65
