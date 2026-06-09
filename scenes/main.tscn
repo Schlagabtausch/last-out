@@ -2606,25 +2606,21 @@ position = Vector2(383, 0)
 
 [node name="DoorRoot3" parent="DoorRoot" unique_id=53533687 instance=ExtResource("55_ids8r")]
 position = Vector2(384, -126)
-rotation = -3.1415925
 
 [node name="DoorRoot4" parent="DoorRoot" unique_id=1092550492 instance=ExtResource("55_ids8r")]
 position = Vector2(-1, -897)
-rotation = -3.1415925
 
 [node name="DoorRoot5" parent="DoorRoot" unique_id=1368875269 instance=ExtResource("55_ids8r")]
 position = Vector2(-66, -1281)
 
 [node name="DoorRoot6" parent="DoorRoot" unique_id=214768975 instance=ExtResource("55_ids8r")]
 position = Vector2(-66, -1350)
-rotation = -3.1415925
 
 [node name="DoorRoot7" parent="DoorRoot" unique_id=1267336128 instance=ExtResource("55_ids8r")]
 position = Vector2(1662, 126)
 
 [node name="DoorRoot8" parent="DoorRoot" unique_id=1197862701 instance=ExtResource("55_ids8r")]
 position = Vector2(1666, 0)
-rotation = -3.1415925
 
 [node name="DoorRoot9" parent="DoorRoot" unique_id=1275075710 instance=ExtResource("55_ids8r")]
 position = Vector2(1345, 576)
@@ -2647,7 +2643,6 @@ position = Vector2(129, 896)
 
 [node name="DoorRoot14" parent="DoorRoot" unique_id=1806770621 instance=ExtResource("55_ids8r")]
 position = Vector2(128, 703)
-rotation = -3.1415925
 
 [node name="DoorRoot15" parent="DoorRoot" unique_id=283453570 instance=ExtResource("55_ids8r")]
 position = Vector2(-382, 1214)
