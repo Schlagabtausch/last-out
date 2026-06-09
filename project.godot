@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LastOut"
-run/main_scene="uid://cefpnedactwx1"
+run/main_scene="uid://d2ajeibjfnuxw"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,8 +23,8 @@ GlobalConstants="*uid://6t0xuklyuqga"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=800
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [dotnet]
