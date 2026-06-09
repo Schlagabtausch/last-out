@@ -2537,283 +2537,294 @@ offset_bottom = -1527.0
 theme_override_font_sizes/font_size = 88
 text = "CORE ROOM"
 
-[node name="Label2" type="Label" parent="." unique_id=1805503614]
+[node name="Label2" type="Label" parent="Label" unique_id=1805503614]
 visible = false
 layout_mode = 0
-offset_left = -731.0
-offset_top = -1099.0
-offset_right = -33.319763
-offset_bottom = -978.0
+offset_left = -378.31976
+offset_top = 548.525
+offset_right = 319.36047
+offset_bottom = 669.525
 theme_override_font_sizes/font_size = 88
 text = "DOG ROOM"
 
-[node name="Label3" type="Label" parent="." unique_id=437754863]
+[node name="Label3" type="Label" parent="Label" unique_id=437754863]
 visible = false
 layout_mode = 0
-offset_left = -1590.0
-offset_top = 419.0
-offset_right = -892.31976
-offset_bottom = 540.0
+offset_left = -1237.3198
+offset_top = 2066.525
+offset_right = -539.6396
+offset_bottom = 2187.525
 theme_override_font_sizes/font_size = 88
 text = "DARK ROOM"
 
-[node name="Label4" type="Label" parent="." unique_id=34762740]
+[node name="Label4" type="Label" parent="Label" unique_id=34762740]
 visible = false
 layout_mode = 0
-offset_left = -181.0
-offset_top = 1312.0
-offset_right = 516.68024
-offset_bottom = 1433.0
+offset_left = 171.68024
+offset_top = 2959.525
+offset_right = 869.3605
+offset_bottom = 3080.525
 theme_override_font_sizes/font_size = 88
 text = "LAB"
 
-[node name="Label5" type="Label" parent="." unique_id=776525208]
+[node name="Label5" type="Label" parent="Label" unique_id=776525208]
 visible = false
 layout_mode = 0
-offset_left = 31.0
-offset_top = -609.0
-offset_right = 728.68024
-offset_bottom = -488.0
+offset_left = 383.68024
+offset_top = 1038.525
+offset_right = 1081.3605
+offset_bottom = 1159.525
 theme_override_font_sizes/font_size = 88
 text = "CANTINE"
 
-[node name="Label6" type="Label" parent="." unique_id=428146592]
+[node name="Label6" type="Label" parent="Label" unique_id=428146592]
 visible = false
 layout_mode = 0
-offset_left = -382.0
-offset_top = 362.0
-offset_right = 315.68024
-offset_bottom = 483.0
+offset_left = -29.319763
+offset_top = 2009.525
+offset_right = 668.3605
+offset_bottom = 2130.525
 theme_override_font_sizes/font_size = 88
 text = "MAIN"
 
-[node name="Label7" type="Label" parent="." unique_id=833475692]
+[node name="Label7" type="Label" parent="Label" unique_id=833475692]
 visible = false
 layout_mode = 0
-offset_left = 963.0
-offset_top = -401.0
-offset_right = 1701.0
-offset_bottom = -280.0
+offset_left = 1315.6802
+offset_top = 1246.525
+offset_right = 2053.6802
+offset_bottom = 1367.525
 theme_override_font_sizes/font_size = 88
 text = "CAPTAINS OFFICE"
 
-[node name="Label8" type="Label" parent="." unique_id=84348986]
+[node name="Label8" type="Label" parent="Label" unique_id=84348986]
 visible = false
 layout_mode = 0
-offset_left = 1072.0
-offset_top = 622.0
-offset_right = 1810.0
-offset_bottom = 743.0
+offset_left = 1424.6802
+offset_top = 2269.525
+offset_right = 2162.6802
+offset_bottom = 2390.525
 theme_override_font_sizes/font_size = 88
 text = "LOCKERS"
+
+[node name="Enemy" parent="." unique_id=213577160 instance=ExtResource("56_dnhof")]
+position = Vector2(-472, -1028)
 
 [node name="DoorRoot" parent="." unique_id=415564954 instance=ExtResource("55_ids8r")]
 position = Vector2(-415, 96)
 
-[node name="DoorRoot2" parent="." unique_id=421358680 instance=ExtResource("55_ids8r")]
-position = Vector2(-32, 96)
+[node name="DoorRoot2" parent="DoorRoot" unique_id=421358680 instance=ExtResource("55_ids8r")]
+position = Vector2(383, 0)
 
-[node name="DoorRoot3" parent="." unique_id=53533687 instance=ExtResource("55_ids8r")]
-position = Vector2(-31, -30)
-rotation = 3.1415927
+[node name="DoorRoot3" parent="DoorRoot" unique_id=53533687 instance=ExtResource("55_ids8r")]
+position = Vector2(384, -126)
+rotation = -3.1415925
 
-[node name="DoorRoot4" parent="." unique_id=1092550492 instance=ExtResource("55_ids8r")]
-position = Vector2(-416, -801)
-rotation = 3.1415927
+[node name="DoorRoot4" parent="DoorRoot" unique_id=1092550492 instance=ExtResource("55_ids8r")]
+position = Vector2(-1, -897)
+rotation = -3.1415925
 
-[node name="DoorRoot5" parent="." unique_id=1368875269 instance=ExtResource("55_ids8r")]
-position = Vector2(-481, -1185)
+[node name="DoorRoot5" parent="DoorRoot" unique_id=1368875269 instance=ExtResource("55_ids8r")]
+position = Vector2(-66, -1281)
 
-[node name="DoorRoot6" parent="." unique_id=214768975 instance=ExtResource("55_ids8r")]
-position = Vector2(-481, -1254)
-rotation = 3.1415927
+[node name="DoorRoot6" parent="DoorRoot" unique_id=214768975 instance=ExtResource("55_ids8r")]
+position = Vector2(-66, -1350)
+rotation = -3.1415925
 
-[node name="DoorRoot7" parent="." unique_id=1267336128 instance=ExtResource("55_ids8r")]
-position = Vector2(1247, 222)
+[node name="DoorRoot7" parent="DoorRoot" unique_id=1267336128 instance=ExtResource("55_ids8r")]
+position = Vector2(1662, 126)
 
-[node name="DoorRoot8" parent="." unique_id=1197862701 instance=ExtResource("55_ids8r")]
-position = Vector2(1251, 96)
-rotation = 3.1415927
+[node name="DoorRoot8" parent="DoorRoot" unique_id=1197862701 instance=ExtResource("55_ids8r")]
+position = Vector2(1666, 0)
+rotation = -3.1415925
 
-[node name="DoorRoot9" parent="." unique_id=1275075710 instance=ExtResource("55_ids8r")]
-position = Vector2(930, 672)
+[node name="DoorRoot9" parent="DoorRoot" unique_id=1275075710 instance=ExtResource("55_ids8r")]
+position = Vector2(1345, 576)
 rotation = -1.5707964
 
-[node name="DoorRoot10" parent="." unique_id=1132486003 instance=ExtResource("55_ids8r")]
-position = Vector2(95, 673)
+[node name="DoorRoot10" parent="DoorRoot" unique_id=1132486003 instance=ExtResource("55_ids8r")]
+position = Vector2(510, 577)
 rotation = 1.5707964
 
-[node name="DoorRoot11" parent="." unique_id=1127425891 instance=ExtResource("55_ids8r")]
-position = Vector2(865, 1183)
+[node name="DoorRoot11" parent="DoorRoot" unique_id=1127425891 instance=ExtResource("55_ids8r")]
+position = Vector2(1280, 1087)
 rotation = 1.5707964
 
-[node name="DoorRoot12" parent="." unique_id=1603395390 instance=ExtResource("55_ids8r")]
-position = Vector2(926, 1184)
+[node name="DoorRoot12" parent="DoorRoot" unique_id=1603395390 instance=ExtResource("55_ids8r")]
+position = Vector2(1341, 1088)
 rotation = -1.5707964
 
-[node name="DoorRoot13" parent="." unique_id=1009824410 instance=ExtResource("55_ids8r")]
-position = Vector2(-286, 992)
+[node name="DoorRoot13" parent="DoorRoot" unique_id=1009824410 instance=ExtResource("55_ids8r")]
+position = Vector2(129, 896)
 
-[node name="DoorRoot14" parent="." unique_id=1806770621 instance=ExtResource("55_ids8r")]
-position = Vector2(-287, 799)
-rotation = 3.1415927
+[node name="DoorRoot14" parent="DoorRoot" unique_id=1806770621 instance=ExtResource("55_ids8r")]
+position = Vector2(128, 703)
+rotation = -3.1415925
 
-[node name="DoorRoot15" parent="." unique_id=283453570 instance=ExtResource("55_ids8r")]
-position = Vector2(-797, 1310)
+[node name="DoorRoot15" parent="DoorRoot" unique_id=283453570 instance=ExtResource("55_ids8r")]
+position = Vector2(-382, 1214)
 rotation = 1.5707964
 
-[node name="DoorRoot16" parent="." unique_id=292972915 instance=ExtResource("55_ids8r")]
-position = Vector2(-737, 1311)
+[node name="DoorRoot16" parent="DoorRoot" unique_id=292972915 instance=ExtResource("55_ids8r")]
+position = Vector2(-322, 1215)
 rotation = -1.5707964
-
-[node name="Enemy" parent="." unique_id=213577160 instance=ExtResource("56_dnhof")]
-position = Vector2(-472, -1028)
 
 [node name="Lamp" parent="." unique_id=184835460 instance=ExtResource("98_vrx01")]
 position = Vector2(-141, 99)
 script = ExtResource("99_1uevf")
 
-[node name="Lamp2" parent="." unique_id=817828015 instance=ExtResource("98_vrx01")]
-position = Vector2(-331, 99)
+[node name="Lamp2" parent="Lamp" unique_id=817828015 instance=ExtResource("98_vrx01")]
+position = Vector2(-190, 0)
 
-[node name="Lamp3" parent="." unique_id=219813005 instance=ExtResource("98_vrx01")]
-position = Vector2(86, 403)
+[node name="Lamp3" parent="Lamp" unique_id=219813005 instance=ExtResource("98_vrx01")]
+position = Vector2(227, 304)
 rotation = 1.5707964
 
-[node name="Lamp4" parent="." unique_id=959014300 instance=ExtResource("98_vrx01")]
-position = Vector2(-528, 402)
+[node name="Lamp4" parent="Lamp" unique_id=959014300 instance=ExtResource("98_vrx01")]
+position = Vector2(-391, 366)
 rotation = -1.5707964
 
-[node name="Lamp5" parent="." unique_id=1370186246 instance=ExtResource("98_vrx01")]
-position = Vector2(-65, 796)
+[node name="Lamp5" parent="Lamp" unique_id=1370186246 instance=ExtResource("98_vrx01")]
+position = Vector2(35, 698)
+rotation = -3.1415925
 
-[node name="Lamp6" parent="." unique_id=675950600 instance=ExtResource("98_vrx01")]
-position = Vector2(-457, 801)
+[node name="Lamp6" parent="Lamp" unique_id=675950600 instance=ExtResource("98_vrx01")]
+position = Vector2(-202, 692)
+rotation = -3.1415925
 script = ExtResource("99_1uevf")
 
-[node name="Lamp7" parent="." unique_id=902251636 instance=ExtResource("98_vrx01")]
-position = Vector2(1019, 223)
+[node name="Lamp7" parent="Lamp" unique_id=902251636 instance=ExtResource("98_vrx01")]
+position = Vector2(1240, 135)
 
-[node name="Lamp8" parent="." unique_id=938209014 instance=ExtResource("98_vrx01")]
-position = Vector2(1431, 229)
+[node name="Lamp8" parent="Lamp" unique_id=938209014 instance=ExtResource("98_vrx01")]
+position = Vector2(1533, 132)
 
-[node name="Lamp9" parent="." unique_id=466702750 instance=ExtResource("98_vrx01")]
-position = Vector2(1561, 640)
+[node name="Lamp9" parent="Lamp" unique_id=466702750 instance=ExtResource("98_vrx01")]
+position = Vector2(1702, 541)
 rotation = 1.5707964
 
-[node name="Lamp10" parent="." unique_id=355124842 instance=ExtResource("98_vrx01")]
-position = Vector2(937, 614)
+[node name="Lamp10" parent="Lamp" unique_id=355124842 instance=ExtResource("98_vrx01")]
+position = Vector2(1078, 515)
+rotation = -1.5707964
+
+[node name="Lamp11" parent="Lamp" unique_id=428186813 instance=ExtResource("98_vrx01")]
+position = Vector2(1080, 916)
+rotation = -1.5707964
+script = ExtResource("99_1uevf")
+
+[node name="Lamp12" parent="Lamp" unique_id=168944274 instance=ExtResource("98_vrx01")]
+position = Vector2(1705, 935)
 rotation = 1.5707964
 
-[node name="Lamp11" parent="." unique_id=428186813 instance=ExtResource("98_vrx01")]
-position = Vector2(939, 1015)
+[node name="Lamp13" parent="Lamp" unique_id=1322238019 instance=ExtResource("98_vrx01")]
+position = Vector2(1388, 1149)
+rotation = -3.1415925
+
+[node name="Lamp14" parent="Lamp" unique_id=2085522880 instance=ExtResource("98_vrx01")]
+position = Vector2(659, 901)
+script = ExtResource("99_1uevf")
+
+[node name="Lamp15" parent="Lamp" unique_id=545904157 instance=ExtResource("98_vrx01")]
+position = Vector2(99, 903)
+
+[node name="Lamp16" parent="Lamp" unique_id=114437520 instance=ExtResource("98_vrx01")]
+position = Vector2(779, 1590)
+rotation = -3.1415925
+
+[node name="Lamp17" parent="Lamp" unique_id=1612466455 instance=ExtResource("98_vrx01")]
+position = Vector2(410, 1596)
+rotation = -3.1415925
+
+[node name="Lamp18" parent="Lamp" unique_id=1238333782 instance=ExtResource("98_vrx01")]
+position = Vector2(12, 1592)
+rotation = -3.1415925
+
+[node name="Lamp19" parent="Lamp" unique_id=1430800655 instance=ExtResource("98_vrx01")]
+position = Vector2(-373, 1595)
+rotation = -3.1415925
+
+[node name="Lamp20" parent="Lamp" unique_id=1494539333 instance=ExtResource("98_vrx01")]
+position = Vector2(-586, 1098)
+rotation = -1.5707964
+
+[node name="Lamp21" parent="Lamp" unique_id=35985939 instance=ExtResource("98_vrx01")]
+position = Vector2(-593, 1432)
+rotation = -1.5707964
+script = ExtResource("99_1uevf")
+
+[node name="Lamp22" parent="Lamp" unique_id=465266019 instance=ExtResource("98_vrx01")]
+position = Vector2(1266, -698)
+
+[node name="Lamp23" parent="Lamp" unique_id=349180100 instance=ExtResource("98_vrx01")]
+position = Vector2(1517, -692)
+
+[node name="Lamp24" parent="Lamp" unique_id=1152716247 instance=ExtResource("98_vrx01")]
+position = Vector2(1714, -285)
 rotation = 1.5707964
 script = ExtResource("99_1uevf")
 
-[node name="Lamp12" parent="." unique_id=168944274 instance=ExtResource("98_vrx01")]
-position = Vector2(1564, 1034)
+[node name="Lamp25" parent="Lamp" unique_id=1302210375 instance=ExtResource("98_vrx01")]
+position = Vector2(1078, -288)
+rotation = -1.5707964
+
+[node name="Lamp26" parent="Lamp" unique_id=359478933 instance=ExtResource("98_vrx01")]
+position = Vector2(145, -1019)
+
+[node name="Lamp27" parent="Lamp" unique_id=998502032 instance=ExtResource("98_vrx01")]
+position = Vector2(602, -1019)
+
+[node name="Lamp28" parent="Lamp" unique_id=1289019759 instance=ExtResource("98_vrx01")]
+position = Vector2(798, -546)
 rotation = 1.5707964
 
-[node name="Lamp13" parent="." unique_id=1322238019 instance=ExtResource("98_vrx01")]
-position = Vector2(1247, 1248)
+[node name="Lamp29" parent="Lamp" unique_id=1316004282 instance=ExtResource("98_vrx01")]
+position = Vector2(-11, -536)
+rotation = -1.5707964
 
-[node name="Lamp14" parent="." unique_id=2085522880 instance=ExtResource("98_vrx01")]
-position = Vector2(518, 1000)
-script = ExtResource("99_1uevf")
+[node name="Lamp30" parent="Lamp" unique_id=791133042 instance=ExtResource("98_vrx01")]
+position = Vector2(240, -143)
+rotation = -3.1415925
 
-[node name="Lamp15" parent="." unique_id=545904157 instance=ExtResource("98_vrx01")]
-position = Vector2(8, 994)
+[node name="Lamp31" parent="Lamp" unique_id=35061057 instance=ExtResource("98_vrx01")]
+position = Vector2(616, -135)
+rotation = -3.1415925
 
-[node name="Lamp16" parent="." unique_id=114437520 instance=ExtResource("98_vrx01")]
-position = Vector2(638, 1689)
-
-[node name="Lamp17" parent="." unique_id=1612466455 instance=ExtResource("98_vrx01")]
-position = Vector2(269, 1695)
-
-[node name="Lamp18" parent="." unique_id=1238333782 instance=ExtResource("98_vrx01")]
-position = Vector2(-129, 1691)
-
-[node name="Lamp19" parent="." unique_id=1430800655 instance=ExtResource("98_vrx01")]
-position = Vector2(-514, 1694)
-
-[node name="Lamp20" parent="." unique_id=1494539333 instance=ExtResource("98_vrx01")]
-position = Vector2(-733, 1151)
-rotation = 1.5707964
-
-[node name="Lamp21" parent="." unique_id=35985939 instance=ExtResource("98_vrx01")]
-position = Vector2(-734, 1531)
-rotation = 1.5707964
-script = ExtResource("99_1uevf")
-
-[node name="Lamp22" parent="." unique_id=465266019 instance=ExtResource("98_vrx01")]
-position = Vector2(1089, -609)
-
-[node name="Lamp23" parent="." unique_id=349180100 instance=ExtResource("98_vrx01")]
-position = Vector2(1410, -606)
-
-[node name="Lamp24" parent="." unique_id=1152716247 instance=ExtResource("98_vrx01")]
-position = Vector2(1573, -186)
-rotation = 1.5707964
-script = ExtResource("99_1uevf")
-
-[node name="Lamp25" parent="." unique_id=1302210375 instance=ExtResource("98_vrx01")]
-position = Vector2(937, -189)
-rotation = 1.5707964
-
-[node name="Lamp26" parent="." unique_id=359478933 instance=ExtResource("98_vrx01")]
-position = Vector2(4, -920)
-
-[node name="Lamp27" parent="." unique_id=998502032 instance=ExtResource("98_vrx01")]
-position = Vector2(461, -920)
-
-[node name="Lamp28" parent="." unique_id=1289019759 instance=ExtResource("98_vrx01")]
-position = Vector2(657, -447)
-rotation = 1.5707964
-
-[node name="Lamp29" parent="." unique_id=1316004282 instance=ExtResource("98_vrx01")]
-position = Vector2(-152, -437)
-rotation = 1.5707964
-
-[node name="Lamp30" parent="." unique_id=791133042 instance=ExtResource("98_vrx01")]
-position = Vector2(99, -44)
-
-[node name="Lamp31" parent="." unique_id=35061057 instance=ExtResource("98_vrx01")]
-position = Vector2(475, -36)
-
-[node name="Lamp32" parent="." unique_id=312571660 instance=ExtResource("98_vrx01")]
-position = Vector2(-682, -1194)
+[node name="Lamp32" parent="Lamp" unique_id=312571660 instance=ExtResource("98_vrx01")]
+position = Vector2(-404, -1267)
 script = ExtResource("99_1uevf")
 base_energy = 0.51
 flicker_speed = 10.27
 
-[node name="Lamp33" parent="." unique_id=1768153360 instance=ExtResource("98_vrx01")]
-position = Vector2(-226, -1020)
+[node name="Lamp33" parent="Lamp" unique_id=1768153360 instance=ExtResource("98_vrx01")]
+position = Vector2(-85, -1119)
 rotation = 1.5707964
 
-[node name="Lamp34" parent="." unique_id=1110427877 instance=ExtResource("98_vrx01")]
-position = Vector2(-550, -1832)
+[node name="Lamp34" parent="Lamp" unique_id=1110427877 instance=ExtResource("98_vrx01")]
+position = Vector2(-409, -1931)
 
-[node name="Lamp35" parent="." unique_id=1397012453 instance=ExtResource("98_vrx01")]
-position = Vector2(-124, -1831)
+[node name="Lamp35" parent="Lamp" unique_id=1397012453 instance=ExtResource("98_vrx01")]
+position = Vector2(17, -1930)
 
-[node name="Lamp36" parent="." unique_id=1304915869 instance=ExtResource("98_vrx01")]
-position = Vector2(340, -1831)
+[node name="Lamp36" parent="Lamp" unique_id=1304915869 instance=ExtResource("98_vrx01")]
+position = Vector2(390, -1904)
 
-[node name="Lamp37" parent="." unique_id=1236490298 instance=ExtResource("98_vrx01")]
-position = Vector2(738, -1825)
+[node name="Lamp37" parent="Lamp" unique_id=1236490298 instance=ExtResource("98_vrx01")]
+position = Vector2(752, -1927)
 script = ExtResource("99_1uevf")
 
-[node name="Lamp38" parent="." unique_id=1488186507 instance=ExtResource("98_vrx01")]
-position = Vector2(350, -1248)
+[node name="Lamp38" parent="Lamp" unique_id=1488186507 instance=ExtResource("98_vrx01")]
+position = Vector2(491, -1347)
+rotation = -3.1415925
 
-[node name="Lamp39" parent="." unique_id=793469896 instance=ExtResource("98_vrx01")]
-position = Vector2(-108, -1241)
+[node name="Lamp39" parent="Lamp" unique_id=793469896 instance=ExtResource("98_vrx01")]
+position = Vector2(33, -1340)
+rotation = -3.1415925
 
-[node name="Lamp40" parent="." unique_id=1183951177 instance=ExtResource("98_vrx01")]
-position = Vector2(793, -1513)
+[node name="Lamp40" parent="Lamp" unique_id=1183951177 instance=ExtResource("98_vrx01")]
+position = Vector2(939, -1563)
 rotation = 1.5707964
 
-[node name="Lamp41" parent="." unique_id=1307496756 instance=ExtResource("98_vrx01")]
-position = Vector2(-804, -1542)
-rotation = 1.5707964
+[node name="Lamp41" parent="Lamp" unique_id=1307496756 instance=ExtResource("98_vrx01")]
+position = Vector2(-663, -1592)
+rotation = -1.5707964
 script = ExtResource("99_1uevf")

@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c2abxc131us2o" path="res://art/player/ready/up/walk_up2.png" id="19_md1ol"]
 [ext_resource type="Texture2D" uid="uid://d17rdpnu2uqqi" path="res://art/player/ready/up/walk_up3.png" id="20_bj30b"]
 [ext_resource type="Texture2D" uid="uid://cvomloi4nb8r4" path="res://art/player/ready/up/walk_up4.png" id="21_jc3p3"]
+[ext_resource type="Texture2D" uid="uid://be6nmy2d8hyll" path="res://art/lightTextures/light1.png" id="22_a38lo"]
 
 [sub_resource type="GDScript" id="GDScript_g2els"]
 script/source = "extends CharacterBody2D
@@ -301,3 +302,10 @@ shape = SubResource("CapsuleShape2D_3vyb7")
 zoom = Vector2(2, 2)
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=344138928]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=513804101]
+color = Color(1, 0.69311595, 0.6346694, 1)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("22_a38lo")
+texture_scale = 0.5
