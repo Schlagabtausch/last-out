@@ -2332,8 +2332,6 @@ size = Vector2(128, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
 size = Vector2(114, 48)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_673bd"]
-
 [sub_resource type="TileSet" id="TileSet_vchkt"]
 
 [node name="Node2D" type="Control" unique_id=1677865231]
@@ -2438,6 +2436,7 @@ volume_db = -7.652
 autoplay = true
 
 [node name="GunSafe" type="Area2D" parent="." unique_id=713380110]
+visible = false
 position = Vector2(49, 872)
 rotation = -1.5707964
 script = ExtResource("15_jkv2x")
@@ -2460,10 +2459,12 @@ position = Vector2(162.94324, -172.89137)
 shape = SubResource("RectangleShape2D_jkv2x")
 
 [node name="Terminal" type="Area2D" parent="." unique_id=301339115]
+visible = false
 position = Vector2(-196, 614)
 script = ExtResource("17_muem4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]
+visible = false
 modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(136, -200)
 scale = Vector2(112.25, 48.5)
@@ -2480,14 +2481,15 @@ position = Vector2(136, -200)
 shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="CaptainSample" type="Area2D" parent="." unique_id=313658389]
+visible = false
 position = Vector2(50, 296)
 script = ExtResource("45_j2jfr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CaptainSample" unique_id=221669820]
 modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(-368.99997, -2.7500153)
-scale = Vector2(112.25, 48.5)
-texture = SubResource("PlaceholderTexture2D_673bd")
+scale = Vector2(2.315, 1)
+texture = ExtResource("23_xhfw6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample" unique_id=1167480871]
 position = Vector2(-369, -2.75)
@@ -2501,6 +2503,7 @@ position = Vector2(136, -200)
 shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="AnalysisComputer" type="Area2D" parent="." unique_id=1722235187]
+visible = false
 position = Vector2(-233, 331)
 script = ExtResource("47_bu4jf")
 
@@ -2525,6 +2528,7 @@ shape = SubResource("RectangleShape2D_dp3eg")
 tile_set = SubResource("TileSet_vchkt")
 
 [node name="Label" type="Label" parent="." unique_id=1635222080]
+visible = false
 layout_mode = 0
 offset_left = -352.68024
 offset_top = -1647.525
@@ -2534,6 +2538,7 @@ theme_override_font_sizes/font_size = 88
 text = "CORE ROOM"
 
 [node name="Label2" type="Label" parent="." unique_id=1805503614]
+visible = false
 layout_mode = 0
 offset_left = -731.0
 offset_top = -1099.0
@@ -2543,6 +2548,7 @@ theme_override_font_sizes/font_size = 88
 text = "DOG ROOM"
 
 [node name="Label3" type="Label" parent="." unique_id=437754863]
+visible = false
 layout_mode = 0
 offset_left = -1590.0
 offset_top = 419.0
@@ -2552,6 +2558,7 @@ theme_override_font_sizes/font_size = 88
 text = "DARK ROOM"
 
 [node name="Label4" type="Label" parent="." unique_id=34762740]
+visible = false
 layout_mode = 0
 offset_left = -181.0
 offset_top = 1312.0
@@ -2561,6 +2568,7 @@ theme_override_font_sizes/font_size = 88
 text = "LAB"
 
 [node name="Label5" type="Label" parent="." unique_id=776525208]
+visible = false
 layout_mode = 0
 offset_left = 31.0
 offset_top = -609.0
@@ -2570,6 +2578,7 @@ theme_override_font_sizes/font_size = 88
 text = "CANTINE"
 
 [node name="Label6" type="Label" parent="." unique_id=428146592]
+visible = false
 layout_mode = 0
 offset_left = -382.0
 offset_top = 362.0
@@ -2579,6 +2588,7 @@ theme_override_font_sizes/font_size = 88
 text = "MAIN"
 
 [node name="Label7" type="Label" parent="." unique_id=833475692]
+visible = false
 layout_mode = 0
 offset_left = 963.0
 offset_top = -401.0
@@ -2588,6 +2598,7 @@ theme_override_font_sizes/font_size = 88
 text = "CAPTAINS OFFICE"
 
 [node name="Label8" type="Label" parent="." unique_id=84348986]
+visible = false
 layout_mode = 0
 offset_left = 1072.0
 offset_top = 622.0

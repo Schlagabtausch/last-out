@@ -33,7 +33,7 @@ project/assembly_name="LastOut"
 
 [editor]
 
-movie_writer/movie_file="/home/martin/Schreibtisch/test.avi"
+movie_writer/movie_file="C:/Users/lohma/Documents/lastOut/test.avi"
 
 [input]
 
