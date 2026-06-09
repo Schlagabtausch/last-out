@@ -2336,47 +2336,45 @@ size = Vector2(114, 48)
 
 [sub_resource type="TileSet" id="TileSet_vchkt"]
 
-[node name="Node2D" type="Control" unique_id=1677865231]
+[node name="Node2D" type="Control" unique_id=1581213922]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = SubResource("GDScript_jkv2x")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=649110920]
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
-[node name="FadeScreen" type="ColorRect" parent="." unique_id=1487321099]
-unique_name_in_owner = true
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
 visible = false
+
+[node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=1487321099]
+unique_name_in_owner = true
 z_index = 101
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -477.0
-offset_top = -284.0
-offset_right = -1436.0
-offset_bottom = -824.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)
 
-[node name="BootLabel" type="RichTextLabel" parent="." unique_id=2107522553]
+[node name="BootLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=2107522553]
 unique_name_in_owner = true
-visible = false
 z_index = 102
-layout_mode = 0
-offset_left = -358.0
-offset_top = -120.0
-offset_right = 324.0
-offset_bottom = -1.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("49_ty1g6")
 theme_override_font_sizes/normal_font_size = 42
 text = "INITIATING REMOTE HANDSHAKE... [ACCESSING UNIT-L CORE]"
+autowrap_mode = 1
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2395,6 +2393,7 @@ z_index = 100
 position = Vector2(-62, 667)
 
 [node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
+visible = false
 offset_left = 24.0
 offset_top = -16.0
 offset_right = 109.0
@@ -2604,25 +2603,25 @@ position = Vector2(-32, 96)
 
 [node name="DoorRoot3" parent="." unique_id=53533687 instance=ExtResource("55_ids8r")]
 position = Vector2(-31, -30)
-rotation = 3.1415927
+rotation = -3.1415925
 
 [node name="DoorRoot4" parent="." unique_id=1092550492 instance=ExtResource("55_ids8r")]
 position = Vector2(-416, -801)
-rotation = 3.1415927
+rotation = -3.1415925
 
 [node name="DoorRoot5" parent="." unique_id=1368875269 instance=ExtResource("55_ids8r")]
 position = Vector2(-481, -1185)
 
 [node name="DoorRoot6" parent="." unique_id=214768975 instance=ExtResource("55_ids8r")]
 position = Vector2(-481, -1254)
-rotation = 3.1415927
+rotation = -3.1415925
 
 [node name="DoorRoot7" parent="." unique_id=1267336128 instance=ExtResource("55_ids8r")]
 position = Vector2(1247, 222)
 
 [node name="DoorRoot8" parent="." unique_id=1197862701 instance=ExtResource("55_ids8r")]
 position = Vector2(1251, 96)
-rotation = 3.1415927
+rotation = -3.1415925
 
 [node name="DoorRoot9" parent="." unique_id=1275075710 instance=ExtResource("55_ids8r")]
 position = Vector2(930, 672)
@@ -2645,7 +2644,7 @@ position = Vector2(-286, 992)
 
 [node name="DoorRoot14" parent="." unique_id=1806770621 instance=ExtResource("55_ids8r")]
 position = Vector2(-287, 799)
-rotation = 3.1415927
+rotation = -3.1415925
 
 [node name="DoorRoot15" parent="." unique_id=283453570 instance=ExtResource("55_ids8r")]
 position = Vector2(-797, 1310)
