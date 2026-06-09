@@ -2324,10 +2324,8 @@ size = Vector2(80, 144)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 size = Vector2(64, 128)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jbj1t"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
-size = Vector2(128, 64)
+size = Vector2(113, 54.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
 size = Vector2(114, 48)
@@ -2345,7 +2343,6 @@ size_flags_horizontal = 4
 script = SubResource("GDScript_jkv2x")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=649110920]
-visible = false
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
@@ -2467,9 +2464,9 @@ script = ExtResource("17_muem4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]
 modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
-position = Vector2(136, -200)
-scale = Vector2(112.25, 48.5)
-texture = SubResource("PlaceholderTexture2D_jbj1t")
+position = Vector2(136, -204.00002)
+scale = Vector2(2.3777778, 2.000001)
+texture = ExtResource("34_akjxb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal" unique_id=1888477382]
 position = Vector2(136, -200)
@@ -2492,14 +2489,14 @@ scale = Vector2(1, 0.432)
 texture = ExtResource("25_152kg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample" unique_id=1167480871]
-position = Vector2(-369, -2.75)
+position = Vector2(-369.5, 2.125)
 shape = SubResource("RectangleShape2D_muem4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CaptainSample" unique_id=1691675727]
 position = Vector2(-505, 197.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample/StaticBody2D" unique_id=457601767]
-position = Vector2(136, -200)
+position = Vector2(134, -198.25)
 shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="AnalysisComputer" type="Area2D" parent="." unique_id=1722235187]
@@ -2508,9 +2505,9 @@ script = ExtResource("47_bu4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnalysisComputer" unique_id=1327793986]
 modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
-position = Vector2(113.000015, -82.00002)
-scale = Vector2(112.25, 48.5)
-texture = SubResource("PlaceholderTexture2D_jbj1t")
+position = Vector2(113, -83)
+scale = Vector2(1.0546874, 0.9906662)
+texture = ExtResource("19_1v6qk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnalysisComputer" unique_id=1982704045]
 position = Vector2(116, -83)
@@ -2573,10 +2570,10 @@ text = "CANTINE"
 
 [node name="Label6" type="Label" parent="Label" unique_id=428146592]
 layout_mode = 0
-offset_left = -29.319763
-offset_top = 2009.525
-offset_right = 668.3605
-offset_bottom = 2130.525
+offset_left = -38.319763
+offset_top = 1903.525
+offset_right = 659.3605
+offset_bottom = 2024.525
 theme_override_font_sizes/font_size = 88
 text = "MAIN"
 
