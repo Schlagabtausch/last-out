@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c2abxc131us2o" path="res://art/player/ready/up/walk_up2.png" id="19_md1ol"]
 [ext_resource type="Texture2D" uid="uid://d17rdpnu2uqqi" path="res://art/player/ready/up/walk_up3.png" id="20_bj30b"]
 [ext_resource type="Texture2D" uid="uid://cvomloi4nb8r4" path="res://art/player/ready/up/walk_up4.png" id="21_jc3p3"]
-[ext_resource type="Texture2D" uid="uid://be6nmy2d8hyll" path="res://art/lightTextures/light1.png" id="22_a38lo"]
+[ext_resource type="Texture2D" uid="uid://5g03jcc8smts" path="res://art/lightTextures/light3.png" id="22_a38lo"]
 
 [sub_resource type="GDScript" id="GDScript_g2els"]
 script/source = "extends CharacterBody2D
@@ -33,6 +33,10 @@ script/source = "extends CharacterBody2D
 # Referenz auf die Bullet-Szene.
 # Hier wird im Inspector die Szene eingetragen, die beim Schießen erzeugt werden soll.
 @export var bullet_scene: PackedScene
+
+# Abstand der Stirnlampe vom Mittelpunkt des Players.
+# Passe diesen Wert im Inspector an, falls der Lichtkegel zu weit vorne/hinten sitzt.
+@export var head_lamp_offset: float = 120.0
 
 # Verknüpfung mit dem AnimatedSprite2D-Knoten der Spielfigur.
 # Über diese Variable können Animationen gestartet oder abgefragt werden.
@@ -46,35 +50,44 @@ script/source = "extends CharacterBody2D
 # Dieser Marker gibt an, an welcher Position die Kugel erzeugt werden soll.
 @onready var muzzle: Marker2D = $Muzzle
 
-# Speichert die aktuelle Blickrichtung der Spielfigur.
-# Diese Richtung wird für Idle- und Laufanimationen verwendet.
-# Standardmäßig schaut die Figur am Anfang nach unten.
-
 # Hint for Player to interact with object
 @onready var interaction_hint = $InteractionHint
 
+# Stirnlampe / Lichtkegel am Player.
+# Die Kegel-Textur zeigt standardmäßig nach oben.
+@onready var head_lamp: PointLight2D = $HeadLamp
+
+# Speichert die aktuelle Blickrichtung der Spielfigur.
+# Diese Richtung wird für Idle- und Laufanimationen verwendet.
+# Standardmäßig schaut die Figur am Anfang nach unten.
 var last_direction: String = \"down\"
 
 # Player freezes when interacting with consoles
 var is_frozen: bool = false
 
+
 func _ready() -> void:
 	# _ready() wird einmal aufgerufen, sobald der Node und alle seine Kinder
 	# vollständig geladen und bereit sind.
-	
+
 	# Hier verbinden wir das Signal \"frame_changed\" des AnimatedSprite2D
 	# mit der Funktion _on_anim_frame_changed().
 	# Dadurch wird unsere Funktion immer dann aufgerufen,
 	# wenn der aktuelle Animationsframe wechselt.
 	anim.frame_changed.connect(_on_anim_frame_changed)
-	# Damit die Tür nur auf Player reagiert
-	# wird er in group \"player\" hinzugefügt
+
+	# Damit die Tür nur auf Player reagiert,
+	# wird er in group \"player\" hinzugefügt.
 	add_to_group(\"player\")
+
+	# Stirnlampe direkt auf die Start-Blickrichtung setzen.
+	update_head_lamp_direction()
+
 
 func _physics_process(_delta: float) -> void:
 	# _physics_process() wird in festen Physik-Abständen aufgerufen.
 	# Diese Funktion ist ideal für Bewegung und Kollisionen.
-	
+
 	# Liest die Eingaben für die vier Bewegungsrichtungen aus.
 	# \"move_left\", \"move_right\", \"move_up\" und \"move_down\"
 	# müssen vorher im Input-Manager von Godot angelegt worden sein.
@@ -86,26 +99,27 @@ func _physics_process(_delta: float) -> void:
 	# ( 0, 1) = unten
 	# diagonale Kombinationen sind ebenfalls möglich.
 	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
-	
-	
+
 	if is_frozen:
 		velocity = Vector2.ZERO
 		move_and_slide()
 		update_animation(Vector2.ZERO)
 		return
-	
+
 	# Setzt die Bewegungsrichtung der Figur.
 	# input_dir enthält nur die Richtung.
 	# Durch Multiplikation mit speed entsteht die tatsächliche Geschwindigkeit.
 	velocity = input_dir * speed
-	
+
 	# Bewegt die Figur anhand von velocity
 	# und berücksichtigt dabei Kollisionen automatisch.
 	move_and_slide()
 
-	# Aktualisiert die Blickrichtung anhand der aktuellen Mausposition.
-	# Die Bewegungsrichtung und die Blickrichtung sind dadurch getrennt.
+	# Aktualisiert die Blickrichtung anhand der Bewegungseingabe.
 	update_look_direction()
+
+	# Aktualisiert die Stirnlampe passend zur aktuellen Blickrichtung.
+	update_head_lamp_direction()
 
 	# Passt die abgespielte Animation an:
 	# Laufanimation bei Bewegung, Idle-Animation im Stand.
@@ -113,9 +127,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func update_look_direction() -> void:
-	
 	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")
-	
+
 	if input_dir == Vector2.ZERO:
 		return
 
@@ -130,6 +143,31 @@ func update_look_direction() -> void:
 		else:
 			last_direction = \"left\"
 
+
+func update_head_lamp_direction() -> void:
+	# Die erzeugte Kegel-Lichttextur zeigt standardmäßig nach oben.
+	# Deshalb gilt:
+	# up    =   0 Grad
+	# right =  90 Grad
+	# down  = 180 Grad
+	# left  = -90 Grad
+
+	match last_direction:
+		\"up\":
+			head_lamp.rotation_degrees = 0.0
+			head_lamp.position = Vector2(0.0, -head_lamp_offset)
+
+		\"right\":
+			head_lamp.rotation_degrees = 90.0
+			head_lamp.position = Vector2(head_lamp_offset, 0.0)
+
+		\"down\":
+			head_lamp.rotation_degrees = 180.0
+			head_lamp.position = Vector2(0.0, head_lamp_offset)
+
+		\"left\":
+			head_lamp.rotation_degrees = -90.0
+			head_lamp.position = Vector2(-head_lamp_offset, 0.0)
 
 
 func update_animation(input_dir: Vector2) -> void:
@@ -152,17 +190,15 @@ func update_animation(input_dir: Vector2) -> void:
 		# Beispiel:
 		# \"idle_down\", \"idle_right\" usw.
 		anim.play(\"idle_\" + last_direction)
-		
+
 		# Im Stand sollen keine Schrittgeräusche abgespielt werden.
 		footsteps.stop()
-		
-
 
 
 func _on_anim_frame_changed() -> void:
 	# Diese Funktion wird automatisch aufgerufen,
 	# sobald sich der aktuelle Frame der Animation ändert.
-	
+
 	# Prüft zunächst, ob gerade überhaupt eine Laufanimation abgespielt wird.
 	# begins_with(\"walk_\") trifft z. B. auf \"walk_up\" oder \"walk_left\" zu.
 	if anim.animation.begins_with(\"walk_\"):
@@ -172,8 +208,8 @@ func _on_anim_frame_changed() -> void:
 			# Schrittgeräusch nur starten, wenn es gerade nicht bereits läuft.
 			if not footsteps.playing:
 				footsteps.play()
-				
-				
+
+
 func set_interaction_hint(is_visible: bool):
 	interaction_hint.visible = is_visible
 "
@@ -298,13 +334,17 @@ animation = &"walk_up"
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_3vyb7")
 
+[node name="HeadLamp" type="PointLight2D" parent="." unique_id=1407485178]
+position = Vector2(1, -130)
+scale = Vector2(0.71549475, 0.9465174)
+color = Color(0.9999997, 0.82720435, 0.62204516, 1)
+energy = 0.7
+shadow_enabled = true
+shadow_color = Color(0.039215688, 0.007843138, 0.0627451, 1)
+texture = ExtResource("22_a38lo")
+texture_scale = 0.6
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1139937585]
 zoom = Vector2(2, 2)
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=344138928]
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1407485178]
-color = Color(1, 0.8121571, 0.75729096, 1)
-energy = 0.7
-texture = ExtResource("22_a38lo")
-texture_scale = 0.6
