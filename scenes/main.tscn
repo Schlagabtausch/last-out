@@ -2347,6 +2347,7 @@ size_flags_horizontal = 4
 script = SubResource("GDScript_jkv2x")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=649110920]
+visible = false
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
@@ -2391,6 +2392,7 @@ tile_set = SubResource("TileSet_dnhof")
 unique_name_in_owner = true
 z_index = 100
 position = Vector2(-62, 667)
+collision_layer = 3
 
 [node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
 visible = false
@@ -2437,7 +2439,7 @@ volume_db = -7.652
 autoplay = true
 
 [node name="GunSafe" type="Area2D" parent="." unique_id=713380110]
-position = Vector2(49, 872)
+position = Vector2(78, 995)
 rotation = -1.5707964
 script = ExtResource("15_jkv2x")
 numpad_scene = ExtResource("17_dp3eg")
@@ -2455,11 +2457,11 @@ shape = SubResource("RectangleShape2D_a8y0u")
 position = Vector2(285.05676, -191.10863)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunSafe/StaticBody2D" unique_id=1343934401]
-position = Vector2(162.94324, -172.89137)
+position = Vector2(162.94324, -172.89136)
 shape = SubResource("RectangleShape2D_jkv2x")
 
 [node name="Terminal" type="Area2D" parent="." unique_id=301339115]
-position = Vector2(-196, 614)
+position = Vector2(-193, 626)
 script = ExtResource("17_muem4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]

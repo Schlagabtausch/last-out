@@ -281,8 +281,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
-radius = 16.0
-height = 52.0
+radius = 18.0
+height = 56.0
 
 [node name="Player" type="CharacterBody2D" unique_id=125729257 groups=["player"]]
 collision_layer = 2
@@ -294,7 +294,7 @@ sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1792354904]
-position = Vector2(0, 6)
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1139937585]
