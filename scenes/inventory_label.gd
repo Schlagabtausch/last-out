@@ -7,4 +7,7 @@ func _process(_delta):
 	if GlobalStats.has_dna:
 		status_text += "[Captain's DNA]"
 		
+	if GlobalStats.has_crowbar:
+		status_text += "[Crowbar]"
+	
 	text = status_text

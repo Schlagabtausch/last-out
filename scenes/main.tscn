@@ -97,8 +97,11 @@
 [ext_resource type="Texture2D" uid="uid://by2cbcdc4ka5b" path="res://art/tiles/walls/scifi1924.png" id="71_k42av"]
 [ext_resource type="Texture2D" uid="uid://bypsaedgfa2xq" path="res://art/tiles/walls/scifi1934.png" id="72_gr8w0"]
 [ext_resource type="Texture2D" uid="uid://b4w782rjuurj5" path="res://art/tiles/walls/scifi1944.png" id="73_673bd"]
+[ext_resource type="Script" uid="uid://dne1xu64le1pv" path="res://scenes/toolbox.gd" id="96_1uevf"]
+[ext_resource type="Script" uid="uid://b6rsq81efg5ax" path="res://scenes/locker.gd" id="98_tc087"]
 [ext_resource type="PackedScene" uid="uid://cw22xkgktfhr8" path="res://Lamp.tscn" id="98_vrx01"]
 [ext_resource type="Script" uid="uid://csxa2jw6dh332" path="res://lamp.gd" id="99_1uevf"]
+[ext_resource type="Script" uid="uid://bkhjprtv5pbpf" path="res://scenes/staff_computer.gd" id="99_73205"]
 
 [sub_resource type="GDScript" id="GDScript_jkv2x"]
 script/source = "extends Control
@@ -2330,6 +2333,15 @@ size = Vector2(113, 54.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
 size = Vector2(114, 48)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vrx01"]
+size = Vector2(20, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1uevf"]
+size = Vector2(50, 50)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tc087"]
+size = Vector2(20, 20)
+
 [sub_resource type="TileSet" id="TileSet_vchkt"]
 
 [node name="Node2D" type="Control" unique_id=1581213922]
@@ -2479,7 +2491,7 @@ position = Vector2(136, -200)
 shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="CaptainSample" type="Area2D" parent="." unique_id=313658389]
-position = Vector2(50, 296)
+position = Vector2(-47, 202)
 script = ExtResource("45_j2jfr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CaptainSample" unique_id=221669820]
@@ -2499,8 +2511,32 @@ position = Vector2(-505, 197.25)
 position = Vector2(134, -198.25)
 shape = SubResource("RectangleShape2D_dp3eg")
 
+[node name="Toolbox" type="Area2D" parent="." unique_id=784435269]
+position = Vector2(-54, 317)
+script = ExtResource("96_1uevf")
+
+[node name="ToolboxSprite" type="Sprite2D" parent="Toolbox" unique_id=1422086951]
+modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
+position = Vector2(-368.99997, -2.7500153)
+scale = Vector2(1, 0.432)
+texture = SubResource("PlaceholderTexture2D_vrx01")
+
+[node name="DebrisSprite" type="Sprite2D" parent="Toolbox" unique_id=551375492]
+texture = SubResource("PlaceholderTexture2D_1uevf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toolbox" unique_id=785180808]
+position = Vector2(-369.5, 2.125)
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Toolbox" unique_id=1288820973]
+position = Vector2(-505, 197.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toolbox/StaticBody2D" unique_id=1810227154]
+position = Vector2(134, -198.25)
+shape = SubResource("RectangleShape2D_dp3eg")
+
 [node name="AnalysisComputer" type="Area2D" parent="." unique_id=1722235187]
-position = Vector2(-233, 331)
+position = Vector2(-132, 288)
 script = ExtResource("47_bu4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnalysisComputer" unique_id=1327793986]
@@ -2517,6 +2553,48 @@ shape = SubResource("RectangleShape2D_muem4")
 position = Vector2(-49, 104)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnalysisComputer/StaticBody2D" unique_id=1523161965]
+position = Vector2(161, -187)
+shape = SubResource("RectangleShape2D_dp3eg")
+
+[node name="Locker" type="Area2D" parent="." unique_id=62894046]
+position = Vector2(-414, 528)
+script = ExtResource("98_tc087")
+
+[node name="Sprite2D" type="Sprite2D" parent="Locker" unique_id=1698981922]
+modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
+position = Vector2(113, -83)
+scale = Vector2(1.0546874, 0.9906662)
+texture = SubResource("PlaceholderTexture2D_tc087")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker" unique_id=939672636]
+position = Vector2(116, -83)
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Locker" unique_id=1338103277]
+position = Vector2(-49, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/StaticBody2D" unique_id=715936276]
+position = Vector2(161, -187)
+shape = SubResource("RectangleShape2D_dp3eg")
+
+[node name="StaffComputer" type="Area2D" parent="." unique_id=1984291952]
+position = Vector2(-448, 772)
+script = ExtResource("99_73205")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaffComputer" unique_id=841061773]
+modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
+position = Vector2(113, -83)
+scale = Vector2(1.0546874, 0.9906662)
+texture = SubResource("PlaceholderTexture2D_tc087")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaffComputer" unique_id=840633855]
+position = Vector2(116, -83)
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaffComputer" unique_id=1355885156]
+position = Vector2(-49, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaffComputer/StaticBody2D" unique_id=658836968]
 position = Vector2(161, -187)
 shape = SubResource("RectangleShape2D_dp3eg")
 
