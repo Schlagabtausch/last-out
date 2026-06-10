@@ -14,4 +14,5 @@ func reset_game():
 	await DialogSystem.dialog_finished
 	current_ap = 3
 	has_weapon = false
+	has_dna = false
 	get_tree().reload_current_scene()

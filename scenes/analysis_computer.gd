@@ -39,8 +39,14 @@ func use_object():
 
 		var line_edit = ui_instance.get_node("%PasswordInput")
 		var btn = ui_instance.get_node("%SubmitButton")
+		btn.pressed.connect(func(): 
+			check_password(line_edit.text, ui_instance)
+		)
 		
-		btn.pressed.connect(func(): check_password(line_edit.text, ui_instance))
+		var cancel_btn = ui_instance.get_node("%CancelButton")
+		cancel_btn.pressed.connect(func(): 
+			ui_instance.queue_free()
+		)
 
 func check_password(input, dialog_node):
 	if input == SECRET_PASSWORD:
