@@ -9,5 +9,8 @@ func _process(_delta):
 		
 	if GlobalStats.has_crowbar:
 		status_text += "[Crowbar]"
+		
+	if GlobalStats.has_cell:
+		status_text += "[Energy Cell] "
 	
 	text = status_text

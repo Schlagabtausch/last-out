@@ -102,6 +102,8 @@
 [ext_resource type="PackedScene" uid="uid://cw22xkgktfhr8" path="res://Lamp.tscn" id="98_vrx01"]
 [ext_resource type="Script" uid="uid://csxa2jw6dh332" path="res://lamp.gd" id="99_1uevf"]
 [ext_resource type="Script" uid="uid://bkhjprtv5pbpf" path="res://scenes/staff_computer.gd" id="99_73205"]
+[ext_resource type="Script" uid="uid://chmutcclcs06i" path="res://scenes/cell.gd" id="100_0tljd"]
+[ext_resource type="Script" uid="uid://gq10sdlr7tbs" path="res://scenes/color_terminal.gd" id="101_mgpkq"]
 
 [sub_resource type="GDScript" id="GDScript_jkv2x"]
 script/source = "extends Control
@@ -2598,6 +2600,48 @@ position = Vector2(-49, 104)
 position = Vector2(161, -187)
 shape = SubResource("RectangleShape2D_dp3eg")
 
+[node name="Cell" type="Area2D" parent="." unique_id=1932901138]
+position = Vector2(-351, 248)
+script = ExtResource("100_0tljd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cell" unique_id=516214259]
+modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
+position = Vector2(113, -83)
+scale = Vector2(1.0546874, 0.9906662)
+texture = SubResource("PlaceholderTexture2D_tc087")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cell" unique_id=416923997]
+position = Vector2(116, -83)
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cell" unique_id=750522580]
+position = Vector2(-49, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=464526241]
+position = Vector2(161, -187)
+shape = SubResource("RectangleShape2D_dp3eg")
+
+[node name="ColorTerminal" type="Area2D" parent="." unique_id=11048522]
+position = Vector2(-290, 339)
+script = ExtResource("101_mgpkq")
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorTerminal" unique_id=442608722]
+modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
+position = Vector2(113, -83)
+scale = Vector2(1.0546874, 0.9906662)
+texture = SubResource("PlaceholderTexture2D_tc087")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorTerminal" unique_id=1822792000]
+position = Vector2(116, -83)
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorTerminal" unique_id=1624240367]
+position = Vector2(-49, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorTerminal/StaticBody2D" unique_id=587417177]
+position = Vector2(161, -187)
+shape = SubResource("RectangleShape2D_dp3eg")
+
 [node name="WorldObjects" type="TileMapLayer" parent="." unique_id=239502897]
 tile_set = SubResource("TileSet_vchkt")
 
@@ -2747,7 +2791,7 @@ position = Vector2(56, 703)
 rotation = 3.1415927
 
 [node name="Lamp6" parent="Lamp" unique_id=675950600 instance=ExtResource("98_vrx01")]
-position = Vector2(-230, 696)
+position = Vector2(-291, 670)
 rotation = 3.1415927
 script = ExtResource("99_1uevf")
 

@@ -12,6 +12,7 @@ var has_weapon: bool = false
 var has_crowbar: bool = false
 var knows_locker_locked: bool = false
 var knows_toolbox_locked: bool = false
+var has_cell: bool = false
 
 func reset_game():
 	await DialogSystem.dialog_finished
@@ -19,4 +20,5 @@ func reset_game():
 	has_weapon = false
 	has_dna = false
 	has_crowbar = false
+	has_cell = false
 	get_tree().reload_current_scene()
