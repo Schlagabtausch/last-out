@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bg4kwtw421sfv"]
+
+[ext_resource type="Texture2D" uid="uid://w21vfmjhjgio" path="res://art/Dekoration/light2.png" id="1_cksfr"]
+[ext_resource type="Texture2D" uid="uid://bpgol6fu1llrh" path="res://art/lightTextures/light2.png" id="2_f6g3y"]
+
+[node name="LampRed" type="Node2D" unique_id=2017325062]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466921329]
+texture = ExtResource("1_cksfr")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=255121514]
+color = Color(0.591689, 0, 0.10085603, 1)
+texture = ExtResource("2_f6g3y")
+texture_scale = 2.0
