@@ -105,6 +105,7 @@
 [ext_resource type="Script" uid="uid://bkhjprtv5pbpf" path="res://scenes/staff_computer.gd" id="99_73205"]
 [ext_resource type="Script" uid="uid://chmutcclcs06i" path="res://scenes/cell.gd" id="100_0tljd"]
 [ext_resource type="Script" uid="uid://gq10sdlr7tbs" path="res://scenes/color_terminal.gd" id="101_mgpkq"]
+[ext_resource type="PackedScene" uid="uid://bg4kwtw421sfv" path="res://lamp_red.tscn" id="105_xmrkg"]
 
 [sub_resource type="GDScript" id="GDScript_jkv2x"]
 script/source = "extends Control
@@ -2959,3 +2960,25 @@ rotation = 1.5707964
 position = Vector2(-663, -1641)
 rotation = -1.5707964
 script = ExtResource("99_1uevf")
+
+[node name="LampRed" parent="Lamp" unique_id=2017325062 instance=ExtResource("105_xmrkg")]
+position = Vector2(-946, 208)
+
+[node name="LampRed2" parent="Lamp" unique_id=1448030439 instance=ExtResource("105_xmrkg")]
+position = Vector2(-1269, 200)
+
+[node name="LampRed3" parent="Lamp" unique_id=318101821 instance=ExtResource("105_xmrkg")]
+position = Vector2(-666, 863)
+rotation = 1.5707964
+
+[node name="LampRed4" parent="Lamp" unique_id=156570163 instance=ExtResource("105_xmrkg")]
+position = Vector2(-1545, 865)
+rotation = -1.5707964
+
+[node name="LampRed5" parent="Lamp" unique_id=1037942921 instance=ExtResource("105_xmrkg")]
+position = Vector2(-1263, 1588)
+rotation = -3.1415925
+
+[node name="LampRed6" parent="Lamp" unique_id=800738870 instance=ExtResource("105_xmrkg")]
+position = Vector2(-928, 1583)
+rotation = -3.1415925
