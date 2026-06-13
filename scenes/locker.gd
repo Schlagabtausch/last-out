@@ -76,7 +76,7 @@ func _show_color_code_dialog():
 	DialogSystem.start_dialog([
 		{
 			"image": unit_l_img,
-			"text": "Inside the locker is a note. The color code is: RED - BLUE - GREEN - YELLOW."
+			"text": "Inside the locker is a note. The color code is: RED - BLUE - GREEN - BLUE."
 		}
 	], self)
 	DialogSystem.dialog_finished.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
