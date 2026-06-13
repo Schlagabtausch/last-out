@@ -129,7 +129,7 @@ animations = [{
 
 [node name="Enemy" type="Node2D" unique_id=213577160]
 
-[node name="Enemy" type="CharacterBody2D" parent="." unique_id=1991011682]
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=1991011682 groups=["Enemy"]]
 collision_layer = 4
 script = ExtResource("1_0qy3v")
 

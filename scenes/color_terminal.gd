@@ -118,7 +118,7 @@ func _open_color_ui():
 		var ui_instance = color_ui_scene.instantiate()
 		get_tree().root.add_child(ui_instance)
 		
-		var btn = ui_instance.get_node("%ButtonSubmit")
+		var btn = ui_instance.get_node("%BtnSubmit")
 		
 		btn.pressed.connect(func(): check_color_code(ui_instance.current_sequence, ui_instance))
 		
@@ -132,8 +132,7 @@ func check_color_code(sequence: Array, ui_instance: Node):
 		
 	GlobalStats.current_ap -= 1
 
-	# Wir prüfen exakt das Array!
-	if sequence == ["RED", "BLUE", "GREEN"]:
+	if sequence == ["RED", "BLUE", "GREEN", "BLUE"]:
 		is_solved = true
 		
 		if ui_instance.tree_exited.is_connected(_on_interaction_ended):

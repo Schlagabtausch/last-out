@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LastOut"
-run/main_scene="uid://d2ajeibjfnuxw"
+run/main_scene="uid://cefpnedactwx1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -33,7 +33,7 @@ project/assembly_name="LastOut"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/lohma/Documents/lastOut/test.avi"
+movie_writer/movie_file="/home/martin/Schreibtisch/test.avi"
 
 [input]
 

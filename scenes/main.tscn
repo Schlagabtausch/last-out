@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://bu3xuleaahyc1" path="res://art/audio/backgrnd/New Composition  2.mp3" id="11_ya4ey"]
 [ext_resource type="Script" uid="uid://dwieith6fiwqa" path="res://scenes/gun_safe.gd" id="15_jkv2x"]
 [ext_resource type="Script" uid="uid://cirbfuw43x57n" path="res://scenes/inventory_label.gd" id="17_bjg73"]
-[ext_resource type="PackedScene" uid="uid://dippad84m1ptq" path="res://scenes/Numpad.tscn" id="17_dp3eg"]
 [ext_resource type="Script" uid="uid://biytwyimmrbu1" path="res://scenes/terminal.gd" id="17_muem4"]
 [ext_resource type="Texture2D" uid="uid://dtf2rvg5qimhf" path="res://art/tiles/assets-gekauft/3. Wall panels and details/atlas_64grid.png" id="18_fv21b"]
 [ext_resource type="Texture2D" uid="uid://dp3m8e1bux0wl" path="res://art/tiles/assets-gekauft/2. Sci-fi wall tiles/atlas_64grid.png" id="18_yq6so"]
@@ -97,6 +96,8 @@
 [ext_resource type="Texture2D" uid="uid://by2cbcdc4ka5b" path="res://art/tiles/walls/scifi1924.png" id="71_k42av"]
 [ext_resource type="Texture2D" uid="uid://bypsaedgfa2xq" path="res://art/tiles/walls/scifi1934.png" id="72_gr8w0"]
 [ext_resource type="Texture2D" uid="uid://b4w782rjuurj5" path="res://art/tiles/walls/scifi1944.png" id="73_673bd"]
+[ext_resource type="Script" uid="uid://ma37lmnx4fte" path="res://scenes/core.gd" id="94_xmrkg"]
+[ext_resource type="PackedScene" uid="uid://clsaaug0gp7wn" path="res://scenes/DoorTriggered.tscn" id="95_mgpkq"]
 [ext_resource type="Script" uid="uid://dne1xu64le1pv" path="res://scenes/toolbox.gd" id="96_1uevf"]
 [ext_resource type="Script" uid="uid://b6rsq81efg5ax" path="res://scenes/locker.gd" id="98_tc087"]
 [ext_resource type="PackedScene" uid="uid://cw22xkgktfhr8" path="res://Lamp.tscn" id="98_vrx01"]
@@ -2335,6 +2336,9 @@ size = Vector2(113, 54.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
 size = Vector2(114, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmrkg"]
+size = Vector2(63, 37)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vrx01"]
 size = Vector2(20, 20)
 
@@ -2360,7 +2364,6 @@ script = SubResource("GDScript_jkv2x")
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
-visible = false
 
 [node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=1487321099]
 unique_name_in_owner = true
@@ -2454,7 +2457,6 @@ autoplay = true
 position = Vector2(78, 995)
 rotation = -1.5707964
 script = ExtResource("15_jkv2x")
-numpad_scene = ExtResource("17_dp3eg")
 
 [node name="Sprite2D" type="Sprite2D" parent="GunSafe" unique_id=2134140839]
 modulate = Color(0.07450981, 0.07450981, 0.078431375, 1)
@@ -2492,26 +2494,53 @@ shape = SubResource("RectangleShape2D_muem4")
 position = Vector2(136, -200)
 shape = SubResource("RectangleShape2D_dp3eg")
 
+[node name="Core" type="Area2D" parent="." unique_id=1306144961]
+position = Vector2(-644, -1453)
+script = ExtResource("94_xmrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Core" unique_id=1609526934]
+modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
+position = Vector2(136, -204.00002)
+scale = Vector2(2.3777778, 2.000001)
+texture = ExtResource("34_akjxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core" unique_id=2127002778]
+position = Vector2(136, -200)
+shape = SubResource("RectangleShape2D_muem4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Core" unique_id=1696921850]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core/StaticBody2D" unique_id=988528650]
+position = Vector2(136, -200)
+shape = SubResource("RectangleShape2D_dp3eg")
+
 [node name="CaptainSample" type="Area2D" parent="." unique_id=313658389]
 position = Vector2(-47, 202)
 script = ExtResource("45_j2jfr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CaptainSample" unique_id=221669820]
 modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
-position = Vector2(-368.99997, -2.7500153)
+position = Vector2(-363, 41)
 scale = Vector2(1, 0.432)
 texture = ExtResource("25_152kg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample" unique_id=1167480871]
-position = Vector2(-369.5, 2.125)
+position = Vector2(-365, 42)
 shape = SubResource("RectangleShape2D_muem4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CaptainSample" unique_id=1691675727]
 position = Vector2(-505, 197.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample/StaticBody2D" unique_id=457601767]
-position = Vector2(134, -198.25)
+position = Vector2(143, -156.25)
 shape = SubResource("RectangleShape2D_dp3eg")
+
+[node name="DoorTriggered" parent="." unique_id=1372243984 instance=ExtResource("95_mgpkq")]
+position = Vector2(-53, -51)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorTriggered" unique_id=1887889569]
+position = Vector2(-361, -759.5)
+shape = SubResource("RectangleShape2D_xmrkg")
 
 [node name="Toolbox" type="Area2D" parent="." unique_id=784435269]
 position = Vector2(-54, 317)
@@ -2601,7 +2630,7 @@ position = Vector2(161, -187)
 shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="Cell" type="Area2D" parent="." unique_id=1932901138]
-position = Vector2(-351, 248)
+position = Vector2(-346, 255)
 script = ExtResource("100_0tljd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cell" unique_id=516214259]

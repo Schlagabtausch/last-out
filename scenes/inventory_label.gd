@@ -11,6 +11,9 @@ func _process(_delta):
 		status_text += "[Crowbar]"
 		
 	if GlobalStats.has_cell:
-		status_text += "[Energy Cell] "
+		status_text += "[Energy Cell]"
+		
+	if GlobalStats.has_weapon: 
+		status_text += "[Gun]"
 	
 	text = status_text
