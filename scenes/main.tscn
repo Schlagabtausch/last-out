@@ -2370,6 +2370,7 @@ script = SubResource("GDScript_jkv2x")
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
+visible = false
 
 [node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=1487321099]
 unique_name_in_owner = true
@@ -2409,7 +2410,7 @@ tile_set = SubResource("TileSet_dnhof")
 [node name="Player" parent="." unique_id=125729257 groups=["Player"] instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
 z_index = 100
-position = Vector2(-62, 667)
+position = Vector2(-179, 543)
 collision_layer = 3
 
 [node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
@@ -2790,6 +2791,7 @@ rotation = -1.5707964
 [node name="Lamp" parent="." unique_id=184835460 instance=ExtResource("98_vrx01")]
 position = Vector2(-141, 99)
 script = ExtResource("99_1uevf")
+base_energy = 0.165
 
 [node name="Lamp2" parent="Lamp" unique_id=817828015 instance=ExtResource("98_vrx01")]
 position = Vector2(-190, 0)
@@ -2884,6 +2886,7 @@ script = ExtResource("99_1uevf")
 [node name="Lamp25" parent="Lamp" unique_id=1302210375 instance=ExtResource("98_vrx01")]
 position = Vector2(1078, -288)
 rotation = -1.5707964
+script = ExtResource("99_1uevf")
 
 [node name="Lamp32" parent="Lamp" unique_id=312571660 instance=ExtResource("98_vrx01")]
 position = Vector2(-430, -1282)
