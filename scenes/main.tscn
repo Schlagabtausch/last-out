@@ -2472,7 +2472,6 @@ rotation = -1.5707964
 script = ExtResource("15_jkv2x")
 
 [node name="Sprite2D" type="Sprite2D" parent="GunSafe" unique_id=2134140839]
-modulate = Color(0.07450981, 0.07450981, 0.078431375, 1)
 position = Vector2(463.00003, -398.99994)
 rotation = 1.5707964
 scale = Vector2(0.47132412, 0.42951542)
@@ -2495,7 +2494,6 @@ position = Vector2(721, 800)
 script = ExtResource("17_muem4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(135.99997, -202.99995)
 scale = Vector2(0.3157554, 0.35714293)
 texture = ExtResource("95_83607")
@@ -2515,7 +2513,6 @@ position = Vector2(-244, -519)
 script = ExtResource("94_xmrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Core" unique_id=1609526934]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(136, -204.00002)
 scale = Vector2(2.3777778, 2.000001)
 texture = ExtResource("103_raiwf")
@@ -2535,7 +2532,6 @@ position = Vector2(1211, 27)
 script = ExtResource("45_j2jfr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CaptainSample" unique_id=221669820]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(-369.00003, 39.999985)
 scale = Vector2(0.7499993, 0.64006335)
 texture = ExtResource("22_e755i")
@@ -2563,7 +2559,6 @@ position = Vector2(-54, 317)
 script = ExtResource("96_1uevf")
 
 [node name="ToolboxSprite" type="Sprite2D" parent="Toolbox" unique_id=1422086951]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(-377, 11.000005)
 scale = Vector2(0.31934747, 0.30409092)
 texture = ExtResource("98_engxj")
@@ -2588,7 +2583,6 @@ position = Vector2(-131, 1023)
 script = ExtResource("47_bu4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnalysisComputer" unique_id=1327793986]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(113, -83)
 scale = Vector2(1.0546874, 0.9906662)
 texture = ExtResource("19_1v6qk")
@@ -2609,7 +2603,6 @@ position = Vector2(228, 512)
 script = ExtResource("98_tc087")
 
 [node name="Sprite2D" type="Sprite2D" parent="Locker" unique_id=1698981922]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(113.99999, -84.99999)
 scale = Vector2(0.33942476, 0.4853858)
 texture = ExtResource("103_vny5k")
@@ -2630,7 +2623,6 @@ position = Vector2(607, -260)
 script = ExtResource("99_73205")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaffComputer" unique_id=841061773]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 z_index = 1
 position = Vector2(134.00003, -102.999985)
 scale = Vector2(0.23680663, 0.27683306)
@@ -2652,7 +2644,6 @@ position = Vector2(661, 370)
 script = ExtResource("100_0tljd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cell" unique_id=516214259]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(112.99998, -82.00001)
 scale = Vector2(0.37360916, 0.37558848)
 texture = ExtResource("103_raiwf")
@@ -2673,7 +2664,6 @@ position = Vector2(735, 451)
 script = ExtResource("101_mgpkq")
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorTerminal" unique_id=442608722]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(115.00003, -83)
 scale = Vector2(0.30517262, 0.31547645)
 texture = ExtResource("109_8lcmr")
