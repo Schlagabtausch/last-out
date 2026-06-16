@@ -2767,7 +2767,6 @@ theme_override_font_sizes/font_size = 88
 text = "LOCKERS"
 
 [node name="Lamp" parent="." unique_id=184835460 instance=ExtResource("98_vrx01")]
-visible = false
 z_index = 1
 position = Vector2(-141, 99)
 script = ExtResource("99_1uevf")
