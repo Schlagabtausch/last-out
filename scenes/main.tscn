@@ -113,6 +113,7 @@
 [ext_resource type="Texture2D" uid="uid://bvigb4gov0bn7" path="res://art/interactables/staffComputer.png" id="102_roort"]
 [ext_resource type="Texture2D" uid="uid://m20gayt6ha7w" path="res://art/interactables/battery.png" id="103_raiwf"]
 [ext_resource type="Texture2D" uid="uid://cmvmkga17bj15" path="res://art/interactables/locker1.png" id="103_vny5k"]
+[ext_resource type="Texture2D" uid="uid://vwekj4hu1orr" path="res://art/interactables/debris.png" id="104_ga3rw"]
 [ext_resource type="Texture2D" uid="uid://7alo4xneyybx" path="res://art/interactables/console.png" id="109_8lcmr"]
 [ext_resource type="PackedScene" uid="uid://bg4kwtw421sfv" path="res://Lamp_red.tscn" id="112_83607"]
 
@@ -2374,9 +2375,6 @@ size = Vector2(56.5, 78)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmrkg"]
 size = Vector2(63, 37)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1uevf"]
-size = Vector2(50, 50)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_roort"]
 radius = 21.0
 height = 62.0
@@ -2594,8 +2592,9 @@ scale = Vector2(0.31934747, 0.30409092)
 texture = ExtResource("98_engxj")
 
 [node name="DebrisSprite" type="Sprite2D" parent="Toolbox" unique_id=551375492]
-position = Vector2(-315, 22)
-texture = SubResource("PlaceholderTexture2D_1uevf")
+position = Vector2(-343.0625, 67.812515)
+scale = Vector2(0.07114445, 0.06486923)
+texture = ExtResource("104_ga3rw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toolbox" unique_id=785180808]
 position = Vector2(-369.5, 2.125)
@@ -2768,6 +2767,7 @@ theme_override_font_sizes/font_size = 88
 text = "LOCKERS"
 
 [node name="Lamp" parent="." unique_id=184835460 instance=ExtResource("98_vrx01")]
+visible = false
 z_index = 1
 position = Vector2(-141, 99)
 script = ExtResource("99_1uevf")
