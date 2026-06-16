@@ -21,23 +21,23 @@ func _ready():
 
 func _start_briefing():
 	var briefing_data = [
-		{
-			"image": GlobalConstants.PORTRAIT_COMMANDER,
-			"text": "Operator, you have been granted remote access to UNIT-L. Lunaris, Sector 4, is currently trapped in a quantum time-loop - the 'ECHO'. The station's research data on quantum manipulation is classified and critical."
-		},
-		{
-			"image": GlobalConstants.PORTRAIT_COMMANDER,
-			"text": "Navigate the bot, bypass the anomalies, and extract the data at all costs. Profit and stability depend on the success of this uplink. Do not let the 'ECHO' influence your mission parameters."
-		},
-		{
-			"image": GlobalConstants.PORTRAIT_COMMANDER,
-			"text": "Remember, you are the link. You are the control. The station is replaceable. The data is not."
-		},
-		{
-			"image": GlobalConstants.PORTRAIT_OPERATOR,
-			"text": "Understood. Starting remote handshake... UNIT-L is live."
-		}
-	]
+	{
+		"image": GlobalConstants.PORTRAIT_COMMANDER,
+		"text": "Operator, listen closely. Following a catastrophic containment breach, Lunar Station Sector 4 was fully evacuated. The facility is now trapped in a quantum time-loop."
+	},
+	{
+		"image": GlobalConstants.PORTRAIT_COMMANDER,
+		"text": "A single logistics unit, UNIT-L, was left behind during the panic. We have established a faint uplink. You are to take remote control of this robot and navigate the anomalies."
+	},
+	{
+		"image": GlobalConstants.PORTRAIT_COMMANDER,
+		"text": "Your objective is to extract the classified quantum research data. The station is a total loss and the personnel are gone. The data, however, is invaluable. Retrieve it at all costs."
+	},
+	{
+		"image": GlobalConstants.PORTRAIT_OPERATOR,
+		"text": "Understood, Commander. Initiating remote handshake... Connection established. UNIT-L is online."
+	}
+]
 	
 
 	DialogSystem.start_dialog(briefing_data)

@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://rttecii1wdo8" path="res://art/main/main.png" id="1_o7i0r"]
 [ext_resource type="FontFile" uid="uid://dl6ymsf1v342t" path="res://font/m5x7.ttf" id="2_he1sj"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_he1sj"]
+
 [node name="StartScreen" type="Control" unique_id=933361103]
 layout_mode = 3
 anchors_preset = 15
@@ -58,6 +60,7 @@ offset_left = 194.0
 offset_top = 103.0
 offset_right = 557.0
 offset_bottom = 408.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_he1sj")
 
 [node name="Label" type="Label" parent="CreditsPanel" unique_id=719581984]
 layout_mode = 2

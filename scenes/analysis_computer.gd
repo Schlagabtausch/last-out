@@ -49,6 +49,7 @@ func use_object():
 		)
 
 func check_password(input, dialog_node):
+	GlobalStats.current_ap -= 1
 	if input == SECRET_PASSWORD:
 		is_unlocked = true
 		GlobalStats.current_ap -= 1
@@ -63,7 +64,8 @@ func check_password(input, dialog_node):
 			{"image": unit_l_img, "text": "Alert. Invalid authorization code."}
 		], self)
 		await DialogSystem.dialog_finished
-		dialog_node.popup_centered()
+		if dialog_node:
+			dialog_node.popup_centered()
 
 func handle_choice(action):
 	if action == "generate_key":

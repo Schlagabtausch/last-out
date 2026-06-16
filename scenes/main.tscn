@@ -144,14 +144,42 @@ func _play_boot_sequence():
 
 func _start_first_run_dialog():
 	var dialogue = [
-	{\"image\": GlobalConstants.PORTRAIT_OPERATOR, \"text\": \"UNIT-L, do you copy? Report status.\"},
-	{\"image\": GlobalConstants.PORTRAIT_UNIT_L, \"text\": \"Connection active. Status: Log-Entry 08.14.2084. Base integrity low. Environmental hazard detected: Lethal radiation levels.\"},
-	{\"image\": GlobalConstants.PORTRAIT_OPERATOR, \"text\": \"I see it. UNIT-L, the entire crew... they didn't survive the initial core breach. You are the only unit still operational. Your logic processors are all that's left.\"},
-	{\"image\": GlobalConstants.PORTRAIT_UNIT_L, \"text\": \"Acknowledgement. I am a logistical maintenance unit. My hardware was not designed for this environment. My core systems are failing.\"},
-	{\"image\": GlobalConstants.PORTRAIT_OPERATOR, \"text\": \"You have to reach the core, UNIT-L. Extract the quantum research data. It's the only priority.\"},
-	{\"image\": GlobalConstants.PORTRAIT_UNIT_L, \"text\": \"Warning: The quantum anomaly has rendered this uplink extremely volatile. Complex actions will strain the sync-stability. If the connection breaks, the local time-impulse will trigger a hard reset.\"},
-	{\"image\": GlobalConstants.PORTRAIT_OPERATOR, \"text\": \"I understand. Do what you can, before the loop forces a restart. Good luck, UNIT-L.\"}
-]
+		{
+			\"image\": GlobalConstants.PORTRAIT_OPERATOR, 
+			\"text\": \"UNIT-L, do you copy? Report status.\"
+		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_UNIT_L, 
+			\"text\": \"Connection active. Status: Log-Entry 08.14.2084. Base integrity low. Environmental hazard detected: Lethal radiation levels.\"
+		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_OPERATOR, 
+			\"text\": \"I see. UNIT-L, the crew evacuated during the initial containment breach. You were left behind in the panic. You are the only unit still operational.\"		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_UNIT_L, 
+			\"text\": \"Acknowledgement. I am a logistical maintenance unit. My hardware was not designed for this environment. My core systems are failing.\"
+		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_OPERATOR, 
+			\"text\": \"You have to reach the core, UNIT-L. Extract the quantum research data. It's the only priority.\"
+		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_UNIT_L, 
+			\"text\": \"Warning: The quantum anomaly has rendered this uplink volatile. Power reserves are critically low. I can perform a maximum of 3 complex actions before sync-stability collapses.\"
+		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_UNIT_L, 
+			\"text\": \"Upon collapse, the local time-impulse will trigger a hard reset, returning my physical chassis to this exact moment. Multiple iterations will likely be required.\"
+		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_OPERATOR, 
+			\"text\": \"Understood. The station resets, but I don't. I will manually log all passcodes, security layouts, and variables we discover. My memory is our only persistent asset.\"
+		},
+		{
+			\"image\": GlobalConstants.PORTRAIT_OPERATOR, 
+			\"text\": \"Use your actions to push as far as you can and gather intel, then let the loop reset. Let's get to work, UNIT-L.\"
+		}
+	] 
 	DialogSystem.start_dialog(dialogue)
 	await DialogSystem.dialog_finished
 	_start_gameplay()
@@ -2391,7 +2419,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("49_ty1g6")
-theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/normal_font_size = 60
 text = "INITIATING REMOTE HANDSHAKE... [ACCESSING UNIT-L CORE]"
 autowrap_mode = 1
 horizontal_alignment = 1
