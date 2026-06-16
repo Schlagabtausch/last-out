@@ -112,6 +112,7 @@
 [ext_resource type="Texture2D" uid="uid://m20gayt6ha7w" path="res://art/interactables/battery.png" id="103_raiwf"]
 [ext_resource type="Texture2D" uid="uid://cmvmkga17bj15" path="res://art/interactables/locker1.png" id="103_vny5k"]
 [ext_resource type="Texture2D" uid="uid://7alo4xneyybx" path="res://art/interactables/console.png" id="109_8lcmr"]
+[ext_resource type="PackedScene" uid="uid://bg4kwtw421sfv" path="res://Lamp_red.tscn" id="112_83607"]
 
 [sub_resource type="GDScript" id="GDScript_jkv2x"]
 script/source = "extends Control
@@ -2430,13 +2431,15 @@ tile_map_data = PackedByteArray("AAACAAQABAAAAAYAAAACAAUABAAAAAcAAAACAAMABAAAAAU
 tile_set = SubResource("TileSet_pm3ni")
 
 [node name="DecorationItems" type="TileMapLayer" parent="." unique_id=1471246764]
-z_index = 1
+z_index = 5
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AADh/ycADwAAAAAAAAACABMADwAAAAAAAAAGAA0AIAAAAAAAAFAGAA4AIAABAAAAAFAGAB4AIAAAAAAAAFAGAB8AIAABAAAAAFABAAkAHwAAAAAAAAABAAoAHwAAAAEAAAACAAkAHwABAAAAAAACAAoAHwABAAEAAADV/47/FAAAAAAAAAAAAI7/FAAAAAAAAAAoAI7/FAAAAAAAAAD3/1AABAAAAAAAAAD7/1AABAAAAAAAAAD//1AABAAAAAAAAAADAFAABAAAAAAAAAD1/1EAAwAAAAAAAAD1/04AAwAAAAAAAADg/0gAHwAAAAAAAADg/zcAHwAAAAEAAADh/zYAHwABAAAAAADh/zcAHwABAAEAAADj/zgAAQAAAAAAAAD2/zgAAgAAAAAAAAD3/zgAAgABAAAAAAA3ACsADgAAAAAAAAA3AC8ADgAAAAAAAAAzACsADgAAAAAAAAAzAC8ADgAAAAAAAAAvACsADgAAAAAAAAAvAC8ADgAAAAAAAAAzACQADgAAAAAAAAAzACEADgAAAAAAAAA3ACEADgAAAAAAAAA3ACQADgAAAAAAAAAzABkADgAAAAAAAAAzABwADgAAAAAAAAA3ABkADgAAAAAAAAA3ABwADgAAAAAAAAATACwADwAAAAAAAAATAC8ADwAAAAAAAAA4AA8ADwAAAAAAAAA3APz/DwAAAAAAAAAsAOb/CwAAAAAAAAAsAOn/EAAAAAAAAAAtAOn/GQAAAAAAAAAuAOn/GQABAAAAAAA3AOD/DwAAAAAAAAA4AOD/DwAAAAAAAAA=")
 tile_set = SubResource("TileSet_dnhof")
 
 [node name="Player" parent="." unique_id=125729257 groups=["Player"] instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
-z_index = 100
+z_index = 5
+y_sort_enabled = true
 position = Vector2(-179, 543)
 collision_layer = 3
 
@@ -2476,9 +2479,12 @@ script = ExtResource("17_bjg73")
 metadata/_edit_use_anchors_ = true
 
 [node name="Enemy" parent="." unique_id=213577160 instance=ExtResource("56_dnhof")]
+z_index = 5
+y_sort_enabled = true
 position = Vector2(-32, -87)
 
 [node name="Walls" type="TileMapLayer" parent="." unique_id=133993414]
+z_index = 1
 tile_map_data = PackedByteArray("AAD4/wEABAAAAAAAAAD7/wEABAABAAAAAAD8/wEABAAAAAAAAAD9/wEABAABAAAAAAD+/wEABAABAAAAAAAAAAEABAABAAAAAAD3/wwACwAAAAAAACD3/wsABAABAAAAAGD3/woABAAAAAAAAGD3/wkABAABAAAAAGD3/wgABAAAAAAAAGD3/wcABAABAAAAAGD3/wYABAAAAAAAAGD3/wUABAABAAAAAGD3/wQABAAAAAAAAGD3/wMABAABAAAAAGD3/wIABAAAAAAAAGABAAIABAABAAAAAHABAAMABAAAAAAAAHABAAQABAABAAAAAHABAAUABAAAAAAAAHABAAYABAABAAAAAHABAAcABAAAAAAAAHABAAgABAABAAAAAHABAAkABAAAAAAAAHABAAsABAABAAAAAHABAAwACwAAAAAAAHD4/wwABAAAAAAAACD5/wwABAABAAAAACD6/wwABAAAAAAAACD8/wwABAAAAAAAACD9/wwABAABAAAAACD+/wwABAAAAAAAACD//wwABAABAAAAACAAAAwABAAAAAAAACABAAEACwAAAAAAABD3/wEACwAAAAAAAAD4/w0ABQAAAAAAAAD5/w0ABQABAAAAAAD6/w0ABQAAAAAAAAD8/w0ABQAAAAAAAAD9/w0ABQABAAAAAAD+/w0ABQAAAAAAAAD//w0ABQABAAAAAAAAAA0ABQAAAAAAAAD3/w8ABQAAAAAAAGD3/w4ABQABAAAAAGD3/xEABQAAAAAAAGD3/xAABQABAAAAAGD3/xMABQAAAAAAAGD3/xIABQABAAAAAGD3/xQABQABAAAAAGD4/xUABQABAAAAADD5/xUABQAAAAAAADD6/xUABQABAAAAADD7/xUABQAAAAAAADD8/xUABQABAAAAADD9/xUABQAAAAAAADD+/xUABQABAAAAADD//xUABQAAAAAAADAAABUABQABAAAAADABABQABQABAAAAAFABABMABQAAAAAAAFABABIABQABAAAAAFABABEABQAAAAAAAFABABAABQABAAAAAFABAA8ABQAAAAAAAFABAA4ABQABAAAAAFD3/w0ACgAAAAAAAAABAA0ACgAAAAAAABABABUACgAAAAAAADD3/xUACgAAAAAAACD5//D/CQAAAAAAAAD5//n/CgAAAAAAACD6//D/AwAAAAAAAAD6//n/AwABAAAAACD6//r/CwAAAAAAAAD6/wAACwAAAAAAACD7//D/AwABAAAAAAD7/wAAAQABAAAAACD8//D/AwAAAAAAAAD8//n/AwABAAAAACD8//r/AQAAAAAAAAD9//D/AwABAAAAAAD9//n/BgAAAAAAACD9//r/AQABAAAAAAD9/wAAAQABAAAAACD+//D/AwAAAAAAAAD+/wAAAQAAAAAAACD///D/AwABAAAAAAD///n/BgABAAAAACD///r/AQABAAAAAAD5//H/AwABAAAAAGD5//L/AwAAAAAAAGD5//P/AwABAAAAAGD5//T/AwAAAAAAAGD5//X/AwABAAAAAGD5//b/AwAAAAAAAGD5//f/AwABAAAAAGD5//j/AwAAAAAAAGD6//v/AQABAAAAAGD6//z/AQAAAAAAAGD6//3/AQABAAAAAGD6//7/AQAAAAAAAGD6////AQABAAAAAGD7//n/AwAAAAAAACD7//r/AQABAAAAAAD8/wAAAQAAAAAAACAAAPD/AwAAAAAAAAAAAPn/AwAAAAAAACAAAPr/AQAAAAAAAAAAAAAAAQAAAAAAACABAPD/AwABAAAAAAABAPn/AwABAAAAACABAPr/AQABAAAAAAABAAAAAQABAAAAACACAPD/AwAAAAAAAAACAPn/AwAAAAAAACACAPr/CwAAAAAAABACAPv/AQABAAAAAHACAPz/AQAAAAAAAHACAP3/AQABAAAAAHACAP7/AQAAAAAAAHACAP//AQABAAAAAHACAAAACwAAAAAAADADAPH/AwAAAAAAAFADAPL/AwABAAAAAFADAPP/AwAAAAAAAFADAPT/AwABAAAAAFADAPX/AwAAAAAAAFADAPb/AwABAAAAAFADAPf/AwAAAAAAAFADAPj/AwABAAAAAFADAPD/CQAAAAAAABADAPn/CQAAAAAAADAOAAMACQAAAAAAABAOAAQABwABAAAAAHAOAAUABwAAAAAAAHAOAAYABwABAAAAAHAOAAcABwAAAAAAAHAOAAgABwABAAAAAHAOAAkABwAAAAAAAHAEAAMACQAAAAAAAAAEAAQABwABAAAAAGAEAAUABwAAAAAAAGAEAAYABwABAAAAAGAEAAcABwAAAAAAAGAEAAgABwABAAAAAGAEAAkABwAAAAAAAGAFAAMABwAAAAAAAAAGAAMABwABAAAAAAAHAAMABwAAAAAAAAAIAAMABwABAAAAAAAKAAMABwABAAAAAAALAAMABwAAAAAAAAAMAAMABwABAAAAAAANAAMABwAAAAAAAAAEAAsABwABAAAAAGAFAAwABwABAAAAADAGAAwABwAAAAAAADAHAAwABwABAAAAADAIAAwABwAAAAAAADAJAAwABwABAAAAADAKAAwABwAAAAAAADALAAwABwABAAAAADAMAAwABwAAAAAAADANAAwABwABAAAAADAOAAsABwABAAAAAFAOAAoABwAAAAAAAFAEAAwACQAAAAAAACAOAAwACQAAAAAAADAEAPf/CQAAAAAAAAAEAPj/BwABAAAAAGAEAPn/BwAAAAAAAGAEAPr/BwABAAAAAGAEAPv/BwAAAAAAAGAEAPz/BwABAAAAAGAEAP3/BwAAAAAAAGAEAP7/BwABAAAAAGAEAP//BwAAAAAAAGAEAAAABwABAAAAAGAEAAEABwAAAAAAAGAOAPf/CQAAAAAAABAOAPj/BwABAAAAAHAOAPn/BwAAAAAAAHAOAPr/BwABAAAAAHAOAPv/BwAAAAAAAHAOAPz/BwABAAAAAHAOAP3/BwAAAAAAAHAOAP7/BwABAAAAAHAOAP//BwAAAAAAAHAOAAAABwABAAAAAHAOAAEABwAAAAAAAHAEAAIACQAAAAAAACAFAPf/BwABAAAAAAAFAAIABwABAAAAACAGAPf/BwAAAAAAAAAGAAIABwAAAAAAACAHAPf/BwABAAAAAAAHAAIABwABAAAAACAIAPf/BwAAAAAAAAAIAAIABwAAAAAAACAJAPf/BwABAAAAAAAKAPf/BwAAAAAAAAAKAAIABwAAAAAAACALAPf/BwABAAAAAAALAAIABwABAAAAACAMAPf/BwAAAAAAAAAMAAIABwAAAAAAACANAPf/BwAAAAAAAAANAAIABwAAAAAAACAOAAIACQAAAAAAADD5/wEABAABAAAAAAD6/wEABAAAAAAAAAACAAkABAAAAAAAAAADAAkABAABAAAAAAACAAsABAAAAAAAACADAAsABAABAAAAACA=")
 tile_set = SubResource("TileSet_yq6so")
 
@@ -2493,7 +2499,6 @@ rotation = -1.5707964
 script = ExtResource("15_jkv2x")
 
 [node name="Sprite2D" type="Sprite2D" parent="GunSafe" unique_id=2134140839]
-modulate = Color(0.07450981, 0.07450981, 0.078431375, 1)
 position = Vector2(463.00003, -398.99994)
 rotation = 1.5707964
 scale = Vector2(0.47132412, 0.42951542)
@@ -2516,7 +2521,6 @@ position = Vector2(721, 800)
 script = ExtResource("17_muem4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(135.99997, -202.99995)
 scale = Vector2(0.3157554, 0.35714293)
 texture = ExtResource("95_83607")
@@ -2536,7 +2540,6 @@ position = Vector2(-244, -519)
 script = ExtResource("94_xmrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Core" unique_id=1609526934]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(136, -204.00002)
 scale = Vector2(2.3777778, 2.000001)
 texture = ExtResource("103_raiwf")
@@ -2556,7 +2559,6 @@ position = Vector2(1211, 27)
 script = ExtResource("45_j2jfr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CaptainSample" unique_id=221669820]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(-369.00003, 39.999985)
 scale = Vector2(0.7499993, 0.64006335)
 texture = ExtResource("22_e755i")
@@ -2584,7 +2586,6 @@ position = Vector2(-54, 317)
 script = ExtResource("96_1uevf")
 
 [node name="ToolboxSprite" type="Sprite2D" parent="Toolbox" unique_id=1422086951]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(-377, 11.000005)
 scale = Vector2(0.31934747, 0.30409092)
 texture = ExtResource("98_engxj")
@@ -2609,7 +2610,6 @@ position = Vector2(-131, 1023)
 script = ExtResource("47_bu4jf")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnalysisComputer" unique_id=1327793986]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(113, -83)
 scale = Vector2(1.0546874, 0.9906662)
 texture = ExtResource("19_1v6qk")
@@ -2630,7 +2630,6 @@ position = Vector2(228, 512)
 script = ExtResource("98_tc087")
 
 [node name="Sprite2D" type="Sprite2D" parent="Locker" unique_id=1698981922]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(113.99999, -84.99999)
 scale = Vector2(0.33942476, 0.4853858)
 texture = ExtResource("103_vny5k")
@@ -2651,7 +2650,6 @@ position = Vector2(607, -260)
 script = ExtResource("99_73205")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaffComputer" unique_id=841061773]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 z_index = 1
 position = Vector2(134.00003, -102.999985)
 scale = Vector2(0.23680663, 0.27683306)
@@ -2673,7 +2671,6 @@ position = Vector2(661, 370)
 script = ExtResource("100_0tljd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cell" unique_id=516214259]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(112.99998, -82.00001)
 scale = Vector2(0.37360916, 0.37558848)
 texture = ExtResource("103_raiwf")
@@ -2694,7 +2691,6 @@ position = Vector2(735, 451)
 script = ExtResource("101_mgpkq")
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorTerminal" unique_id=442608722]
-modulate = Color(0.24705882, 0.54901963, 0.9529412, 1)
 position = Vector2(115.00003, -83)
 scale = Vector2(0.30517262, 0.31547645)
 texture = ExtResource("109_8lcmr")
@@ -2769,6 +2765,7 @@ theme_override_font_sizes/font_size = 88
 text = "LOCKERS"
 
 [node name="Lamp" parent="." unique_id=184835460 instance=ExtResource("98_vrx01")]
+z_index = 1
 position = Vector2(-141, 99)
 script = ExtResource("99_1uevf")
 base_energy = 0.165
@@ -2871,29 +2868,14 @@ script = ExtResource("99_1uevf")
 base_energy = 0.51
 flicker_speed = 10.27
 
-[node name="Lamp33" parent="Lamp" unique_id=1768153360 instance=ExtResource("98_vrx01")]
-position = Vector2(371, -700)
-rotation = 1.5707964
-
 [node name="Lamp34" parent="Lamp" unique_id=1110427877 instance=ExtResource("98_vrx01")]
 position = Vector2(-35, -455)
 
 [node name="Lamp35" parent="Lamp" unique_id=1397012453 instance=ExtResource("98_vrx01")]
 position = Vector2(114, -456)
 
-[node name="Lamp36" parent="Lamp" unique_id=1304915869 instance=ExtResource("98_vrx01")]
-position = Vector2(-99, -1101)
-
-[node name="Lamp37" parent="Lamp" unique_id=1236490298 instance=ExtResource("98_vrx01")]
-position = Vector2(171, -1092)
-script = ExtResource("99_1uevf")
-
 [node name="Lamp38" parent="Lamp" unique_id=1488186507 instance=ExtResource("98_vrx01")]
 position = Vector2(907, 72)
-rotation = 3.1415927
-
-[node name="Lamp39" parent="Lamp" unique_id=793469896 instance=ExtResource("98_vrx01")]
-position = Vector2(197, -511)
 rotation = 3.1415927
 
 [node name="Lamp21" parent="Lamp" unique_id=473272408 instance=ExtResource("98_vrx01")]
@@ -2904,18 +2886,39 @@ rotation = -1.5707964
 position = Vector2(287, -225)
 rotation = 1.5707964
 
-[node name="Lamp27" parent="Lamp" unique_id=1650790967 instance=ExtResource("98_vrx01")]
-position = Vector2(-103, -515)
-rotation = -3.1415925
-
 [node name="Lamp40" parent="Lamp" unique_id=1183951177 instance=ExtResource("98_vrx01")]
 position = Vector2(1065, -131)
 rotation = 1.5707964
 
-[node name="Lamp41" parent="Lamp" unique_id=1307496756 instance=ExtResource("98_vrx01")]
-position = Vector2(-286, -727)
+[node name="LampRed" parent="Lamp" unique_id=2017325062 instance=ExtResource("112_83607")]
+position = Vector2(-52, -1079)
+script = ExtResource("99_1uevf")
+
+[node name="LampRed2" parent="Lamp" unique_id=1709191380 instance=ExtResource("112_83607")]
+position = Vector2(147, -1085)
+script = ExtResource("99_1uevf")
+
+[node name="LampRed3" parent="Lamp" unique_id=1331273311 instance=ExtResource("112_83607")]
+position = Vector2(-59, -527)
+rotation = -3.1415925
+script = ExtResource("99_1uevf")
+
+[node name="LampRed4" parent="Lamp" unique_id=330737993 instance=ExtResource("112_83607")]
+position = Vector2(127, -528)
+rotation = -3.1415925
+script = ExtResource("99_1uevf")
+
+[node name="LampRed5" parent="Lamp" unique_id=1092046412 instance=ExtResource("112_83607")]
+position = Vector2(-263, -802)
 rotation = -1.5707964
 script = ExtResource("99_1uevf")
+
+[node name="LampRed6" parent="Lamp" unique_id=896410006 instance=ExtResource("112_83607")]
+position = Vector2(346, -807)
+rotation = 1.5707964
+script = ExtResource("99_1uevf")
+base_energy = 0.5
+flicker_amount = 0.5
 
 [node name="DoorRoot10" parent="." unique_id=1132486003 instance=ExtResource("55_ids8r")]
 position = Vector2(95, 673)

@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://d17rdpnu2uqqi" path="res://art/player/ready/up/walk_up3.png" id="20_bj30b"]
 [ext_resource type="Texture2D" uid="uid://cvomloi4nb8r4" path="res://art/player/ready/up/walk_up4.png" id="21_jc3p3"]
 [ext_resource type="Texture2D" uid="uid://5g03jcc8smts" path="res://art/lightTextures/light3.png" id="22_a38lo"]
+[ext_resource type="Script" uid="uid://bxm5dnlb04xb0" path="res://scenes/camera_2d.gd" id="23_4ni07"]
 
 [sub_resource type="GDScript" id="GDScript_g2els"]
 script/source = "extends CharacterBody2D
@@ -346,5 +347,8 @@ texture_scale = 0.6
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1139937585]
 zoom = Vector2(2, 2)
+script = ExtResource("23_4ni07")
+vertical_offset = -20.0
+smoothing_speed_value = 5.0
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=344138928]
