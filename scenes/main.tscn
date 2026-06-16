@@ -5,14 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://bf5ddhf5xol6c" path="res://art/tiles/assets-gekauft/1. Metal floor tiles/1. Metal floor tiles.png" id="4_nvyfr"]
 [ext_resource type="Texture2D" uid="uid://exeu7buwjhi8" path="res://art/tiles/ground/groundSheet.png" id="5_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://bf1b5j6y3t6qc" path="res://art/tiles/assets-gekauft/4. Doors and airlocks/atlas_64grid.png" id="6_152kg"]
-[ext_resource type="AudioStream" uid="uid://kqorah8i8p3l" path="res://art/audio/player/step1.wav" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://cvovhoxj0wjvr" path="res://art/tiles/ground/tile_floor_corridor.png" id="6_jscy8"]
 [ext_resource type="Script" uid="uid://d1prg0x4fkhq" path="res://scenes/ap_label_2.gd" id="7_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://ddbbahbkv35ji" path="res://art/tiles/ground/tile_floor_maintenance.png" id="7_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://bhi8ewrf1m6y3" path="res://art/tiles/ground/tile_floor_main_corridor.png" id="8_y6deb"]
 [ext_resource type="Texture2D" uid="uid://crjy7b1ke1t6u" path="res://art/tiles/ground/tile_floor_storage.png" id="9_og1vs"]
 [ext_resource type="Texture2D" uid="uid://bcy26edsw36qa" path="res://art/tiles/ground/tile_floor_hazard_marking.png" id="11_tel4y"]
-[ext_resource type="AudioStream" uid="uid://bu3xuleaahyc1" path="res://art/audio/backgrnd/New Composition  2.mp3" id="11_ya4ey"]
 [ext_resource type="Script" uid="uid://dwieith6fiwqa" path="res://scenes/gun_safe.gd" id="15_jkv2x"]
 [ext_resource type="Script" uid="uid://cirbfuw43x57n" path="res://scenes/inventory_label.gd" id="17_bjg73"]
 [ext_resource type="Script" uid="uid://biytwyimmrbu1" path="res://scenes/terminal.gd" id="17_muem4"]
@@ -83,7 +81,10 @@
 [ext_resource type="Texture2D" uid="uid://dmb7rh0js6tn8" path="res://art/tiles/walls/scifi14.png" id="61_fjhjs"]
 [ext_resource type="Texture2D" uid="uid://b8dwvn2568ge6" path="res://art/tiles/walls/scifi5.png" id="61_ygd8o"]
 [ext_resource type="Texture2D" uid="uid://cag5ror0w5b4j" path="res://art/tiles/walls/scifi6.png" id="62_2s0kr"]
+[ext_resource type="AudioStream" uid="uid://chg1j2k36nsig" path="res://art/audio/player/robotWalking2Step2.wav" id="62_8lcmr"]
+[ext_resource type="AudioStream" uid="uid://cyxxtjdjw4dgb" path="res://art/audio/player/robotWalking2Step1.wav" id="62_83607"]
 [ext_resource type="Texture2D" uid="uid://bdp70t6r1kt5t" path="res://art/tiles/walls/scifi15.png" id="62_bfu41"]
+[ext_resource type="AudioStream" uid="uid://bs208vpwgwax5" path="res://art/audio/player/robotWalking2Step3.wav" id="63_ga3rw"]
 [ext_resource type="Texture2D" uid="uid://cf5ebcl5j1rh0" path="res://art/tiles/walls/scifi7.png" id="63_xaipn"]
 [ext_resource type="Texture2D" uid="uid://sbu2yl7rvjdv" path="res://art/tiles/walls/scifi8.png" id="64_ndrjj"]
 [ext_resource type="Texture2D" uid="uid://8il07fd3nuxt" path="res://art/tiles/walls/scifi16.png" id="64_r4ag1"]
@@ -96,6 +97,7 @@
 [ext_resource type="Texture2D" uid="uid://by2cbcdc4ka5b" path="res://art/tiles/walls/scifi1924.png" id="71_k42av"]
 [ext_resource type="Texture2D" uid="uid://bypsaedgfa2xq" path="res://art/tiles/walls/scifi1934.png" id="72_gr8w0"]
 [ext_resource type="Texture2D" uid="uid://b4w782rjuurj5" path="res://art/tiles/walls/scifi1944.png" id="73_673bd"]
+[ext_resource type="AudioStream" uid="uid://diuwtcxawrdkl" path="res://art/audio/backgrnd/drumNBassTheramine.mp3" id="91_83607"]
 [ext_resource type="Texture2D" uid="uid://qwg7i31650s7" path="res://art/interactables/weaponLocker.png" id="93_gm02q"]
 [ext_resource type="Script" uid="uid://ma37lmnx4fte" path="res://scenes/core.gd" id="94_xmrkg"]
 [ext_resource type="Texture2D" uid="uid://bbu6m5djq50fl" path="res://art/interactables/locker2.png" id="95_83607"]
@@ -2442,6 +2444,9 @@ z_index = 5
 y_sort_enabled = true
 position = Vector2(-179, 543)
 collision_layer = 3
+footstep_sound_1 = ExtResource("62_83607")
+footstep_sound_2 = ExtResource("62_8lcmr")
+footstep_sound_3 = ExtResource("63_ga3rw")
 
 [node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
 visible = false
@@ -2467,8 +2472,7 @@ script = ExtResource("7_jbj1t")
 metadata/_edit_use_anchors_ = true
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Player" unique_id=1998132957]
-stream = ExtResource("6_eb6dy")
-volume_db = 7.354
+volume_db = -4.0
 
 [node name="InventoryLabel" type="Label" parent="Player" unique_id=275351720]
 offset_left = -23.0
@@ -2489,8 +2493,7 @@ tile_map_data = PackedByteArray("AAD4/wEABAAAAAAAAAD7/wEABAABAAAAAAD8/wEABAAAAAA
 tile_set = SubResource("TileSet_yq6so")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
-stream = ExtResource("11_ya4ey")
-volume_db = -7.652
+stream = ExtResource("91_83607")
 autoplay = true
 
 [node name="GunSafe" type="Area2D" parent="." unique_id=713380110]

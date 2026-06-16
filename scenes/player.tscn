@@ -39,6 +39,20 @@ script/source = "extends CharacterBody2D
 # Passe diesen Wert im Inspector an, falls der Lichtkegel zu weit vorne/hinten sitzt.
 @export var head_lamp_offset: float = 120.0
 
+# Drei unterschiedliche Schrittgeräusche.
+# Diese Dateien im Inspector am Player eintragen.
+@export var footstep_sound_1: AudioStream
+@export var footstep_sound_2: AudioStream
+@export var footstep_sound_3: AudioStream
+
+# Animationsframes, auf denen ein Schrittgeräusch abgespielt wird.
+# Bei einer 4-Frame-Laufanimation sind 0 und 2 meistens passend.
+@export var footstep_contact_frames: PackedInt32Array = [0, 2]
+
+# Leichte zufällige Tonhöhenvariation für natürlichere Schritte.
+@export var footstep_pitch_min: float = 0.94
+@export var footstep_pitch_max: float = 1.06
+
 # Verknüpfung mit dem AnimatedSprite2D-Knoten der Spielfigur.
 # Über diese Variable können Animationen gestartet oder abgefragt werden.
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
@@ -66,10 +80,16 @@ var last_direction: String = \"down\"
 # Player freezes when interacting with consoles
 var is_frozen: bool = false
 
+# Merkt sich den zuletzt abgespielten Schritt-Sound.
+# Dadurch wird derselbe Sound nicht direkt zweimal hintereinander gespielt.
+var last_footstep_index: int = -1
+
 
 func _ready() -> void:
 	# _ready() wird einmal aufgerufen, sobald der Node und alle seine Kinder
 	# vollständig geladen und bereit sind.
+
+	randomize()
 
 	# Hier verbinden wir das Signal \"frame_changed\" des AnimatedSprite2D
 	# mit der Funktion _on_anim_frame_changed().
@@ -180,11 +200,6 @@ func update_animation(input_dir: Vector2) -> void:
 		# last_direction = \"left\"  -> \"walk_left\"
 		# last_direction = \"up\"    -> \"walk_up\"
 		anim.play(\"walk_\" + last_direction)
-
-		# Startet die Schrittgeräusche nur dann,
-		# wenn sie nicht bereits abgespielt werden.
-		if not footsteps.playing:
-			footsteps.play()
 	else:
 		# Wenn keine Bewegung stattfindet,
 		# wird die Idle-Animation in Blickrichtung abgespielt.
@@ -202,13 +217,53 @@ func _on_anim_frame_changed() -> void:
 
 	# Prüft zunächst, ob gerade überhaupt eine Laufanimation abgespielt wird.
 	# begins_with(\"walk_\") trifft z. B. auf \"walk_up\" oder \"walk_left\" zu.
-	if anim.animation.begins_with(\"walk_\"):
-		# Prüft, ob der aktuelle Frame einer der gewünschten \"Fußkontakt\"-Frames ist.
-		# Hier wurden beispielhaft Frame 0 und Frame 2 gewählt.
-		if anim.frame == 0 or anim.frame == 2:
-			# Schrittgeräusch nur starten, wenn es gerade nicht bereits läuft.
-			if not footsteps.playing:
-				footsteps.play()
+	if not anim.animation.begins_with(\"walk_\"):
+		return
+
+	# Falls der Player eingefroren ist, sollen keine Schritte abgespielt werden.
+	if is_frozen:
+		footsteps.stop()
+		return
+
+	# Prüft, ob der aktuelle Frame einer der gewünschten Fußkontakt-Frames ist.
+	if footstep_contact_frames.has(anim.frame):
+		play_random_footstep()
+
+
+func play_random_footstep() -> void:
+	var available_sounds: Array[AudioStream] = []
+
+	if footstep_sound_1 != null:
+		available_sounds.append(footstep_sound_1)
+
+	if footstep_sound_2 != null:
+		available_sounds.append(footstep_sound_2)
+
+	if footstep_sound_3 != null:
+		available_sounds.append(footstep_sound_3)
+
+	if available_sounds.is_empty():
+		return
+
+	var sound_index := 0
+
+	if available_sounds.size() == 1:
+		sound_index = 0
+	else:
+		sound_index = randi_range(0, available_sounds.size() - 1)
+
+		# Verhindert, dass derselbe Schritt-Sound direkt zweimal hintereinander kommt.
+		while sound_index == last_footstep_index:
+			sound_index = randi_range(0, available_sounds.size() - 1)
+
+	last_footstep_index = sound_index
+
+	# Falls ein vorheriger Schritt noch läuft, wird er sauber neu gestartet.
+	# Das ist für kurze Footstep-Sounds meist besser als Überlappung.
+	footsteps.stop()
+	footsteps.stream = available_sounds[sound_index]
+	footsteps.pitch_scale = randf_range(footstep_pitch_min, footstep_pitch_max)
+	footsteps.play()
 
 
 func set_interaction_hint(is_visible: bool):
