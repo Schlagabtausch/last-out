@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bcy26edsw36qa" path="res://art/tiles/ground/tile_floor_hazard_marking.png" id="11_tel4y"]
 [ext_resource type="Script" uid="uid://dwieith6fiwqa" path="res://scenes/gun_safe.gd" id="15_jkv2x"]
 [ext_resource type="Script" uid="uid://cirbfuw43x57n" path="res://scenes/inventory_label.gd" id="17_bjg73"]
-[ext_resource type="Script" uid="uid://biytwyimmrbu1" path="res://scenes/terminal.gd" id="17_muem4"]
 [ext_resource type="Texture2D" uid="uid://dtf2rvg5qimhf" path="res://art/tiles/assets-gekauft/3. Wall panels and details/atlas_64grid.png" id="18_fv21b"]
 [ext_resource type="Texture2D" uid="uid://dp3m8e1bux0wl" path="res://art/tiles/assets-gekauft/2. Sci-fi wall tiles/atlas_64grid.png" id="18_yq6so"]
 [ext_resource type="Texture2D" uid="uid://3ht0k7amna46" path="res://art/Dekoration/lab1.png" id="19_1v6qk"]
@@ -81,10 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://dmb7rh0js6tn8" path="res://art/tiles/walls/scifi14.png" id="61_fjhjs"]
 [ext_resource type="Texture2D" uid="uid://b8dwvn2568ge6" path="res://art/tiles/walls/scifi5.png" id="61_ygd8o"]
 [ext_resource type="Texture2D" uid="uid://cag5ror0w5b4j" path="res://art/tiles/walls/scifi6.png" id="62_2s0kr"]
-[ext_resource type="AudioStream" uid="uid://chg1j2k36nsig" path="res://art/audio/player/robotWalking2Step2.wav" id="62_8lcmr"]
-[ext_resource type="AudioStream" uid="uid://cyxxtjdjw4dgb" path="res://art/audio/player/robotWalking2Step1.wav" id="62_83607"]
 [ext_resource type="Texture2D" uid="uid://bdp70t6r1kt5t" path="res://art/tiles/walls/scifi15.png" id="62_bfu41"]
-[ext_resource type="AudioStream" uid="uid://bs208vpwgwax5" path="res://art/audio/player/robotWalking2Step3.wav" id="63_ga3rw"]
 [ext_resource type="Texture2D" uid="uid://cf5ebcl5j1rh0" path="res://art/tiles/walls/scifi7.png" id="63_xaipn"]
 [ext_resource type="Texture2D" uid="uid://sbu2yl7rvjdv" path="res://art/tiles/walls/scifi8.png" id="64_ndrjj"]
 [ext_resource type="Texture2D" uid="uid://8il07fd3nuxt" path="res://art/tiles/walls/scifi16.png" id="64_r4ag1"]
@@ -100,7 +96,6 @@
 [ext_resource type="AudioStream" uid="uid://diuwtcxawrdkl" path="res://art/audio/backgrnd/drumNBassTheramine.mp3" id="91_83607"]
 [ext_resource type="Texture2D" uid="uid://qwg7i31650s7" path="res://art/interactables/weaponLocker.png" id="93_gm02q"]
 [ext_resource type="Script" uid="uid://ma37lmnx4fte" path="res://scenes/core.gd" id="94_xmrkg"]
-[ext_resource type="Texture2D" uid="uid://bbu6m5djq50fl" path="res://art/interactables/locker2.png" id="95_83607"]
 [ext_resource type="PackedScene" uid="uid://clsaaug0gp7wn" path="res://scenes/DoorTriggered.tscn" id="95_mgpkq"]
 [ext_resource type="Script" uid="uid://dne1xu64le1pv" path="res://scenes/toolbox.gd" id="96_1uevf"]
 [ext_resource type="Texture2D" uid="uid://bm1lmki7v0bkr" path="res://art/tiles/worldObjects/toolbox.png" id="98_engxj"]
@@ -2399,6 +2394,7 @@ script = SubResource("GDScript_jkv2x")
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
+visible = false
 
 [node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=1487321099]
 unique_name_in_owner = true
@@ -2442,9 +2438,6 @@ z_index = 5
 y_sort_enabled = true
 position = Vector2(-179, 543)
 collision_layer = 3
-footstep_sound_1 = ExtResource("62_83607")
-footstep_sound_2 = ExtResource("62_8lcmr")
-footstep_sound_3 = ExtResource("63_ga3rw")
 
 [node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
 visible = false
@@ -2498,6 +2491,7 @@ autoplay = true
 position = Vector2(287, 624)
 rotation = -1.5707964
 script = ExtResource("15_jkv2x")
+interact_text = "[E] open Gun Safe"
 
 [node name="Sprite2D" type="Sprite2D" parent="GunSafe" unique_id=2134140839]
 position = Vector2(463.00003, -398.99994)
@@ -2516,25 +2510,6 @@ position = Vector2(285.05676, -191.10863)
 position = Vector2(178.94325, -207.89134)
 shape = SubResource("RectangleShape2D_jkv2x")
 debug_color = Color(0, 0.60818094, 0.65231824, 0.41960785)
-
-[node name="Terminal" type="Area2D" parent="." unique_id=301339115]
-position = Vector2(721, 800)
-script = ExtResource("17_muem4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Terminal" unique_id=1573122150]
-position = Vector2(135.99997, -202.99995)
-scale = Vector2(0.3157554, 0.35714293)
-texture = ExtResource("95_83607")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal" unique_id=1888477382]
-position = Vector2(136, -200)
-shape = SubResource("RectangleShape2D_muem4")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Terminal" unique_id=1187184879]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Terminal/StaticBody2D" unique_id=204778271]
-position = Vector2(136.82813, -202.125)
-shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="Core" type="Area2D" parent="." unique_id=1306144961]
 position = Vector2(-244, -519)
@@ -2558,6 +2533,7 @@ shape = SubResource("RectangleShape2D_dp3eg")
 [node name="CaptainSample" type="Area2D" parent="." unique_id=313658389]
 position = Vector2(1211, 27)
 script = ExtResource("45_j2jfr")
+interact_text = "[E] - inspect"
 
 [node name="Sprite2D" type="Sprite2D" parent="CaptainSample" unique_id=221669820]
 position = Vector2(-369.00003, 39.999985)
@@ -2610,6 +2586,7 @@ shape = SubResource("RectangleShape2D_dp3eg")
 [node name="AnalysisComputer" type="Area2D" parent="." unique_id=1722235187]
 position = Vector2(-131, 1023)
 script = ExtResource("47_bu4jf")
+interact_text = "[E] use Analysis Computer"
 
 [node name="Sprite2D" type="Sprite2D" parent="AnalysisComputer" unique_id=1327793986]
 position = Vector2(113, -83)
@@ -2650,6 +2627,7 @@ shape = SubResource("RectangleShape2D_dp3eg")
 [node name="StaffComputer" type="Area2D" parent="." unique_id=1984291952]
 position = Vector2(607, -260)
 script = ExtResource("99_73205")
+interact_text = "[E] use Staff Computer"
 
 [node name="Sprite2D" type="Sprite2D" parent="StaffComputer" unique_id=841061773]
 z_index = 1

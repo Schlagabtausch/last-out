@@ -29,7 +29,7 @@ func use_object():
 			DialogSystem.start_dialog([
 				{
 					"image": unit_l_img,
-					"text": "For creating a Master-Key, security protocols require authenticated biological data (Captain's DNA)."
+					"text": "For creating a Master-Key, security protocols require authenticated biological data."
 				}
 			], self)
 	else:
@@ -52,7 +52,6 @@ func check_password(input, dialog_node):
 	GlobalStats.current_ap -= 1
 	if input == SECRET_PASSWORD:
 		is_unlocked = true
-		GlobalStats.current_ap -= 1
 		dialog_node.queue_free()
 		DialogSystem.start_dialog([
 			{"image": unit_l_img, "text": "Authorization verified."}
@@ -78,7 +77,7 @@ func handle_choice(action):
 			await get_tree().process_frame
 			DialogSystem.start_dialog([
 				{"image": unit_l_img, "text": "Generating... Decryption sequence: " + key_code},
-				{"image": GlobalConstants.PORTRAIT_OPERATOR, "text": "Received, UNIT-L. Code " + key_code + " noted. I will that sequence ready."}
+				{"image": GlobalConstants.PORTRAIT_OPERATOR, "text": "Received, UNIT-L. Code " + key_code + " noted. I will hold that sequence ready."}
 			], self)
 		else:
 			DialogSystem.end_dialog()

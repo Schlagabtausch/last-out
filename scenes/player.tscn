@@ -264,10 +264,14 @@ func play_random_footstep() -> void:
 	footsteps.stream = available_sounds[sound_index]
 	footsteps.pitch_scale = randf_range(footstep_pitch_min, footstep_pitch_max)
 	footsteps.play()
+	
+	
+func show_interaction_hint(text_to_show: String):
+	interaction_hint.text = text_to_show
+	interaction_hint.show()
 
-
-func set_interaction_hint(is_visible: bool):
-	interaction_hint.visible = is_visible
+func hide_interaction_hint():
+	interaction_hint.hide()
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_smehm"]
