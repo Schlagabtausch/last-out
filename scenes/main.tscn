@@ -2484,6 +2484,7 @@ tile_map_data = PackedByteArray("AAD4/wEABAAAAAAAAAD7/wEABAABAAAAAAD8/wEABAAAAAA
 tile_set = SubResource("TileSet_yq6so")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
+process_mode = 3
 stream = ExtResource("91_83607")
 autoplay = true
 
