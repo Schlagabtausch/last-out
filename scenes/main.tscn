@@ -78,9 +78,12 @@
 [ext_resource type="Texture2D" uid="uid://wxi2xw8jy1do" path="res://art/tiles/walls/scifi13.png" id="60_63lxy"]
 [ext_resource type="Texture2D" uid="uid://bf30tfj0a4kc3" path="res://art/tiles/walls/scifi4.png" id="60_ksmap"]
 [ext_resource type="Texture2D" uid="uid://dmb7rh0js6tn8" path="res://art/tiles/walls/scifi14.png" id="61_fjhjs"]
+[ext_resource type="AudioStream" uid="uid://cyxxtjdjw4dgb" path="res://art/audio/player/robotWalking2Step1.wav" id="61_ga3rw"]
 [ext_resource type="Texture2D" uid="uid://b8dwvn2568ge6" path="res://art/tiles/walls/scifi5.png" id="61_ygd8o"]
 [ext_resource type="Texture2D" uid="uid://cag5ror0w5b4j" path="res://art/tiles/walls/scifi6.png" id="62_2s0kr"]
 [ext_resource type="Texture2D" uid="uid://bdp70t6r1kt5t" path="res://art/tiles/walls/scifi15.png" id="62_bfu41"]
+[ext_resource type="AudioStream" uid="uid://chg1j2k36nsig" path="res://art/audio/player/robotWalking2Step2.wav" id="62_f5chs"]
+[ext_resource type="AudioStream" uid="uid://bs208vpwgwax5" path="res://art/audio/player/robotWalking2Step3.wav" id="63_eh25q"]
 [ext_resource type="Texture2D" uid="uid://cf5ebcl5j1rh0" path="res://art/tiles/walls/scifi7.png" id="63_xaipn"]
 [ext_resource type="Texture2D" uid="uid://sbu2yl7rvjdv" path="res://art/tiles/walls/scifi8.png" id="64_ndrjj"]
 [ext_resource type="Texture2D" uid="uid://8il07fd3nuxt" path="res://art/tiles/walls/scifi16.png" id="64_r4ag1"]
@@ -111,6 +114,8 @@
 [ext_resource type="Texture2D" uid="uid://vwekj4hu1orr" path="res://art/interactables/debris.png" id="104_ga3rw"]
 [ext_resource type="Texture2D" uid="uid://7alo4xneyybx" path="res://art/interactables/console.png" id="109_8lcmr"]
 [ext_resource type="PackedScene" uid="uid://bg4kwtw421sfv" path="res://Lamp_red.tscn" id="112_83607"]
+[ext_resource type="Texture2D" uid="uid://c6pfmnuthv66e" path="res://art/tiles/worldObjects/trashcanClosed.png" id="112_vny5k"]
+[ext_resource type="Texture2D" uid="uid://dsmrhunutkmci" path="res://art/tiles/worldObjects/landingCapsule.png" id="113_8lcmr"]
 
 [sub_resource type="GDScript" id="GDScript_jkv2x"]
 script/source = "extends Control
@@ -2586,7 +2591,7 @@ tile_set = SubResource("TileSet_pm3ni")
 [node name="DecorationItems" type="TileMapLayer" parent="." unique_id=1471246764]
 z_index = 5
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAGAA0AIAAAAAAAAFAGAA4AIAABAAAAAFAGAB4AIAAAAAAAAFAGAB8AIAABAAAAAFDV/47/FAAAAAAAAAAAAI7/FAAAAAAAAAAoAI7/FAAAAAAAAADg/zcAHwAAAAEAAADh/zYAHwABAAAAAADh/zcAHwABAAEAAADj/zgAAQAAAAAAAAD2/zgAAgAAAAAAAAD3/zgAAgABAAAAAAAkAAQACwAAAAAAAAAkAAcAEAAAAAAAAAAlAAcAGQAAAAAAAAAmAAcAGQABAAAAAAAmACoADgAAAAAAAAAmAC4ADgAAAAAAAAAqACoADgAAAAAAAAAqAC4ADgAAAAAAAAAuACoADgAAAAAAAAAuAC4ADgAAAAAAAAASABwADgAAAAAAAAASAB8ADgAAAAAAAAAWABwADgAAAAAAAAAWAB8ADgAAAAAAAAAjABwADgAAAAAAAAAjAB8ADgAAAAAAAAAnABwADgAAAAAAAAAnAB8ADgAAAAAAAADz/0YAAwAAAAAAAADz/0kAAwAAAAAAAAD1/0gABAAAAAAAAAD5/0gABAAAAAAAAAD9/0gABAAAAAAAAAABAEgABAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAA0AIAAAAAAAAFAGAA4AIAABAAAAAFAGAB4AIAAAAAAAAFAGAB8AIAABAAAAAFDV/47/FAAAAAAAAAAAAI7/FAAAAAAAAAAoAI7/FAAAAAAAAADg/zcAHwAAAAEAAADh/zYAHwABAAAAAADh/zcAHwABAAEAAADj/zgAAQAAAAAAAAD2/zgAAgAAAAAAAAD3/zgAAgABAAAAAAAkAAQACwAAAAAAAAAkAAcAEAAAAAAAAAAlAAcAGQAAAAAAAAAmAAcAGQABAAAAAAAmACoADgAAAAAAAAAmAC4ADgAAAAAAAAAqACoADgAAAAAAAAAqAC4ADgAAAAAAAAAuACoADgAAAAAAAAAuAC4ADgAAAAAAAAASABwADgAAAAAAAAASAB8ADgAAAAAAAAAWABwADgAAAAAAAAAWAB8ADgAAAAAAAAAjABwADgAAAAAAAAAjAB8ADgAAAAAAAAAnABwADgAAAAAAAAAnAB8ADgAAAAAAAADz/0YAAwAAAAAAAADz/0kAAwAAAAAAAAD1/0gABAAAAAAAAAD5/0gABAAAAAAAAAD9/0gABAAAAAAAAAABAEgABAAAAAAAAAArAAQADwAAAAAAAAATAAQADwAAAAAAAAA=")
 tile_set = SubResource("TileSet_dnhof")
 
 [node name="Player" parent="." unique_id=125729257 groups=["Player"] instance=ExtResource("1_o5qli")]
@@ -2595,6 +2600,9 @@ z_index = 5
 y_sort_enabled = true
 position = Vector2(-179, 543)
 collision_layer = 3
+footstep_sound_1 = ExtResource("61_ga3rw")
+footstep_sound_2 = ExtResource("62_f5chs")
+footstep_sound_3 = ExtResource("63_eh25q")
 
 [node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
 visible = false
@@ -2852,6 +2860,50 @@ shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="WorldObjects" type="TileMapLayer" parent="." unique_id=239502897]
 tile_set = SubResource("TileSet_vchkt")
+
+[node name="TrashcanClosed" type="Sprite2D" parent="WorldObjects" unique_id=931831832]
+position = Vector2(-496.00003, 748)
+scale = Vector2(0.248503, 0.17605634)
+texture = ExtResource("112_vny5k")
+
+[node name="LandingCapsule" type="Sprite2D" parent="WorldObjects" unique_id=473288382]
+position = Vector2(-689, 572)
+scale = Vector2(1.6015625, 1.453125)
+texture = ExtResource("113_8lcmr")
+
+[node name="Window3" type="Sprite2D" parent="WorldObjects" unique_id=1920679827]
+z_index = 5
+position = Vector2(-447.5, -477.5)
+scale = Vector2(2.0468752, 1.4130424)
+texture = ExtResource("29_vtx2l")
+
+[node name="Window4" type="Sprite2D" parent="WorldObjects" unique_id=507304208]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(-63, -479)
+scale = Vector2(2, 1.1999997)
+texture = ExtResource("30_63lxy")
+
+[node name="Window5" type="Sprite2D" parent="WorldObjects" unique_id=2065944888]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(225, 34)
+scale = Vector2(1, 1.1428571)
+texture = ExtResource("32_fjhjs")
+
+[node name="Window6" type="Sprite2D" parent="WorldObjects" unique_id=1244711758]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(449, 33.5)
+scale = Vector2(2.0937498, 1.218182)
+texture = ExtResource("30_63lxy")
+
+[node name="Window7" type="Sprite2D" parent="WorldObjects" unique_id=678691634]
+z_index = 5
+y_sort_enabled = true
+position = Vector2(736.5, 33.5)
+scale = Vector2(1.0468765, 1.4130434)
+texture = ExtResource("29_vtx2l")
 
 [node name="Label" type="Label" parent="." unique_id=1635222080]
 visible = false
