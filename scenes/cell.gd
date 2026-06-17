@@ -18,13 +18,11 @@ func _input(event):
 func use_object():
 	set_process_input(false)
 	
-	# Prüfen, ob die Zelle bereits entnommen wurde
 	if cell_taken:
 		_show_empty_dialog()
 	else:
 		_show_extract_dialog()
 
-# --- DIALOGE ---
 
 func _show_extract_dialog():
 	DialogSystem.start_dialog([
@@ -57,7 +55,6 @@ func _show_success_dialog():
 	], self)
 	DialogSystem.dialog_finished.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
 
-# --- AKTIONEN ---
 
 func handle_choice(action: String):
 	match action:
@@ -70,22 +67,16 @@ func extract_cell():
 	if GlobalStats.current_ap >= 1:
 		GlobalStats.current_ap -= 1
 		cell_taken = true
-		GlobalStats.has_cell = true # Im globalen Inventar speichern
+		GlobalStats.has_cell = true
 		
-		# Altes Signal trennen für nahtlosen Übergang zum Erfolgs-Text
 		if DialogSystem.dialog_finished.is_connected(_on_interaction_ended):
 			DialogSystem.dialog_finished.disconnect(_on_interaction_ended)
 		
 		await get_tree().process_frame
 		_show_success_dialog()
 		
-		# Optional: Wenn du ein anderes Sprite/Animation für den leeren Zustand hast:
-		# $Sprite2D.frame = 1 
 	else:
-		print("Nicht genug AP!")
 		_on_interaction_ended()
-
-# --- HILFSFUNKTION ---
 
 func _on_interaction_ended():
 	set_process_input(true)

@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var retreat_direction: Vector2 = Vector2(0, 1) # Standard: Nach unten (0, 1)
-@export var retreat_distance: float = 40.0 # Wie viele Pixel soll er zurückgehen?
+@export var retreat_direction: Vector2 = Vector2(0, 1)
+@export var retreat_distance: float = 40.0
 
 var unit_l_img = preload("res://art/portraits/unit_l.png")
-var player_forced_to_retreat: bool = false # Merkt sich, ob wir fliehen
+var player_forced_to_retreat: bool = false
 
 func _ready():
 	body_entered.connect(_on_body_entered)
@@ -22,11 +22,9 @@ func _on_body_entered(body):
 		if GlobalStats.has_weapon:
 			_show_combat_dialog()
 		else:
-			# Keine Waffe = Wir MÜSSEN fliehen
 			player_forced_to_retreat = true 
 			_show_retreat_dialog()
 
-# --- DIALOGE ---
 
 func _show_retreat_dialog():
 	DialogSystem.start_dialog([
@@ -45,7 +43,7 @@ func _show_combat_dialog():
 	DialogSystem.start_dialog([
 		{
 			"image": unit_l_img,
-			"text": "Hostile robotic quadruped blocking the path. With the heavy sidearm equipped, I calculate a 98% chance of neutralizing it."
+			"text": "Hostile robotic quadruped blocking the path. With the gun equipped, I calculate a 98% chance of neutralizing it."
 		},
 		{
 			"image": unit_l_img,
@@ -67,16 +65,14 @@ func _show_success_dialog():
 	], self)
 	DialogSystem.dialog_finished.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
 
-# --- AKTIONEN ---
 
 func handle_choice(action: String):
 	match action:
 		"shoot_dog":
-			player_forced_to_retreat = false # Wir kämpfen, also nicht fliehen!
+			player_forced_to_retreat = false
 			shoot_dog()
 		"close":
-			player_forced_to_retreat = true # Wir haben "Retreat" gewählt
-			# Da wir hier keinen neuen Dialog starten, beenden wir es manuell:
+			player_forced_to_retreat = true
 			_on_interaction_ended()
 
 func shoot_dog():
@@ -93,12 +89,10 @@ func shoot_dog():
 		await get_tree().process_frame
 		_show_success_dialog()
 	else:
-		print("Nicht genug AP zum Schießen!")
-		player_forced_to_retreat = true # Ohne AP müssen wir doch fliehen
+		player_forced_to_retreat = true
 		_on_interaction_ended()
 
 
-# --- HILFSFUNKTION (MIT TWEEN) ---
 
 func _on_interaction_ended():
 	var player = get_tree().get_first_node_in_group("Player")
@@ -106,19 +100,15 @@ func _on_interaction_ended():
 		return
 		
 	if player_forced_to_retreat:
-		# Wenn der Spieler fliehen muss, schieben wir ihn sanft zurück
 		var tween = create_tween()
 		var target_position = player.global_position + (retreat_direction.normalized() * retreat_distance)
 		
-		# Bewegt den Spieler in 0.4 Sekunden auf die neue Position
 		tween.tween_property(player, "global_position", target_position, 0.4)
 		
-		# Erst NACHDEM die Bewegung fertig ist, darf der Spieler sich wieder bewegen
 		tween.tween_callback(func():
 			if "is_frozen" in player:
 				player.is_frozen = false
 		)
 	else:
-		# Wenn er gekämpft hat, einfach sofort entfrieren
 		if "is_frozen" in player:
 			player.is_frozen = false

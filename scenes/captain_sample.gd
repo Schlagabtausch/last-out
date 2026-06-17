@@ -14,7 +14,7 @@ func _input(event):
 func use_object():
 	if has_been_interacted:
 		DialogSystem.start_dialog([
-			{"image": GlobalConstants.PORTRAIT_UNIT_L, "text": "Container empty. Biological residue already extracted."}
+			{"image": GlobalConstants.PORTRAIT_UNIT_L, "text": "Biological residue already extracted."}
 		])
 	else:
 		var dialog_content = [

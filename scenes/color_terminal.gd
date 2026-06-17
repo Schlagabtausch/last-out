@@ -33,8 +33,6 @@ func use_object():
 	else:
 		_show_no_power_dialog()
 
-# --- DIALOGE ---
-
 func _show_no_power_dialog():
 	DialogSystem.start_dialog([
 		{

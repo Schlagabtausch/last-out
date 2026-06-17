@@ -26,13 +26,12 @@ func use_object():
 	else:
 		_open_password_ui()
 
-# --- DIALOGE ---
 
 func _show_empty_dialog():
 	DialogSystem.start_dialog([
 		{
 			"image": unit_l_img,
-			"text": "The armory cabinet is wide open. The heavy sidearm is already in my possession."
+			"text": "The gun is already in my possession."
 		}
 	], self)
 	DialogSystem.dialog_finished.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
@@ -41,7 +40,7 @@ func _show_success_dialog():
 	DialogSystem.start_dialog([
 		{
 			"image": unit_l_img,
-			"text": "Authorization accepted. Vault doors unlatched... Heavy sidearm secured. Standard combat protocols are now online."
+			"text": "Authorization accepted. Obtained gun."
 		}
 	], self)
 	DialogSystem.dialog_finished.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
@@ -50,21 +49,10 @@ func _show_wrong_code_dialog():
 	DialogSystem.start_dialog([
 		{
 			"image": unit_l_img,
-			"text": "ACCESS DENIED: Incorrect security override code. Anti-tamper protocols initiated (-1 AP)."
+			"text": "ACCESS DENIED: Incorrect security code."
 		}
 	], self)
 	DialogSystem.dialog_finished.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
-
-func _show_game_over_dialog():
-	DialogSystem.start_dialog([
-		{
-			"image": unit_l_img,
-			"text": "CRITICAL ERROR: Security counter-measures triggered. Emergency lockdown active. Mission failed."
-		}
-	], self)
-	# Hier keine Reaktivierung des Inputs, da das Spiel vorbei ist und resettet (über dein GlobalStats-System)
-
-# --- UI STEUERUNG ---
 
 func _open_password_ui():
 	if password_ui_scene:
@@ -74,13 +62,10 @@ func _open_password_ui():
 		var line_edit = ui_instance.get_node("%PasswordInput")
 		var btn = ui_instance.get_node("%SubmitButton")
 		
-		# Event verbinden: Wenn der Button gedrückt wird, Passwort prüfen
 		btn.pressed.connect(func(): check_password(line_edit.text, ui_instance))
 		
-		# Sicherheitsnetz: Falls das Fenster anders geschlossen wird, Input reaktivieren
 		ui_instance.tree_exited.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
 	else:
-		print("Fehler: Keine password_ui_scene zugewiesen!")
 		_on_interaction_ended()
 
 func check_password(text: String, ui_instance: Node):
@@ -88,11 +73,9 @@ func check_password(text: String, ui_instance: Node):
 	var formatted_text = text.strip_edges()
 	
 	if formatted_text == correct_code:
-		# ERFOLG!
 		is_empty = true
-		GlobalStats.has_weapon = true # Waffe wird ins Inventar gelegt (wird im HUD-Label angezeigt)
+		GlobalStats.has_weapon = true
 		
-		# Signal trennen, damit das UI-Schließen nicht fälschlicherweise den Input zu früh freigibt
 		if ui_instance.tree_exited.is_connected(_on_interaction_ended):
 			ui_instance.tree_exited.disconnect(_on_interaction_ended)
 		
@@ -106,13 +89,8 @@ func check_password(text: String, ui_instance: Node):
 		
 		ui_instance.queue_free()
 		
-		# Prüfen, ob durch die Bestrafung die AP auf 0 gefallen sind
-		if GlobalStats.current_ap <= 0:
-			_show_game_over_dialog()
-		else:
-			_show_wrong_code_dialog()
+		_show_wrong_code_dialog()
 
-# --- HILFSFUNKTION ---
 
 func _on_interaction_ended():
 	set_process_input(true)

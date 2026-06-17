@@ -2514,6 +2514,7 @@ debug_color = Color(0, 0.60818094, 0.65231824, 0.41960785)
 [node name="Core" type="Area2D" parent="." unique_id=1306144961]
 position = Vector2(-244, -519)
 script = ExtResource("94_xmrkg")
+interact_text = "[E] use Terminal"
 
 [node name="Sprite2D" type="Sprite2D" parent="Core" unique_id=1609526934]
 position = Vector2(136, -204.00002)
@@ -2561,6 +2562,7 @@ shape = SubResource("RectangleShape2D_xmrkg")
 [node name="Toolbox" type="Area2D" parent="." unique_id=784435269]
 position = Vector2(-54, 317)
 script = ExtResource("96_1uevf")
+interact_text = "[E] open Toolbox"
 
 [node name="ToolboxSprite" type="Sprite2D" parent="Toolbox" unique_id=1422086951]
 position = Vector2(-377, 11.000005)
@@ -2607,6 +2609,7 @@ shape = SubResource("RectangleShape2D_dp3eg")
 [node name="Locker" type="Area2D" parent="." unique_id=62894046]
 position = Vector2(228, 512)
 script = ExtResource("98_tc087")
+interact_text = "[E] open Locker"
 
 [node name="Sprite2D" type="Sprite2D" parent="Locker" unique_id=1698981922]
 position = Vector2(113.99999, -84.99999)
@@ -2649,6 +2652,7 @@ shape = SubResource("RectangleShape2D_dp3eg")
 [node name="Cell" type="Area2D" parent="." unique_id=1932901138]
 position = Vector2(661, 370)
 script = ExtResource("100_0tljd")
+interact_text = "[E] inspect"
 
 [node name="Sprite2D" type="Sprite2D" parent="Cell" unique_id=516214259]
 position = Vector2(112.99998, -82.00001)
@@ -2669,6 +2673,7 @@ shape = SubResource("CapsuleShape2D_gm02q")
 [node name="ColorTerminal" type="Area2D" parent="." unique_id=11048522]
 position = Vector2(735, 451)
 script = ExtResource("101_mgpkq")
+interact_text = "[E] use Terminal"
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorTerminal" unique_id=442608722]
 position = Vector2(115.00003, -83)

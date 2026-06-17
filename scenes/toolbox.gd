@@ -70,7 +70,7 @@ func _show_password_dialog():
 	DialogSystem.start_dialog([
 		{
 			"image": unit_l_img,
-			"text": "The debris is cleared, but the lock requires a manual override password."
+			"text": "The debris is cleared, but the lock requires a password."
 		}
 	], self)
 	
@@ -88,7 +88,6 @@ func _open_password_ui():
 		
 		ui_instance.tree_exited.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
 	else:
-		print("Fehler: Keine PasswordUI-Szene zugewiesen!")
 		_on_interaction_ended()
 
 func check_password(text: String, ui_instance: Node):
