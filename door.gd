@@ -4,6 +4,10 @@ extends Node2D
 @onready var detection_area: Area2D = $Area2D
 @onready var door_collision: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
+# Nur ein Sound-Node für die Tür.
+# Dieser Sound wird beim Öffnen und Schließen abgespielt.
+@onready var door_open_sound: AudioStreamPlayer2D = $DoorOpenSound
+
 const ANIMATION_NAME: StringName = &"open_close"
 
 enum DoorState {
@@ -69,6 +73,8 @@ func _open_door() -> void:
 	# Während die Tür öffnet, soll sie nicht mehr blockieren.
 	door_collision.set_deferred("disabled", true)
 
+	_play_door_sound()
+
 	animated_sprite.speed_scale = 1.0
 	animated_sprite.play(ANIMATION_NAME)
 
@@ -76,17 +82,30 @@ func _open_door() -> void:
 func _close_door() -> void:
 	state = DoorState.CLOSING
 
-	# Wichtig: deferred, sonst kommt dein Fehler.
+	# Während die Tür schließt, blockiert sie wieder.
+	# set_deferred bleibt wichtig, damit kein Godot-Fehler durch Area2D-Signale entsteht.
 	door_collision.set_deferred("disabled", false)
 
 	var last_frame := animated_sprite.sprite_frames.get_frame_count(ANIMATION_NAME) - 1
 
-	# Falls die Tür gerade offen steht, sicherstellen, dass sie am letzten Frame startet.
+	# Falls die Tür gerade offen steht, sicherstellen,
+	# dass die Rückwärtsanimation am letzten Frame startet.
 	if animated_sprite.frame < last_frame:
 		animated_sprite.frame = last_frame
 
+	# Derselbe DoorOpenSound wird auch beim Schließen verwendet.
+	_play_door_sound()
+
 	animated_sprite.speed_scale = -1.0
 	animated_sprite.play(ANIMATION_NAME)
+
+
+func _play_door_sound() -> void:
+	if door_open_sound == null:
+		return
+
+	door_open_sound.stop()
+	door_open_sound.play()
 
 
 func _on_animation_finished() -> void:

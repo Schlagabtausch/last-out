@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tmogxcfnhye" path="res://art/tiles/doors/door_opening_2.png" id="4_7kus2"]
 [ext_resource type="Texture2D" uid="uid://078gij8kq8ol" path="res://art/tiles/doors/door_opening_3.png" id="5_nf3sg"]
 [ext_resource type="Texture2D" uid="uid://b5fxh22w2iyps" path="res://art/tiles/doors/door_open.png" id="6_ejk8t"]
+[ext_resource type="AudioStream" uid="uid://84j5vtufsu7q" path="res://art/audio/door/doorOpening2.wav" id="7_e2xr8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nf3sg"]
 animations = [{
@@ -57,3 +58,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=884568814]
 position = Vector2(1.5, 12)
 shape = SubResource("RectangleShape2D_eqxji")
+
+[node name="DoorOpenSound" type="AudioStreamPlayer2D" parent="." unique_id=2108878217]
+stream = ExtResource("7_e2xr8")
+volume_db = -10.0
