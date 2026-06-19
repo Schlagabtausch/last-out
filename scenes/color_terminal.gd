@@ -77,7 +77,7 @@ func _show_correct_code_dialog():
 	DialogSystem.start_dialog([
 		{
 			"image": unit_l_img,
-			"text": "Sequence accepted. Accessing armory mainframe... The weapon override code is: 9988. I recommend making a note of this."
+			"text": "Sequence accepted. Accessing armory mainframe... The weapon code is: 9988. I recommend making a note of this."
 		}
 	], self)
 	DialogSystem.dialog_finished.connect(_on_interaction_ended, CONNECT_ONE_SHOT)
@@ -140,12 +140,11 @@ func check_color_code(sequence: Array, ui_instance: Node):
 		_show_correct_code_dialog()
 	else:
 		ui_instance._clear_sequence() 
+		if ui_instance.tree_exited.is_connected(_on_interaction_ended):
+			ui_instance.tree_exited.disconnect(_on_interaction_ended)
 		
-		if GlobalStats.current_ap <= 0:
-			if ui_instance.tree_exited.is_connected(_on_interaction_ended):
-				ui_instance.tree_exited.disconnect(_on_interaction_ended)
-			ui_instance.queue_free()
-			_show_game_over_dialog()
+		ui_instance.queue_free()
+		GlobalStats.show_global_wrong_password_dialog(self, _on_interaction_ended)
 
 
 func _on_interaction_ended():

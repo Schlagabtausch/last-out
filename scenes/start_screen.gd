@@ -6,6 +6,7 @@ func _ready():
 	%BtnCredits.pressed.connect(_on_btn_credits_pressed)
 
 func _on_btn_play_pressed():
+	GlobalStats.reset_full_game()
 	get_tree().change_scene_to_file("res://scenes/intro_scene.tscn")
 
 func _on_btn_credits_pressed():

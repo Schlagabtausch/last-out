@@ -103,6 +103,12 @@ func check_password(text: String, ui_instance: Node):
 		
 		ui_instance.queue_free()
 		_show_success_dialog()
+	else:
+		if ui_instance.tree_exited.is_connected(_on_interaction_ended):
+			ui_instance.tree_exited.disconnect(_on_interaction_ended)
+		
+		ui_instance.queue_free()
+		GlobalStats.show_global_wrong_password_dialog(self, _on_interaction_ended)
 
 
 func _show_success_dialog():

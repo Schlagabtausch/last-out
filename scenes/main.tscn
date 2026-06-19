@@ -101,6 +101,7 @@
 [ext_resource type="Script" uid="uid://ma37lmnx4fte" path="res://scenes/core.gd" id="94_xmrkg"]
 [ext_resource type="PackedScene" uid="uid://clsaaug0gp7wn" path="res://scenes/DoorTriggered.tscn" id="95_mgpkq"]
 [ext_resource type="Script" uid="uid://dne1xu64le1pv" path="res://scenes/toolbox.gd" id="96_1uevf"]
+[ext_resource type="Script" uid="uid://cqg0gbgqufhll" path="res://scenes/note.gd" id="96_f5chs"]
 [ext_resource type="Texture2D" uid="uid://bm1lmki7v0bkr" path="res://art/tiles/worldObjects/toolbox.png" id="98_engxj"]
 [ext_resource type="Script" uid="uid://b6rsq81efg5ax" path="res://scenes/locker.gd" id="98_tc087"]
 [ext_resource type="PackedScene" uid="uid://cw22xkgktfhr8" path="res://Lamp.tscn" id="98_vrx01"]
@@ -2519,16 +2520,19 @@ sources/26 = SubResource("TileSetAtlasSource_wfmv0")
 sources/27 = SubResource("TileSetAtlasSource_wxrqn")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
-size = Vector2(49, 78.00003)
+size = Vector2(36, 56.000042)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 size = Vector2(26.5, 48.5)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f5chs"]
+size = Vector2(50, 50)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
-size = Vector2(89.75, 118)
+size = Vector2(127, 98.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
-size = Vector2(56.5, 78)
+size = Vector2(114, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmrkg"]
 size = Vector2(63, 37)
@@ -2677,6 +2681,30 @@ position = Vector2(178.94325, -207.89134)
 shape = SubResource("RectangleShape2D_jkv2x")
 debug_color = Color(0, 0.60818094, 0.65231824, 0.41960785)
 
+[node name="Note" type="Area2D" parent="." unique_id=1516904062]
+position = Vector2(423, 1539)
+rotation = -1.5707964
+script = ExtResource("96_f5chs")
+interact_text = "[E] read Note"
+
+[node name="Sprite2D" type="Sprite2D" parent="Note" unique_id=1620757416]
+position = Vector2(463.00003, -398.99994)
+rotation = 1.5707964
+scale = Vector2(0.47132412, 0.42951542)
+texture = SubResource("PlaceholderTexture2D_f5chs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Note" unique_id=498387577]
+position = Vector2(464, -399.00003)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Note" unique_id=1066085109]
+position = Vector2(285.05676, -191.10863)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Note/StaticBody2D" unique_id=415688602]
+position = Vector2(178.94325, -207.89134)
+shape = SubResource("RectangleShape2D_jkv2x")
+debug_color = Color(0, 0.60818094, 0.65231824, 0.41960785)
+
 [node name="Core" type="Area2D" parent="." unique_id=1306144961]
 position = Vector2(-363, -144)
 script = ExtResource("94_xmrkg")
@@ -2754,7 +2782,7 @@ shape = SubResource("RectangleShape2D_dp3eg")
 [node name="AnalysisComputer" type="Area2D" parent="." unique_id=1722235187]
 position = Vector2(-125, 1021)
 script = ExtResource("47_bu4jf")
-interact_text = "[E] use Analysis Computer"
+interact_text = "[E] use Analysis Terminal"
 
 [node name="Sprite2D" type="Sprite2D" parent="AnalysisComputer" unique_id=1327793986]
 position = Vector2(113, -83)
@@ -2762,14 +2790,14 @@ scale = Vector2(1.0546874, 0.9906662)
 texture = ExtResource("19_1v6qk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnalysisComputer" unique_id=1982704045]
-position = Vector2(111.5, -77.5)
+position = Vector2(112.5, -87.25)
 shape = SubResource("RectangleShape2D_muem4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnalysisComputer" unique_id=1697378620]
 position = Vector2(-49, 104)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnalysisComputer/StaticBody2D" unique_id=1523161965]
-position = Vector2(161, -187)
+position = Vector2(162, -187)
 shape = SubResource("RectangleShape2D_dp3eg")
 
 [node name="Locker" type="Area2D" parent="." unique_id=62894046]
