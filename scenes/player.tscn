@@ -39,6 +39,14 @@ script/source = "extends CharacterBody2D
 # Passe diesen Wert im Inspector an, falls der Lichtkegel zu weit vorne/hinten sitzt.
 @export var head_lamp_offset: float = 120.0
 
+# Wie weich die Stirnlampe ihrer Zielposition folgt.
+# Höher = schneller, niedriger = träger.
+@export var head_lamp_position_smoothing: float = 10.0
+
+# Wie weich die Stirnlampe in die neue Richtung rotiert.
+# Höher = schneller, niedriger = träger.
+@export var head_lamp_rotation_smoothing: float = 12.0
+
 # Drei unterschiedliche Schrittgeräusche.
 # Diese Dateien im Inspector am Player eintragen.
 @export var footstep_sound_1: AudioStream
@@ -102,7 +110,8 @@ func _ready() -> void:
 	add_to_group(\"player\")
 
 	# Stirnlampe direkt auf die Start-Blickrichtung setzen.
-	update_head_lamp_direction()
+	# Dadurch startet sie korrekt und gleitet erst danach weich.
+	snap_head_lamp_direction()
 
 
 func _physics_process(_delta: float) -> void:
@@ -124,6 +133,7 @@ func _physics_process(_delta: float) -> void:
 	if is_frozen:
 		velocity = Vector2.ZERO
 		move_and_slide()
+		update_head_lamp_direction(_delta)
 		update_animation(Vector2.ZERO)
 		return
 
@@ -139,8 +149,8 @@ func _physics_process(_delta: float) -> void:
 	# Aktualisiert die Blickrichtung anhand der Bewegungseingabe.
 	update_look_direction()
 
-	# Aktualisiert die Stirnlampe passend zur aktuellen Blickrichtung.
-	update_head_lamp_direction()
+	# Aktualisiert die Stirnlampe weich passend zur aktuellen Blickrichtung.
+	update_head_lamp_direction(_delta)
 
 	# Passt die abgespielte Animation an:
 	# Laufanimation bei Bewegung, Idle-Animation im Stand.
@@ -165,13 +175,47 @@ func update_look_direction() -> void:
 			last_direction = \"left\"
 
 
-func update_head_lamp_direction() -> void:
+func update_head_lamp_direction(delta: float) -> void:
 	# Die erzeugte Kegel-Lichttextur zeigt standardmäßig nach oben.
 	# Deshalb gilt:
 	# up    =   0 Grad
 	# right =  90 Grad
 	# down  = 180 Grad
 	# left  = -90 Grad
+
+	var target_position := Vector2.ZERO
+	var target_rotation := 0.0
+
+	match last_direction:
+		\"up\":
+			target_rotation = deg_to_rad(0.0)
+			target_position = Vector2(0.0, -head_lamp_offset)
+
+		\"right\":
+			target_rotation = deg_to_rad(90.0)
+			target_position = Vector2(head_lamp_offset, 0.0)
+
+		\"down\":
+			target_rotation = deg_to_rad(180.0)
+			target_position = Vector2(0.0, head_lamp_offset)
+
+		\"left\":
+			target_rotation = deg_to_rad(-90.0)
+			target_position = Vector2(-head_lamp_offset, 0.0)
+
+	# Framerate-unabhängige Glättung.
+	# Dadurch bewegt sich die Lampe bei unterschiedlichen FPS ähnlich weich.
+	var position_t := 1.0 - exp(-head_lamp_position_smoothing * delta)
+	var rotation_t := 1.0 - exp(-head_lamp_rotation_smoothing * delta)
+
+	head_lamp.position = head_lamp.position.lerp(target_position, position_t)
+	head_lamp.rotation = lerp_angle(head_lamp.rotation, target_rotation, rotation_t)
+
+
+func snap_head_lamp_direction() -> void:
+	# Setzt die Lampe sofort auf die aktuelle Richtung.
+	# Diese Funktion wird nur beim Start benutzt, damit die Lampe nicht erst langsam
+	# von einer falschen Startposition zur richtigen Position gleitet.
 
 	match last_direction:
 		\"up\":
@@ -264,11 +308,12 @@ func play_random_footstep() -> void:
 	footsteps.stream = available_sounds[sound_index]
 	footsteps.pitch_scale = randf_range(footstep_pitch_min, footstep_pitch_max)
 	footsteps.play()
-	
-	
+
+
 func show_interaction_hint(text_to_show: String):
 	interaction_hint.text = text_to_show
 	interaction_hint.show()
+
 
 func hide_interaction_hint():
 	interaction_hint.hide()
