@@ -109,6 +109,7 @@
 [ext_resource type="Script" uid="uid://csxa2jw6dh332" path="res://lamp.gd" id="99_1uevf"]
 [ext_resource type="Script" uid="uid://bkhjprtv5pbpf" path="res://scenes/staff_computer.gd" id="99_73205"]
 [ext_resource type="Script" uid="uid://chmutcclcs06i" path="res://scenes/cell.gd" id="100_0tljd"]
+[ext_resource type="Texture2D" uid="uid://coxcro2wcj4rw" path="res://art/tiles/assets-gekauft/10. Storage and containers/10. Storage and containers.png" id="101_joh2r"]
 [ext_resource type="Script" uid="uid://gq10sdlr7tbs" path="res://scenes/color_terminal.gd" id="101_mgpkq"]
 [ext_resource type="Texture2D" uid="uid://bvigb4gov0bn7" path="res://art/interactables/staffComputer.png" id="102_roort"]
 [ext_resource type="Texture2D" uid="uid://m20gayt6ha7w" path="res://art/interactables/battery.png" id="103_raiwf"]
@@ -2532,6 +2533,9 @@ size = Vector2(127, 98.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
 size = Vector2(114, 78)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yton5"]
+size = Vector2(61, 19)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmrkg"]
 size = Vector2(63, 37)
 
@@ -2556,6 +2560,7 @@ size_flags_horizontal = 4
 script = SubResource("GDScript_jkv2x")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=649110920]
+visible = false
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
@@ -2732,7 +2737,9 @@ interact_text = "[E] - inspect"
 [node name="Sprite2D" type="Sprite2D" parent="CaptainSample" unique_id=221669820]
 position = Vector2(-369.00003, 39.999985)
 scale = Vector2(0.7499993, 0.64006335)
-texture = ExtResource("22_e755i")
+texture = ExtResource("101_joh2r")
+region_enabled = true
+region_rect = Rect2(1266.9, 828.176, 136, 69.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample" unique_id=1167480871]
 position = Vector2(-368, 41)
@@ -2742,8 +2749,8 @@ shape = SubResource("RectangleShape2D_muem4")
 position = Vector2(-505, 197.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample/StaticBody2D" unique_id=457601767]
-position = Vector2(137.625, -156.25)
-shape = SubResource("RectangleShape2D_dp3eg")
+position = Vector2(135.5, -156.75)
+shape = SubResource("RectangleShape2D_yton5")
 
 [node name="DoorTriggered" parent="." unique_id=1372243984 instance=ExtResource("95_mgpkq")]
 position = Vector2(-162, 395)
@@ -2988,6 +2995,7 @@ theme_override_font_sizes/font_size = 88
 text = "LOCKERS"
 
 [node name="Lamp3" parent="." unique_id=219813005 instance=ExtResource("98_vrx01")]
+visible = false
 z_index = 5
 y_sort_enabled = true
 position = Vector2(86, 521)
