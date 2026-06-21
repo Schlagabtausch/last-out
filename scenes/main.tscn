@@ -2534,18 +2534,33 @@ size = Vector2(127, 98.5)
 size = Vector2(114, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yton5"]
-size = Vector2(61, 19)
+size = Vector2(88, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmrkg"]
 size = Vector2(63, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4o51"]
+size = Vector2(130, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hbcg"]
+size = Vector2(36, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joh2r"]
+size = Vector2(118, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ahvx"]
+size = Vector2(32, 43)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_roort"]
 radius = 21.0
 height = 62.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gm02q"]
-radius = 19.0
-height = 60.0
+radius = 17.0
+height = 38.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cr71"]
+size = Vector2(77, 57)
 
 [sub_resource type="TileSet" id="TileSet_vchkt"]
 
@@ -2749,7 +2764,7 @@ shape = SubResource("RectangleShape2D_muem4")
 position = Vector2(-505, 197.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptainSample/StaticBody2D" unique_id=457601767]
-position = Vector2(135.5, -156.75)
+position = Vector2(138, -163.75)
 shape = SubResource("RectangleShape2D_yton5")
 
 [node name="DoorTriggered" parent="." unique_id=1372243984 instance=ExtResource("95_mgpkq")]
@@ -2803,8 +2818,8 @@ shape = SubResource("RectangleShape2D_muem4")
 position = Vector2(-49, 104)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnalysisComputer/StaticBody2D" unique_id=1523161965]
-position = Vector2(162, -187)
-shape = SubResource("RectangleShape2D_dp3eg")
+position = Vector2(162, -193.5)
+shape = SubResource("RectangleShape2D_m4o51")
 
 [node name="Locker" type="Area2D" parent="." unique_id=62894046]
 position = Vector2(356, 804)
@@ -2824,8 +2839,8 @@ shape = SubResource("RectangleShape2D_muem4")
 position = Vector2(-49, 104)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Locker/StaticBody2D" unique_id=715936276]
-position = Vector2(160, -179)
-shape = SubResource("RectangleShape2D_dp3eg")
+position = Vector2(163, -192)
+shape = SubResource("RectangleShape2D_1hbcg")
 
 [node name="StaffComputer" type="Area2D" parent="." unique_id=1984291952]
 z_index = 5
@@ -2840,15 +2855,19 @@ scale = Vector2(0.23680663, 0.27683306)
 texture = ExtResource("102_roort")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaffComputer" unique_id=840633855]
-position = Vector2(135, -99)
+position = Vector2(111, -95)
 shape = SubResource("RectangleShape2D_muem4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="StaffComputer" unique_id=1355885156]
 position = Vector2(-49, 104)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaffComputer/StaticBody2D" unique_id=658836968]
-position = Vector2(184, -205)
-shape = SubResource("RectangleShape2D_dp3eg")
+position = Vector2(160, -202)
+shape = SubResource("RectangleShape2D_joh2r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaffComputer/StaticBody2D" unique_id=1198997814]
+position = Vector2(161, -250)
+shape = SubResource("RectangleShape2D_4ahvx")
 
 [node name="Cell" type="Area2D" parent="." unique_id=1932901138]
 position = Vector2(106, 559)
@@ -2889,8 +2908,8 @@ shape = SubResource("RectangleShape2D_muem4")
 position = Vector2(-175, 208.50003)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorTerminal/StaticBody2D" unique_id=587417177]
-position = Vector2(164, -189)
-shape = SubResource("RectangleShape2D_dp3eg")
+position = Vector2(164.5, -201)
+shape = SubResource("RectangleShape2D_2cr71")
 
 [node name="WorldObjects" type="TileMapLayer" parent="." unique_id=239502897]
 tile_set = SubResource("TileSet_vchkt")
