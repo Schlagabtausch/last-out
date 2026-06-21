@@ -99,6 +99,8 @@
 [ext_resource type="AudioStream" uid="uid://diuwtcxawrdkl" path="res://art/audio/backgrnd/drumNBassTheramine.mp3" id="91_83607"]
 [ext_resource type="Texture2D" uid="uid://qwg7i31650s7" path="res://art/interactables/weaponLocker.png" id="93_gm02q"]
 [ext_resource type="Script" uid="uid://ma37lmnx4fte" path="res://scenes/core.gd" id="94_xmrkg"]
+[ext_resource type="Script" uid="uid://bv105im6f8cgy" path="res://scenes/music.gd" id="94_yton5"]
+[ext_resource type="AudioStream" uid="uid://sx3cmc72gduu" path="res://art/audio/backgrnd/RickNMortyStyle.mp3" id="95_4ahvx"]
 [ext_resource type="PackedScene" uid="uid://clsaaug0gp7wn" path="res://scenes/DoorTriggered.tscn" id="95_mgpkq"]
 [ext_resource type="Script" uid="uid://dne1xu64le1pv" path="res://scenes/toolbox.gd" id="96_1uevf"]
 [ext_resource type="Script" uid="uid://cqg0gbgqufhll" path="res://scenes/note.gd" id="96_f5chs"]
@@ -2575,7 +2577,6 @@ size_flags_horizontal = 4
 script = SubResource("GDScript_jkv2x")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=649110920]
-visible = false
 color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803039306]
@@ -2623,6 +2624,8 @@ z_index = 5
 y_sort_enabled = true
 position = Vector2(-179, 543)
 collision_layer = 3
+head_lamp_position_smoothing = 30.0
+head_lamp_rotation_smoothing = 35.0
 footstep_sound_1 = ExtResource("61_ga3rw")
 footstep_sound_2 = ExtResource("62_f5chs")
 footstep_sound_3 = ExtResource("63_eh25q")
@@ -2672,8 +2675,11 @@ tile_set = SubResource("TileSet_yq6so")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1935825868]
 process_mode = 3
-stream = ExtResource("91_83607")
+volume_db = -4.0
 autoplay = true
+script = ExtResource("94_yton5")
+first_track = ExtResource("91_83607")
+second_track = ExtResource("95_4ahvx")
 
 [node name="GunSafe" type="Area2D" parent="." unique_id=713380110]
 position = Vector2(313, 873)
@@ -2912,6 +2918,8 @@ position = Vector2(164.5, -201)
 shape = SubResource("RectangleShape2D_2cr71")
 
 [node name="WorldObjects" type="TileMapLayer" parent="." unique_id=239502897]
+z_index = 5
+y_sort_enabled = true
 tile_set = SubResource("TileSet_vchkt")
 
 [node name="TrashcanClosed" type="Sprite2D" parent="WorldObjects" unique_id=931831832]
@@ -3014,7 +3022,6 @@ theme_override_font_sizes/font_size = 88
 text = "LOCKERS"
 
 [node name="Lamp3" parent="." unique_id=219813005 instance=ExtResource("98_vrx01")]
-visible = false
 z_index = 5
 y_sort_enabled = true
 position = Vector2(86, 521)
