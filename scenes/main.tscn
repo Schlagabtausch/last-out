@@ -2606,7 +2606,6 @@ color = Color(0.2509804, 0.28235295, 0.34509805, 1)
 
 [node name="FadeScreen" type="ColorRect" parent="CanvasLayer" unique_id=1487321099]
 unique_name_in_owner = true
-visible = false
 z_index = 101
 anchors_preset = 15
 anchor_right = 1.0
@@ -2983,61 +2982,6 @@ y_sort_enabled = true
 position = Vector2(736.5, 33.5)
 scale = Vector2(1.0468765, 1.4130434)
 texture = ExtResource("29_vtx2l")
-
-[node name="Label" type="Label" parent="." unique_id=1635222080]
-visible = false
-layout_mode = 0
-offset_left = -352.68024
-offset_top = -1647.525
-offset_right = 345.0
-offset_bottom = -1527.0
-theme_override_font_sizes/font_size = 88
-text = "CORE ROOM"
-
-[node name="Label2" type="Label" parent="Label" unique_id=1805503614]
-layout_mode = 0
-offset_left = -378.31976
-offset_top = 548.525
-offset_right = 319.36047
-offset_bottom = 669.525
-theme_override_font_sizes/font_size = 88
-text = "DOG ROOM"
-
-[node name="Label4" type="Label" parent="Label" unique_id=34762740]
-layout_mode = 0
-offset_left = 171.68024
-offset_top = 2959.525
-offset_right = 869.3605
-offset_bottom = 3080.525
-theme_override_font_sizes/font_size = 88
-text = "LAB"
-
-[node name="Label6" type="Label" parent="Label" unique_id=428146592]
-layout_mode = 0
-offset_left = -38.319763
-offset_top = 1903.525
-offset_right = 659.3605
-offset_bottom = 2024.525
-theme_override_font_sizes/font_size = 88
-text = "MAIN"
-
-[node name="Label7" type="Label" parent="Label" unique_id=833475692]
-layout_mode = 0
-offset_left = 1315.6802
-offset_top = 1246.525
-offset_right = 2053.6802
-offset_bottom = 1367.525
-theme_override_font_sizes/font_size = 88
-text = "CAPTAINS OFFICE"
-
-[node name="Label8" type="Label" parent="Label" unique_id=84348986]
-layout_mode = 0
-offset_left = 1424.6802
-offset_top = 2269.525
-offset_right = 2162.6802
-offset_bottom = 2390.525
-theme_override_font_sizes/font_size = 88
-text = "LOCKERS"
 
 [node name="Lamp3" parent="." unique_id=219813005 instance=ExtResource("98_vrx01")]
 z_index = 5
