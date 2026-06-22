@@ -445,7 +445,6 @@ scale = Vector2(0.71549475, 0.9465174)
 color = Color(0.9999997, 0.82720435, 0.62204516, 1)
 energy = 0.7
 shadow_enabled = true
-shadow_color = Color(0.039215688, 0.007843138, 0.0627451, 1)
 texture = ExtResource("22_a38lo")
 texture_scale = 0.6
 
