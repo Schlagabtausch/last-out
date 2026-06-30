@@ -37,6 +37,9 @@ size = Vector2(94, 94)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqxji"]
 size = Vector2(64, 64)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_idmte"]
+polygon = PackedVector2Array(33, -30, -32, -30, -32, 0, 34, 0)
+
 [node name="DoorRoot" type="Node2D" unique_id=415564954]
 script = ExtResource("1_r6baa")
 
@@ -62,3 +65,6 @@ shape = SubResource("RectangleShape2D_eqxji")
 [node name="DoorOpenSound" type="AudioStreamPlayer2D" parent="." unique_id=2108878217]
 stream = ExtResource("7_e2xr8")
 volume_db = -10.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=444191004]
+occluder = SubResource("OccluderPolygon2D_idmte")

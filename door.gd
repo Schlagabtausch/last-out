@@ -3,10 +3,8 @@ extends Node2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $Area2D
 @onready var door_collision: CollisionShape2D = $StaticBody2D/CollisionShape2D
-
-# Nur ein Sound-Node für die Tür.
-# Dieser Sound wird beim Öffnen und Schließen abgespielt.
 @onready var door_open_sound: AudioStreamPlayer2D = $DoorOpenSound
+@onready var light_occluder: LightOccluder2D = $LightOccluder2D
 
 const ANIMATION_NAME: StringName = &"open_close"
 
@@ -28,6 +26,9 @@ func _ready() -> void:
 	animated_sprite.speed_scale = 1.0
 
 	door_collision.set_deferred("disabled", false)
+
+	# Tür startet geschlossen, also blockiert sie Licht.
+	light_occluder.visible = true
 
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
@@ -70,8 +71,9 @@ func _request_close() -> void:
 func _open_door() -> void:
 	state = DoorState.OPENING
 
-	# Während die Tür öffnet, soll sie nicht mehr blockieren.
+	# Beim Öffnen blockiert die Tür nicht mehr.
 	door_collision.set_deferred("disabled", true)
+	light_occluder.visible = false
 
 	_play_door_sound()
 
@@ -82,18 +84,15 @@ func _open_door() -> void:
 func _close_door() -> void:
 	state = DoorState.CLOSING
 
-	# Während die Tür schließt, blockiert sie wieder.
-	# set_deferred bleibt wichtig, damit kein Godot-Fehler durch Area2D-Signale entsteht.
+	# Beim Schließen soll die Tür wieder blockieren.
 	door_collision.set_deferred("disabled", false)
+	light_occluder.visible = true
 
 	var last_frame := animated_sprite.sprite_frames.get_frame_count(ANIMATION_NAME) - 1
 
-	# Falls die Tür gerade offen steht, sicherstellen,
-	# dass die Rückwärtsanimation am letzten Frame startet.
 	if animated_sprite.frame < last_frame:
 		animated_sprite.frame = last_frame
 
-	# Derselbe DoorOpenSound wird auch beim Schließen verwendet.
 	_play_door_sound()
 
 	animated_sprite.speed_scale = -1.0
@@ -110,7 +109,6 @@ func _play_door_sound() -> void:
 
 func _on_animation_finished() -> void:
 	if animated_sprite.speed_scale > 0.0:
-		# Öffnungsanimation fertig.
 		state = DoorState.OPEN
 
 		var last_frame := animated_sprite.sprite_frames.get_frame_count(ANIMATION_NAME) - 1
@@ -118,13 +116,12 @@ func _on_animation_finished() -> void:
 		animated_sprite.stop()
 
 		door_collision.set_deferred("disabled", true)
+		light_occluder.visible = false
 
-		# Falls der Player während des Öffnens schon wieder raus ist:
 		if not player_inside:
 			call_deferred("_request_close")
 
 	else:
-		# Schließanimation fertig.
 		state = DoorState.CLOSED
 
 		animated_sprite.frame = 0
@@ -132,7 +129,7 @@ func _on_animation_finished() -> void:
 		animated_sprite.speed_scale = 1.0
 
 		door_collision.set_deferred("disabled", false)
+		light_occluder.visible = true
 
-		# Falls der Player während des Schließens wieder reinläuft:
 		if player_inside:
 			call_deferred("_request_open")

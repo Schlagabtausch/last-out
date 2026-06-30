@@ -37,7 +37,7 @@ script/source = "extends CharacterBody2D
 
 # Abstand der Stirnlampe vom Mittelpunkt des Players.
 # Passe diesen Wert im Inspector an, falls der Lichtkegel zu weit vorne/hinten sitzt.
-@export var head_lamp_offset: float = 120.0
+@export var head_lamp_offset: float = 0.0
 
 # Wie weich die Stirnlampe ihrer Zielposition folgt.
 # Höher = schneller, niedriger = träger.
@@ -445,8 +445,11 @@ scale = Vector2(0.71549475, 0.9465174)
 color = Color(0.9999997, 0.82720435, 0.62204516, 1)
 energy = 0.7
 shadow_enabled = true
+shadow_filter = 2
 texture = ExtResource("22_a38lo")
-texture_scale = 0.6
+offset = Vector2(0, -65)
+texture_scale = 0.3
+height = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1139937585]
 zoom = Vector2(2, 2)
