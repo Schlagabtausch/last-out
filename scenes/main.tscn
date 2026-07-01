@@ -1115,7 +1115,7 @@ size = Vector2(36, 56.000042)
 size = Vector2(26.5, 48.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
-size = Vector2(127, 98.5)
+size = Vector2(139, 165.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dp3eg"]
 size = Vector2(114, 78)
@@ -1215,6 +1215,7 @@ footstep_sound_2 = ExtResource("62_f5chs")
 footstep_sound_3 = ExtResource("63_eh25q")
 
 [node name="InteractionHint" type="Label" parent="Player" unique_id=192277239]
+visible = false
 offset_left = 24.0
 offset_top = -16.0
 offset_right = 109.0
@@ -1325,7 +1326,7 @@ scale = Vector2(1.3510512, 1.3506497)
 texture = ExtResource("103_raiwf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Core" unique_id=2127002778]
-position = Vector2(130.5, -197.5)
+position = Vector2(135.5, -163.875)
 shape = SubResource("RectangleShape2D_muem4")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Core" unique_id=1696921850]
